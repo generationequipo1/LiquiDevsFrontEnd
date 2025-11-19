@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+}
+
+.container-sobre-nosotros{
+    display: flex;
+    background-color: aquamarine;
+    width: 100%;
+    min-height: 200px;
+    
+}
