@@ -1,0 +1,46 @@
+
+.navbar {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo img {
+    height: 45px;
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #444;
+    font-size: 15px;
+}
+
+/* Iconos del nav bar */
+.icons i {
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* responsiva */
+@media (max-width: 768px) {
+    .menu {
+        display: none; 
+    }
+}
