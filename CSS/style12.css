@@ -1,3 +1,53 @@
+/* Diseño invertido tab. */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Clase que invierte el orden */
+.reverse {
+    flex-direction: row;
+}
+
+.left-column, .right-column {
+    width: 50%;
+    text-align: left;
+}
+/* alinea los botones*/
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.tabs {
+    justify-content: flex-start;
+}
+/* reponsive*/
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+}
 /* ---------------- NAV ---------------- */
 .navbar {
     display: flex;
@@ -20,26 +70,6 @@
     color: #ff77b5;
 }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #ad1a63;
-    font-size: 1rem;
-    font-weight: 500;
-}
-.nav-links a:hover {
-    color: #ff4ea1;
-}
-.nav-links .active {
-    color: #ff4ea1;
-    font-weight: bold;
-}
-
 .menu-btn {
     display: none;
     background: none;
@@ -51,26 +81,6 @@
 /* RESPONSIVE NAV */
 @media (max-width: 768px) {
     .menu-btn { display: block; }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #ffe3f2;
-        width: 200px;
-        height: 0;
-        overflow: hidden;
-        flex-direction: column;
-        gap: 15px;
-        padding: 0;
-        transition: 0.4s;
-        border-radius: 10px;
-    }
-
-    .nav-links.open {
-        height: 180px;
-        padding: 15px;
-    }
 }
 
 /* ------------ ABOUT SECTION ------------ */
@@ -162,3 +172,5 @@
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+
