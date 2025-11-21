@@ -3,12 +3,15 @@ body {
     background-color: #D9D9D9;
     width: 100%;
     min-height: 900px;
-    background-image: url(../Assets/Background-container-1.png);
-    background-size: cover;
-    background-position: center center;
+    background-image: url(../Assets/Background-container-1-cortado.png);
+    background-size:contain;
+    background-position:top;
     background-repeat: no-repeat;
 }
 
+.nav-css{
+    background-color: transparent;
+}
 .navbar {
     background: white;
     padding: 15px 20px;
@@ -56,14 +59,10 @@ body {
 }
 
 
-body {
-    margin: 0;
-}
-
 /* Css david*/
 .container-sobre-nosotros {
     display: flex;
-    background-color: aquamarine;
+    /*background-color: aquamarine;*/
     width: 100%;
     min-height: 200px;
 
