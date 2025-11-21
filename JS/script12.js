@@ -23,5 +23,4 @@ function mostrarHistoria(){
     let textoRemplazo = document.querySelector(".texto-mostrar");
     console.log(textoRemplazo);
     textoRemplazo.innerHTML = textoHistoria;
-
 }
