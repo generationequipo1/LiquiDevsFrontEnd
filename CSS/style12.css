@@ -79,7 +79,9 @@ min-height: 41px;
     border-radius: 20px;
     border: 2px solid #E5E56A;
     overflow: hidden;
-    box-shadow: 0 0 10px #e5e56a9f;
+    box-shadow: 0 0 10px #e5e56a9f,
+    inset 0 0 40px #0000009f
+    ;
 }
 
 #imagen-helado{
