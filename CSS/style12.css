@@ -1,0 +1,249 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Diseño invertido tab. */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#imagen-botones {
+    display: flex;
+    width: 100%;
+
+}
+/* IMAGE */
+.about-image {
+    display: flex;
+    width: 40%;
+    
+}
+
+.about-image img {
+
+    width: 50%;
+    max-width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(255, 137, 185, 0.25);
+}
+
+/* alinea los botones*/
+
+.right-column {
+    display: flex;
+    width: 40%;
+    margin-top: 20px;
+}
+
+
+/* Clase que invierte el orden */
+.reverse {
+    flex-direction: row;
+}
+
+.left-column, .right-column {
+    width: 50%;
+    text-align: left;
+}
+
+
+.tabs {
+    justify-content: flex-start;
+}
+/* reponsive*/
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+}
+/* ---------------- NAV ---------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffe3f2;
+    padding: 15px 25px;
+    box-shadow: 0 3px 10px rgba(255, 138, 185, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ad1a63;
+}
+.logo span {
+    color: #ff77b5;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ad1a63;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+    .menu-btn { display: block; }
+}
+
+/* ------------ ABOUT SECTION ------------ */
+.about-section {
+    padding: 60px 20px;
+    background: #fff7fb;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+@media (max-width: 850px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* RIGHT COLUMN */
+.title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #c63a7c;
+    font-weight: 700;
+}
+
+.about-text {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+/* LEFT COLUMN – TABS */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tab {
+    padding: 10px 25px;
+    background: #ffe3f2;
+    border: 2px solid #c63a7c;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #ad1a63;
+    transition: 0.3s;
+}
+
+.tab:hover {
+    background: #ffd1eb;
+}
+
+.tab.active {
+    background: #ff9acb;
+    color: #fff;
+    font-weight: 600;
+    transform: translateY(-3px);
+}
+
+/* TAB CONTENT */
+.tab-content {
+    max-width: 500px;
+    display: none;
+    font-size: 1.1rem;
+    color: #444;
+    animation: fade 0.4s ease;
+}
+
+.tab-content.active { display: block; }
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
