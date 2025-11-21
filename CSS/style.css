@@ -56,3 +56,29 @@ body {
 }
 
 
+body {
+    margin: 0;
+}
+
+/* Css david*/
+.container-sobre-nosotros {
+    display: flex;
+    background-color: aquamarine;
+    width: 100%;
+    min-height: 200px;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 180px;
+    min-height: 350px;
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
