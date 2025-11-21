@@ -46,8 +46,8 @@
         
 
         <div id="container-textos">
-            <div class="tab-content active" id="vision">
-                <p>
+            <div class="tab-content active" id="txt-vision">
+                <p class="texto-mostrar" id="p-vision">
                     En Byte Cream somos una familia apasionada por los Helados tradicionales.Revivimos sabores de siempre a
                     través
                     de recetas que pasan de generación en generación. Cada helado está hecho con ingredientes frescos y mucho
@@ -55,14 +55,14 @@
                 </p>
             </div>
 
-            <div class="tab-content" id="mision">
-                <p>
+            <div class="tab-content" id="txt-mision">
+                <p class="texto-mostrar"id="p-mision">
                     Ser una plataforma líder en comercio electrónico nacional,
                     reconocida por su calidad e innovación.
                 </p>
             </div>
-            <div class="tab-content" id="historia">
-                <p>
+            <div class="tab-content" id="txt-historia">
+                <p class="texto-mostrar" id="p-historia">
                     Byte Cream nace del deseo de transformar recetas familiares en
                     experiencias modernas, manteniendo colores cálidos y esencia artesanal.
                 </p>
@@ -72,9 +72,9 @@
         <div id="container-imagen-botones">
             <div class="container-botones">
 
-                    <button class="boton active" data-tab="vision">Visión</button>
-                    <button class="boton" data-tab="mision">Misión</button>
-                    <button class="boton" data-tab="historia">Historia</button>
+                    <button class="boton active" id="vision" onclick="mostrarVision()">Visión</button>
+                    <button class="boton" id="mision" onclick="mostrarMision()">Misión</button>
+                    <button class="boton" id="historia" onclick="mostrarHistoria()">Historia</button>
 
             </div>
 

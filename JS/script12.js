@@ -1,23 +1,27 @@
-/* NAV MENU */
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.getElementById("nav-links");
 
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-});
+const botonMision = document.getElementById("mision");
+const botonVision = document.getElementById("vision");
+const botonHistoria = document.getElementById("historia");
 
-/* TABS */
-const tabs = document.querySelectorAll(".tab");
-const contents = document.querySelectorAll(".tab-content");
+const textoVision = document.getElementById("p-vision").innerHTML;
+const textoMision = document.getElementById("p-mision").innerHTML;
+const textoHistoria = document.getElementById("p-historia").innerHTML;
 
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
 
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
 
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
-    });
-});
-console.log ()
+function mostrarMision(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoMision;
+}
+function mostrarVision(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoVision;
+}
+function mostrarHistoria(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoHistoria;
+
+}
