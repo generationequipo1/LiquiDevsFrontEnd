@@ -13,16 +13,15 @@
 </head>
 
 <body>
+
     <header>
         <nav class="navbar">
             <div class="nav-container">
-
 
                 <a class="logo" href="#">
                     <img src="Assets/logos/LogoByte.png" alt="Logo">
                 </a>
 
-                <!-- menu -->
                 <ul class="menu">
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Catálogo</a></li>
@@ -30,60 +29,67 @@
                     <li><a href="#">Contáctanos</a></li>
                 </ul>
 
-                <!-- iconos -->
                 <div class="icons">
                     <i class="bi bi-search"></i>
                     <i class="bi bi-person"></i>
                     <i class="bi bi-cart"></i>
                 </div>
-
             </div>
         </nav>
     </header>
 
-    <p class="about-text">
-        En Byte Cream somos una familia apasionada por los Helados tradicionales.Revivimos sabores de siempre a través
-        de recetas que pasan de generación en generación. Cada helado está hecho con ingredientes frescos y mucho
-        cariño.
-    </p>
-    <div id="imagen-botones">
 
-        <div class="about-image">
-            <img src="Assets/helado.jpeg" alt="Postre artesanal">
+    <section class="about-section">
+
+        <p class="about-description">
+            En Byte Cream somos una familia apasionada por los helados tradicionales.
+            Revivimos sabores de siempre a través de recetas que pasan de generación en generación.
+            Cada helado está hecho con ingredientes frescos y mucho cariño.
+        </p>
+
+        <div class="about-container">
+
+            
+            <div class="about-image">
+                <img src="Assets/helado.jpeg" alt="Postre artesanal">
+            </div>
+
+    
+            <div class="about-content">
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="vision">Visión</button>
+                    <button class="tab" data-tab="mision">Misión</button>
+                    <button class="tab" data-tab="historia">Historia</button>
+                </div>
+
+                <!-- CONTENIDO -->
+                <div id="vision" class="tab-content active">
+                    <p>
+                        Brindar soluciones digitales accesibles y personalizadas para emprendedores
+                        y pequeñas empresas mediante páginas web funcionales.
+                    </p>
+                </div>
+
+                <div id="mision" class="tab-content">
+                    <p>
+                        Ser una plataforma líder en comercio electrónico nacional,
+                        reconocida por su calidad e innovación.
+                    </p>
+                </div>
+
+                <div id="historia" class="tab-content">
+                    <p>
+                        Byte Cream nace del deseo de transformar recetas familiares en
+                        experiencias modernas, manteniendo colores cálidos y esencia artesanal.
+                    </p>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <!-- COLUMNA DERECHA: TABS -->
-    <div class="right-column">
-        <div class="tabs">
-            <button class="tab active" data-tab="vision">Visión</button>
-            <button class="tab" data-tab="mision">Misión</button>
-            <button class="tab" data-tab="historia">Historia</button>
-        </div>
 
-
-    </div>
-
-    <div class="tab-content active" id="vision">
-        <p>
-            Brindar soluciones digitales accesibles y personalizadas para
-            emprendedores y pequeñas empresas mediante páginas web funcionales.
-        </p>
-    </div>
-    <div class="tab-content" id="mision">
-        <p>
-            Ser una plataforma líder en comercio electrónico nacional,
-            reconocida por su calidad e innovación.
-        </p>
-    </div>
-    <div class="tab-content" id="historia">
-        <p>
-            Byte Cream nace del deseo de transformar recetas familiares en
-            experiencias modernas, manteniendo colores cálidos y esencia artesanal.
-        </p>
-    </div>
-    </div>
-    </div>
     </section>
+
 
     <script src="JS/script12.js"></script>
 </body>
