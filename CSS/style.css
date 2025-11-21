@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    display:flex; /* cambio*/
+    flex-direction: column; /* cambio*/
+    min-height: 100vh; /* cambio*/
     background-color: #D9D9D9;
     width: 100%;
     min-height: 900px;
@@ -53,4 +56,53 @@ body {
     .menu {
         display: none;
     }
+}
+
+
+body {
+    margin: 0;
+}
+
+/* Css david*/
+.container-sobre-nosotros {
+    display: flex;
+    background-color: aquamarine;
+    width: 100%;
+    min-height: 200px;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 180px;
+    min-height: 350px;
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* footer */
+
+footer {
+    margin-top: auto;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {flex: 1;
+}
+.footer-col h3 {
+    margin-bottom: h3;
+}
+.social-icons i {
+    font-size: 20px;
+    margin-right: 10px;
 }
