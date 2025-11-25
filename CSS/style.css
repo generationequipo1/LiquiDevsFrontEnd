@@ -12,9 +12,13 @@ body {
     background-repeat: no-repeat;
     
 }
- h1,h2,h3{
-font-family: "Caveat Brush", cursive;
+h1, h2, h3, .titulo, .header-title {
+    font-family: 'Pacifico', cursive;
 }
+body, p, span, li, a, .texto {
+    font-family: "Nunito", sans-serif;
+}
+
 
 .nav-css{
     background-color: transparent;
