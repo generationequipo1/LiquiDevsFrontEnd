@@ -1,23 +1,37 @@
-/* NAV MENU */
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.getElementById("nav-links");
+const textoVision = document.getElementById("p-vision").innerHTML;
+const textoMision = document.getElementById("p-mision").innerHTML;
+const textoHistoria = document.getElementById("p-historia").innerHTML;
 
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-});
 
-/* TABS */
-const tabs = document.querySelectorAll(".tab");
-const contents = document.querySelectorAll(".tab-content");
 
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
+function mostrarMision(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoMision;
+}
+function mostrarVision(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoVision;
+}
+function mostrarHistoria(){
+    let textoRemplazo = document.querySelector(".texto-mostrar");
+    console.log(textoRemplazo);
+    textoRemplazo.innerHTML = textoHistoria;
+}
 
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
+// Contenido de Botones generales de acerca de nosotros
 
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
+const botones = document.querySelectorAll(".boton"); 
+const contenidos = document.querySelectorAll(".tab-content"); // contenido Botones: (visión, misión, historia)
+
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        botones.forEach(b => b.classList.remove("active")); // Quitar la clase active de todos los botones
+        contenidos.forEach(c => c.classList.remove("active")); // quitar los botonestextos
+        boton.classList.add("active"); // Activar el botón que se clickea
+
+        const idContenido = "txt-" + boton.id;
+        document.getElementById(idContenido).classList.add("active"); // Mostrar el contenido correcto
     });
 });
-console.log ()
