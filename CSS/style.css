@@ -92,6 +92,63 @@ body, p, span, li, a, .texto {
     object-fit: cover;
 }
 
+.contenedor-cards2 {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card2 {
+  width: 250px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card2:hover {
+  transform: translateY(-6px);
+}
+
+.card2 img {
+  width: 70%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.card2 h3 {
+  margin: 0;
+  /*color: #002B5B;*/
+  /*color: #ffb3c6;*/
+
+  color: #ff9eb5;
+  font-size: 1.2rem;
+}
+
+.card2 p {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+.titulo {
+  text-align: center;
+  font-size: 2rem;        
+  color: #4da6ff;         
+  font-weight: 600;
+}
+
+
 /* footer */
 
 
