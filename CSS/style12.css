@@ -6,84 +6,112 @@ naranja #FFB473
 verde #5FDAB8
 amarillo #E5E56A
  */
+#quienes-somos {
+    
+    font-weight: 400;
+    font-size: 80px;
+    font-style: normal;
+    color: #bf155c;
+}
 
+#titulo-pagina {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    align-content: center;
+}
 
-#seccion-Lorena{
+#seccion-Lorena {
     display: flex;
     flex-flow: row wrap-reverse;
     width: 100%;
     height: auto;
-    padding: 8%;
 }
 
-#container-textos{
+#container-textos {
     display: flex;
+    flex-flow: column;
     width: 50%;
     min-width: 350px;
     align-items: center;
-    
+    justify-content: center;
+    padding: 1%;
+
 }
-.tab-content{
+
+#titulo-txt {
+    
+    font-weight: 400;
+    font-size: 60px;
+    font-style: normal;
+    color: #bf155c;
+
+}
+
+.tab-content {
     display: flex;
+    flex-flow: column;
     align-items: center;
     background-color: #ffffff41;
-    height: 40%;
+    height: auto;
     padding: 20px;
     border-radius: 20px;
-    font-weight:600;
+    font-weight: 600;
     box-shadow: 0 0 10px #e5e56a7a;
-    color:#ffffff ;
+    color: #bf155c;
 }
 
-#txt-mision{
-    display: none;
-}
-#txt-historia{
+#txt-mision {
     display: none;
 }
 
-#container-imagen-botones{
+#txt-historia {
+    display: none;
+}
+
+#container-imagen-botones {
     display: flex;
     flex-flow: column;
     width: 50%;
     min-width: 350px;
     padding: 1%;
-    
+
 }
 
-.container-botones{
+.container-botones {
     display: flex;
     justify-content: center;
     margin: 20px;
+    width: 80%;
 }
 
-.boton{
+.boton {
     margin-left: 15px;
-    width: 25%;
+    width: 45%;
     min-height: 40px;
     background-color: #E5E56A;
     border-radius: 20px;
     border: 2px solid #E5E56A;
     color: #bf155c;
     font-weight: bold;
-    
+
 }
-.boton:hover{
-box-shadow: 0 0 10px #E5E56A;
-width: 26%;
-min-height: 41px;
+
+.boton:hover {
+    box-shadow: 0 0 10px #E5E56A;
+    width: 47%;
+    min-height: 41px;
 }
 
 /* container imagen*/
-.about-image{
+.about-image {
     border-radius: 20px;
     border: 2px solid #E5E56A;
     overflow: hidden;
     box-shadow: 0 0 10px #e5e56a9f,
-    inset 0 0 40px #0000009f
-    ;
+        inset 0 0 40px #0000009f;
 }
 
-#imagen-helado{
+#imagen-helado {
     width: 100%;
 }
