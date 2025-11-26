@@ -1,11 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contactenos</title>
+    <title>Contáctanos</title>
+
+    <!-- Rutas corregidas -->
+    <link rel="stylesheet" href="../CSS/style12.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
+
 <body>
-    
+    <section class="contacto-container">
+        <div class="contacto-form">
+            <h2>Contáctanos</h2>
+
+            <form action="https://formspree.io/f/xdkvbrra" method="POST">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                <button type="submit" id="btn-enviar">Enviar mensaje</button>
+            </form>
+
+            <a href="https://wa.me/573174070511" class="btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+        </div>
+
+        <!-- Imagen -->
+        <div class="contacto-imagen">
+            <img src="../Assets/helado.jpeg" alt="Postres" class="img-contacto">
+            <p class="direccion">
+                📍 Calle Byte #22 <br>
+                Bogotá, Colombia
+            </p>
+            <button class="btn-faq-toggle">Preguntas Frecuentes</button>
+        </div>
+
+        <div class="faq-box oculto">
+            <h2>Preguntas Frecuentes</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">¿Cuánto tarda el envío?</button>
+                <div class="faq-answer">
+                    <p>Entre 2 y 5 días hábiles dependiendo de tu ciudad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">¿Cuál es el costo del envío?</button>
+                <div class="faq-answer">
+                    <p>El sistema calcula el valor automáticamente al finalizar la compra.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">¿Puedo hacer seguimiento a mi pedido?</button>
+                <div class="faq-answer">
+                    <p>Sí, recibirás tu número de guía por correo.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Script corregido -->
+    <script src="../JS/script12.js"></script>
+
 </body>
 </html>

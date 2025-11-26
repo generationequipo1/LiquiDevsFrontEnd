@@ -117,40 +117,44 @@ amarillo #E5E56A
 }
 
 
-
-
+/*contactanos*/
 .contacto-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 30px;
+    align-items: center;
     gap: 40px;
+    padding: 40px;
+    
 }
+
 
 /* Caja izquierda */
 .contacto-form {
-    width: 420px;
+    width: 100%;
+    max-width: 450px;
     background: #f3f3f3;
-    padding: 25px;
+    padding: 40px;
+    border-radius: 15px;
     border: 2px solid #c5c5c5;
-    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+   
 }
 
 .contacto-form h2 {
     font-size: 32px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .contacto-form form input,
 .contacto-form form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 2px solid #c5c5c5;
-    border-radius: 20px;
-    outline: none;
-    font-size: 15px;
+    padding: 14px 18px;
+    border-radius: 12px;
+   
 }
 
 .contacto-form textarea {
@@ -172,3 +176,151 @@ amarillo #E5E56A
     background: #f09aba;
 }
 
+/* Contáctanos */
+.contacto-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 40px;
+  align-items: flex-start;
+}
+
+/* formulario */
+.contacto-form h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+ width: 100%;
+ max-width: 360px;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #c5c5c5;
+  font-size: 16px;
+  background: #fffafc;
+  
+}
+.contacto-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* BOTONES */
+.btn-enviar {
+  width: 100%;
+  max-width: 360px;
+  background: #f6b3d0;
+  border: none;
+  padding: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-whatsapp {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* IMAGEN */
+.contacto-imagen img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  display: block;
+}
+
+.direccion {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #444;
+  text-align: center;
+}
+
+/* Botón para abrir Freguntas frecuentas */
+.btn-faq-toggle {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #bf155c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn-faq-toggle:hover {
+    background-color: #a3134f;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Contenedor de preguntas frecuentes*/
+.faq-box {
+    margin-top: 25px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00000022;
+}
+
+/* Preguntas */
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: #f1f1f1;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 15px;
+    background: #ffffff;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .contacto-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .contacto-form {
+        width: 100%;
+        max-width: 400px;
+    }
+}
