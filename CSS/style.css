@@ -10,18 +10,21 @@ body {
     background-size:contain;
     background-position:top;
     background-repeat: no-repeat;
-    
 }
+
 h1, h2, h3, .titulo, .header-title {
     font-family: 'Pacifico', cursive;
 }
+
 body, p, span, li, a, .texto {
     font-family: "Nunito", sans-serif;
 }
+/* navegación */
 
 .nav-css{
     background-color: transparent;
 }
+
 .navbar {
     background: white;
     padding: 15px 20px;
@@ -36,11 +39,9 @@ body, p, span, li, a, .texto {
     align-items: center;
 }
 
-
 .logo img {
     height: 45px;
 }
-
 
 .menu {
     list-style: none;
@@ -54,28 +55,104 @@ body, p, span, li, a, .texto {
     font-size: 15px;
 }
 
-/* Iconos del nav bar */
 .icons i {
     font-size: 20px;
     margin-left: 15px;
     cursor: pointer;
 }
 
-/* responsiva */
 @media (max-width: 768px) {
-    .menu {
-        display: none;
-    }
+    .menu { display: none; }
 }
 
 
-/* Css david*/
+
+/* Sección sobre nosotros */
+#titulo-pagina {
+    width: 100%;
+    text-align: center;
+}
+
+#quienes-somos {
+    font-size: 80px;
+    color: #bf155c;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#seccion-banner-quienes-somos{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#container-textos, 
+#container-imagen-botones {
+    width: 50%;
+    min-width: 350px;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-botones {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.boton {
+    width: 33%;
+    min-height: 40px;
+    background-color: #E5E56A;
+    border: 2px solid #E5E56A;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #bf155c;
+    cursor: pointer;
+}
+
+.boton:hover,
+.boton.active {
+    box-shadow: 0 0 10px #E5E56A;
+}
+
+.tab-content {
+    display: none;
+    background-color: #ffffff70;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #e5e56a7a;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.about-image {
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    overflow: hidden;
+    box-shadow: 0 0 10px #e5e56a9f, inset 0 0 40px #00000040;
+}
+
+#imagen-helado {
+    width: 100%;
+}
+
+/* cards equipo */
+
 .container-sobre-nosotros {
     display: flex;
-    /*background-color: aquamarine;*/
     width: 100%;
     min-height: 200px;
-
 }
 
 .card {
@@ -109,15 +186,9 @@ body, p, span, li, a, .texto {
   padding: 1rem;
   text-align: center;
   transition: transform 0.2s ease;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
 }
 
-.card2:hover {
-  transform: translateY(-6px);
-}
+.card2:hover { transform: translateY(-6px); }
 
 .card2 img {
   width: 70%;
@@ -128,24 +199,171 @@ body, p, span, li, a, .texto {
 }
 
 .card2 h3 {
-  margin: 0;
-  /*color: #002B5B;*/
-  /*color: #ffb3c6;*/
-
   color: #ff9eb5;
   font-size: 1.2rem;
 }
 
 .card2 p {
-  margin-top: 0.5rem;
   color: #555;
   font-size: 0.95rem;
 }
+
 .titulo {
   text-align: center;
-  font-size: 2rem;        
-  color: #4da6ff;         
+  font-size: 2rem;
+  color: #4da6ff;
   font-weight: 600;
+}
+
+/* contactanos  */
+
+.contacto-container {
+    display: grid;
+    /* La versión de escritorio usa 3 columnas */
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 30px;
+    padding: 40px;
+    align-items: flex-start;
+}
+
+.contacto-form {
+    background: #ffffffd0;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #d5d5d5;
+    text-align: center;
+}
+
+.contacto-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%;
+    max-width: 360px;
+    padding: 14px;
+    border: 2px solid #c5c5c5;
+    border-radius: 20px;
+    background: #fffafc;
+}
+
+#btn-enviar {
+    width: 100%;
+    max-width: 360px;
+    background: #f6b3d0;
+    border-radius: 20px;
+    padding: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-whatsapp {
+    display: block;
+    width: 100%;
+    max-width: 200px; 
+    padding: 12px;
+    background: #25d366;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contacto-imagen img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+
+/* preguntas precuentes */
+
+.btn-faq-toggle {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #bf155c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.faq-box {
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00000022;
+}
+
+.faq-item { margin-bottom: 10px; }
+
+.faq-question {
+    width: 100%;
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 15px;
+}
+
+.faq-answer.open { display: block; }
+
+.oculto { display: none; }
+
+/* rsponsivo */
+
+@media (max-width: 768px) {
+
+    .contacto-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .contacto-form form {
+        align-items: center; 
+    }
+    
+    .btn-whatsapp {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px; /* Separación extra */
+    }
+
+    .contacto-imagen {
+        width: 100%;
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .contacto-imagen img {
+        width: 90%; 
+        max-width: 350px; 
+    }
+
+
+    #seccion-Lorena {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #container-textos, 
+    #container-imagen-botones {
+        width: 90%;
+    }
 }
 
 
