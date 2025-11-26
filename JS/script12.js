@@ -35,3 +35,5 @@ botones.forEach(boton => {
         document.getElementById(idContenido).classList.add("active"); // Mostrar el contenido correcto
     });
 });
+
+

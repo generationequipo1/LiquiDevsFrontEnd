@@ -87,3 +87,60 @@ min-height: 41px;
 #imagen-helado{
     width: 100%;
 }
+
+
+
+
+.contacto-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 40px;
+}
+
+/* Caja izquierda */
+.contacto-form {
+    width: 420px;
+    background: #f3f3f3;
+    padding: 25px;
+    border: 2px solid #c5c5c5;
+    border-radius: 8px;
+}
+
+.contacto-form h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.contacto-form form input,
+.contacto-form form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #c5c5c5;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+}
+
+.contacto-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+#btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background: #f8b6d0;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#btn-enviar:hover {
+    background: #f09aba;
+}
+
