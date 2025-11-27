@@ -1,27 +1,37 @@
 body {
     margin: 0;
-    display:flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: #D9D9D9;
     width: 100%;
     min-height: 900px;
     background-image: url(../Assets/Background-container-1-cortado.png);
-    background-size:contain;
-    background-position:top;
+    background-size: contain;
+    background-position: top;
     background-repeat: no-repeat;
 }
 
-h1, h2, h3, .titulo, .header-title {
+h1,
+h2,
+h3,
+.titulo,
+.header-title {
     font-family: 'Pacifico', cursive;
 }
 
-body, p, span, li, a, .texto {
+body,
+p,
+span,
+li,
+a,
+.texto {
     font-family: "Nunito", sans-serif;
 }
+
 /* navegación */
 
-.nav-css{
+.nav-css {
     background-color: transparent;
 }
 
@@ -62,7 +72,9 @@ body, p, span, li, a, .texto {
 }
 
 @media (max-width: 768px) {
-    .menu { display: none; }
+    .menu {
+        display: none;
+    }
 }
 
 
@@ -80,14 +92,14 @@ body, p, span, li, a, .texto {
     margin-bottom: 20px;
 }
 
-#seccion-banner-quienes-somos{
+#seccion-banner-quienes-somos {
     display: flex;
     flex-wrap: wrap-reverse;
     width: 100%;
     padding: 20px 0;
 }
 
-#container-textos, 
+#container-textos,
 #container-imagen-botones {
     width: 50%;
     min-width: 350px;
@@ -170,57 +182,58 @@ body, p, span, li, a, .texto {
 }
 
 .contenedor-cards2 {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .card2 {
-  width: 250px;
-  height: 400px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.2s ease;
+    width: 250px;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease;
 }
 
-.card2:hover { transform: translateY(-6px); }
+.card2:hover {
+    transform: translateY(-6px);
+}
 
 .card2 img {
-  width: 70%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.8rem;
+    width: 70%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
 }
 
 .card2 h3 {
-  color: #ff9eb5;
-  font-size: 1.2rem;
+    color: #ff9eb5;
+    font-size: 1.2rem;
 }
 
 .card2 p {
-  color: #555;
-  font-size: 0.95rem;
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .titulo {
-  text-align: center;
-  font-size: 2rem;
-  color: #4da6ff;
-  font-weight: 600;
+    text-align: center;
+    font-size: 2rem;
+    color: #4da6ff;
+    font-weight: 600;
 }
 
 /* contactanos  */
 
 .contacto-container {
     display: grid;
-    /* La versión de escritorio usa 3 columnas */
-    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     padding: 40px;
     align-items: flex-start;
@@ -264,7 +277,7 @@ body, p, span, li, a, .texto {
 .btn-whatsapp {
     display: block;
     width: 100%;
-    max-width: 200px; 
+    max-width: 200px;
     padding: 12px;
     background: #25d366;
     color: white;
@@ -278,6 +291,7 @@ body, p, span, li, a, .texto {
     width: 100%;
     max-width: 420px;
     border-radius: 12px;
+}
 
 /* preguntas precuentes */
 
@@ -300,7 +314,9 @@ body, p, span, li, a, .texto {
     box-shadow: 0 0 10px #00000022;
 }
 
-.faq-item { margin-bottom: 10px; }
+.faq-item {
+    margin-bottom: 10px;
+}
 
 .faq-question {
     width: 100%;
@@ -318,9 +334,18 @@ body, p, span, li, a, .texto {
     padding: 10px 15px;
 }
 
-.faq-answer.open { display: block; }
+.faq-answer.open {
+    display: block;
+}
 
-.oculto { display: none; }
+
+.faq-question.active {
+   
+    background: #e7e7e7; 
+    color: #bf155c;      
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
 
 /* rsponsivo */
 
@@ -333,45 +358,45 @@ body, p, span, li, a, .texto {
     }
 
     .contacto-form form {
-        align-items: center; 
+        align-items: center;
     }
-    
+
     .btn-whatsapp {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 15px; /* Separación extra */
+        margin-top: 15px;
     }
 
     .contacto-imagen {
         width: 100%;
-        display: flex; 
+        display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
     }
 
     .contacto-imagen img {
-        width: 90%; 
-        max-width: 350px; 
+        width: 90%;
+        max-width: 350px;
     }
 
 
-    #seccion-Lorena {
+    /* Reglas para la sección Sobre Nosotros, ya estaban correctas */
+    #seccion-banner-quienes-somos {
         flex-direction: column-reverse;
         align-items: center;
     }
 
-    #container-textos, 
+    #container-textos,
     #container-imagen-botones {
         width: 90%;
     }
 }
 
-
 /* footer */
 
 
 .footer {
-    background-color: #fef0f6;   
+    background-color: #fef0f6;
     color: #333;
     padding: 40px 20px;
     margin-top: auto;
@@ -435,10 +460,21 @@ body, p, span, li, a, .texto {
 }
 
 
-.social-btn.instagram { background: #E1306C; }
-.social-btn.tiktok     { background: #000; }
-.social-btn.facebook   { background: #1877F2; }
-.social-btn.email      { background: #ff7fbf; }
+.social-btn.instagram {
+    background: #E1306C;
+}
+
+.social-btn.tiktok {
+    background: #000;
+}
+
+.social-btn.facebook {
+    background: #1877F2;
+}
+
+.social-btn.email {
+    background: #ff7fbf;
+}
 
 .social-btn:hover {
     transform: scale(1.1);
@@ -453,5 +489,4 @@ body, p, span, li, a, .texto {
     opacity: 0.7;
     border-top: 1px solid #00000020;
     padding-top: 15px;
-}
 }
