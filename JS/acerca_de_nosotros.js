@@ -43,4 +43,8 @@ botones.forEach(boton => {
         const idContenido = "txt-" + boton.id;
         document.getElementById(idContenido).classList.add("active"); // Mostrar el contenido correcto
     });
+<<<<<<< HEAD:JS/script12.js
 });
+=======
+});
+>>>>>>> dbb4100bae9ba0272fea996ff1d4e20e9f0482a9:JS/acerca_de_nosotros.js
