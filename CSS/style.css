@@ -179,6 +179,8 @@ a,
     width: 120px;
     height: 120px;
     object-fit: cover;
+    /*background-color: #D9D9D9;*/
+    background: #ffffff;
 }
 
 .contenedor-cards2 {
@@ -187,12 +189,14 @@ a,
     flex-wrap: wrap;
     justify-content: center;
     padding: 1rem;
+    
 }
 
 .card2 {
     width: 250px;
     height: 400px;
     background: #ffffff;
+    
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -205,11 +209,12 @@ a,
 }
 
 .card2 img {
-    width: 70%;
-    height: 250px;
+    width: 105%;
+    height: 260px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 0.8rem;
+    
 }
 
 .card2 h3 {
