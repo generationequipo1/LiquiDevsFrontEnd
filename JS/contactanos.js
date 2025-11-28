@@ -1,3 +1,29 @@
+// Este script contiende el proceso de 
+
+// preguntas frecuentes
+const btnFAQ = document.getElementById("btn-toggle");
+const faqBox = document.querySelector('#faq-div');
+
+btnFAQ.addEventListener('click', function() {
+    faqBox.classList.toggle('active');
+});
+
+
+
+// Abrir y cerrar cada pregunta
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        btn.nextElementSibling.classList.toggle('open');
+    });
+});
+
+
+
+// formulario prom
+
 const form = document.getElementById("form-contacto");
 
 form.addEventListener("submit", async (e) => {
@@ -18,22 +44,7 @@ form.addEventListener("submit", async (e) => {
         alert("Hubo un error al enviar el mensaje.");
     }
 });
-// preguntas frecuentes
-const btnFAQ = document.querySelector('.btn-faq-toggle');
-const faqBox = document.querySelector('.faq-box');
 
-btnFAQ.addEventListener('click', () => {
-    faqBox.classList.toggle('oculto');
-});
 
-// Abrir y cerrar cada pregunta
-const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(btn => {
-    btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        btn.nextElementSibling.classList.toggle('open');
-    });
-});
 
 
