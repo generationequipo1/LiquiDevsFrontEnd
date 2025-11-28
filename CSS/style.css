@@ -1,40 +1,29 @@
 body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display:flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
     background-color: #D9D9D9;
     width: 100%;
     min-height: 900px;
     background-image: url(../Assets/Background-container-1-cortado.png);
-    background-size: contain;
-    background-position: top;
+    background-size:contain;
+    background-position:top;
     background-repeat: no-repeat;
 }
 
-h1,
-h2,
-h3,
-.titulo,
-.header-title {
+
+h1, h2, h3, .titulo, .header-title {
     font-family: 'Pacifico', cursive;
 }
 
-body,
-p,
-span,
-li,
-a,
-.texto {
+body, p, span, li, a, .texto {
     font-family: "Nunito", sans-serif;
 }
 
-/* navegación */
-
-.nav-css {
+.nav-css{
     background-color: transparent;
 }
-
 .navbar {
     background: white;
     padding: 15px 20px;
@@ -49,9 +38,11 @@ a,
     align-items: center;
 }
 
+
 .logo img {
     height: 45px;
 }
+
 
 .menu {
     list-style: none;
@@ -65,12 +56,14 @@ a,
     font-size: 15px;
 }
 
+/* Iconos del nav bar */
 .icons i {
     font-size: 20px;
     margin-left: 15px;
     cursor: pointer;
 }
 
+/* responsiva */
 @media (max-width: 768px) {
     .menu {
         display: none;
@@ -161,40 +154,17 @@ a,
 
 /* cards equipo */
 
-.container-sobre-nosotros {
-    display: flex;
-    width: 100%;
-    min-height: 200px;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 180px;
-    min-height: 350px;
-}
-
-.card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    /*background-color: #D9D9D9;*/
-    background: #ffffff;
-}
-
 .contenedor-cards2 {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-    
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .card2 {
-    width: 250px;
-    height: 400px;
+    width: 200px;
+    height: 440px;
     background: #ffffff;
     
     border-radius: 12px;
@@ -205,203 +175,44 @@ a,
 }
 
 .card2:hover {
-    transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .card2 img {
-    width: 105%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 0.8rem;
-    
+  width: 70%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
 }
 
 .card2 h3 {
-    color: #ff9eb5;
-    font-size: 1.2rem;
+  margin: 0;
+  /*color: #002B5B;*/
+  /*color: #ffb3c6;*/
+
+  color: #ff9eb5;
+  font-size: 1.2rem;
 }
 
 .card2 p {
-    color: #555;
-    font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.95rem;
 }
-
 .titulo {
-    text-align: center;
-    font-size: 2rem;
-    color: #4da6ff;
-    font-weight: 600;
+  text-align: center;
+  font-size: 2rem;        
+  color: #4da6ff;         
+  font-weight: 600;
 }
 
-/* contactanos  */
-
-.contacto-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-    padding: 40px;
-    align-items: flex-start;
-}
-
-.contacto-form {
-    background: #ffffffd0;
-    padding: 30px;
-    border-radius: 15px;
-    border: 2px solid #d5d5d5;
-    text-align: center;
-}
-
-.contacto-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contacto-form input,
-.contacto-form textarea {
-    width: 100%;
-    max-width: 360px;
-    padding: 14px;
-    border: 2px solid #c5c5c5;
-    border-radius: 20px;
-    background: #fffafc;
-}
-
-#btn-enviar {
-    width: 100%;
-    max-width: 360px;
-    background: #f6b3d0;
-    border-radius: 20px;
-    padding: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-}
-
-.btn-whatsapp {
-    display: block;
-    width: 100%;
-    max-width: 200px;
-    padding: 12px;
-    background: #25d366;
-    color: white;
-    text-align: center;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.contacto-imagen img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 12px;
-}
-
-/* preguntas precuentes */
-
-.btn-faq-toggle {
-    margin-top: 15px;
-    padding: 12px 20px;
-    background-color: #bf155c;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.faq-box {
-    margin-top: 25px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #00000022;
-}
-
-.faq-item {
-    margin-bottom: 10px;
-}
-
-.faq-question {
-    width: 100%;
-    padding: 12px;
-    background: #f1f1f1;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    text-align: left;
-}
-
-.faq-answer {
-    display: none;
-    padding: 10px 15px;
-}
-
-.faq-answer.open {
-    display: block;
-}
-
-
-.faq-question.active {
-   
-    background: #e7e7e7; 
-    color: #bf155c;      
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-/* rsponsivo */
-
-@media (max-width: 768px) {
-
-    .contacto-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .contacto-form form {
-        align-items: center;
-    }
-
-    .btn-whatsapp {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px;
-    }
-
-    .contacto-imagen {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contacto-imagen img {
-        width: 90%;
-        max-width: 350px;
-    }
-
-
-    /* Reglas para la sección Sobre Nosotros, ya estaban correctas */
-    #seccion-banner-quienes-somos {
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    #container-textos,
-    #container-imagen-botones {
-        width: 90%;
-    }
-}
 
 /* footer */
 
 
 .footer {
-    background-color: #fef0f6;
+    background-color: #fef0f6;   
     color: #333;
     padding: 40px 20px;
     margin-top: auto;
@@ -465,26 +276,16 @@ a,
 }
 
 
-.social-btn.instagram {
-    background: #E1306C;
-}
-
-.social-btn.tiktok {
-    background: #000;
-}
-
-.social-btn.facebook {
-    background: #1877F2;
-}
-
-.social-btn.email {
-    background: #ff7fbf;
-}
+.social-btn.instagram { background: #E1306C; }
+.social-btn.tiktok     { background: #000; }
+.social-btn.facebook   { background: #1877F2; }
+.social-btn.email      { background: #ff7fbf; }
 
 .social-btn:hover {
     transform: scale(1.1);
     opacity: 0.9;
 }
+
 /* copyright */
 .footer-bottom {
     text-align: center;
@@ -493,4 +294,336 @@ a,
     opacity: 0.7;
     border-top: 1px solid #00000020;
     padding-top: 15px;
+}
+
+
+
+
+/* 
+rosado #FF9FD7
+azul #7FB6FF
+gris #D9D9D9
+naranja #FFB473
+verde #5FDAB8
+amarillo #E5E56A
+ */
+
+#quienes-somos {
+    
+    font-weight: 400;
+    font-size: 80px;
+    font-style: normal;
+    color: #bf155c;
+}
+
+#titulo-pagina {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    align-content: center;
+}
+
+#seccion-banner-quienes-somos {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    width: 100%;
+    height: auto;
+}
+
+#container-textos {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    min-width: 350px;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+
+}
+
+#titulo-txt {
+    
+    font-weight: 400;
+    font-size: 60px;
+    font-style: normal;
+    color: #bf155c;
+
+}
+
+.tab-content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: #ffffff41;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 0 10px #e5e56a7a;
+    color: #bf155c;
+}
+
+#txt-mision {
+    display: none;
+}
+
+#txt-historia {
+    display: none;
+}
+
+#container-imagen-botones {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    min-width: 350px;
+    padding: 1%;
+
+}
+
+.container-botones {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    width: 80%;
+}
+
+.boton {
+    margin-left: 15px;
+    width: 45%;
+    min-height: 40px;
+    background-color: #E5E56A;
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    color: #bf155c;
+    font-weight: bold;
+
+}
+
+.boton:hover {
+    box-shadow: 0 0 10px #E5E56A;
+    width: 47%;
+    min-height: 41px;
+}
+
+/* container imagen*/
+.about-image {
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    overflow: hidden;
+    box-shadow: 0 0 10px #e5e56a9f,
+        inset 0 0 40px #0000009f;
+}
+
+#imagen-helado {
+    width: 100%;
+}
+
+
+/*Desde aca empieza el estilo de pagina contactenos*/
+
+/*contactanos*/
+.seccion-contacto    {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    
+}
+
+
+/* Caja izquierda */
+.contacto-form {
+    width: 100%;
+    max-width: 450px;
+    background: #f3f3f3;
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #c5c5c5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+   
+}
+
+.contacto-form h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.contacto-form form input,
+.contacto-form form textarea {
+    padding: 14px 18px;
+    border-radius: 12px;
+   
+}
+
+.contacto-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+#btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background: #f8b6d0;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#btn-enviar:hover {
+    background: #f09aba;
+}
+
+
+/* formulario */
+.contacto-form h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+ width: 100%;
+ max-width: 360px;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #c5c5c5;
+  font-size: 16px;
+  background: #fffafc;
+  
+}
+.contacto-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* BOTONES */
+.btn-enviar {
+  width: 100%;
+  max-width: 360px;
+  background: #f6b3d0;
+  border: none;
+  padding: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-whatsapp {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* IMAGEN */
+.contacto-imagen img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  display: block;
+}
+
+.direccion {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #444;
+  text-align: center;
+}
+
+/* Botón para abrir Freguntas frecuentas */
+.btn-faq-toggle {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #bf155c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn-faq-toggle:hover {
+    background-color: #a3134f;
+}
+
+.FAQs{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+/* Contenedor de preguntas frecuentes*/
+.faq-box {
+    display: none;
+    margin-top: 25px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00000022;
+    width: 90%;
+}
+.faq-box.active {
+    display: block;
+}
+
+
+/* Preguntas */
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: #f1f1f1;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 15px;
+    background: #ffffff;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .contacto-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .contacto-form {
+        width: 100%;
+        max-width: 400px;
+    }
 }
