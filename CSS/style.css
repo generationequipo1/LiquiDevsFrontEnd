@@ -71,28 +71,88 @@ body, p, span, li, a, .texto {
 }
 
 
-/* Css david*/
-.container-sobre-nosotros {
-    display: flex;
-    /*background-color: aquamarine;*/
-    width: 100%;
-    min-height: 200px;
 
+/* Sección sobre nosotros */
+#titulo-pagina {
+    width: 100%;
+    text-align: center;
 }
 
-.card {
+#quienes-somos {
+    font-size: 80px;
+    color: #bf155c;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#seccion-banner-quienes-somos {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#container-textos,
+#container-imagen-botones {
+    width: 50%;
+    min-width: 350px;
+    padding: 1%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 180px;
-    min-height: 350px;
+    justify-content: center;
+    align-items: center;
 }
 
-.card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
+.container-botones {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
 }
+
+.boton {
+    width: 33%;
+    min-height: 40px;
+    background-color: #E5E56A;
+    border: 2px solid #E5E56A;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #bf155c;
+    cursor: pointer;
+}
+
+.boton:hover,
+.boton.active {
+    box-shadow: 0 0 10px #E5E56A;
+}
+
+.tab-content {
+    display: none;
+    background-color: #ffffff70;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #e5e56a7a;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.about-image {
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    overflow: hidden;
+    box-shadow: 0 0 10px #e5e56a9f, inset 0 0 40px #00000040;
+}
+
+#imagen-helado {
+    width: 100%;
+}
+
+/* cards equipo */
 
 .contenedor-cards2 {
   display: flex;
@@ -103,18 +163,15 @@ body, p, span, li, a, .texto {
 }
 
 .card2 {
-  width: 250px;
-  height: 400px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.2s ease;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
+    width: 200px;
+    height: 440px;
+    background: #ffffff;
+    
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease;
 }
 
 .card2:hover {
