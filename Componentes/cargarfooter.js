@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const footerContainer = document.getElementById("footer");
 
     if (footerContainer) {
-        fetch("/Componentes/footer.html") 
+        fetch("../Componentes/footer.html", { cache: "no-store" })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
