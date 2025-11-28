@@ -1,7 +1,10 @@
 const textoVision = document.getElementById("p-vision").innerHTML;
-const textoMision = document.getElementById("p-mision").innerHTML;
-const textoHistoria = document.getElementById("p-historia").innerHTML;
+console.log(textoVision);
 
+const textoMision = document.getElementById("p-mision").innerHTML;
+console.log(textoMision);
+const textoHistoria = document.getElementById("p-historia").innerHTML;
+console.log(textoHistoria);
 
 
 function mostrarMision(){
