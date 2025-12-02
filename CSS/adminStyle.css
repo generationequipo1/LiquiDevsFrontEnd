@@ -33,4 +33,132 @@
 .boton-crud{
     height: 40px;
     margin-left: 10px;
+
+}
+
+
+/* -------------------------------..
+   PAGINA INVENTARIO CSS david
+--------------------------- */
+.contenedorInventario {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.titulo-barra h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+.contenedorInventario input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.contenedorInventario input[type="text"]:focus {
+    border-color: #ff7bc8;
+    box-shadow: 0 0 5px rgba(255, 123, 200, 0.4);
+}
+
+
+.boton-Borrar,
+.boton-Crear {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton-Borrar {
+    background: #ff6b6b;
+    color: white;
+    margin-right: 10px;
+}
+
+.boton-Borrar:hover {
+    background: #e84c4c;
+}
+
+.boton-Crear {
+    background: #4b9fff;
+    color: white;
+}
+
+.boton-Crear:hover {
+    background: #2f88e6;
+}
+
+
+.tabla {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0 12px; 
+}
+
+.tabla thead th {
+    background: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #444;
+}
+
+
+.tabla tbody tr {
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.tabla tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.tabla tbody td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla tbody tr td:last-child {
+    border-bottom: none;
+}
+
+
+.tabla tbody button {
+    background-color: #ffd554;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tabla tbody button:hover {
+    background-color: #e4bc49;
+}
+
+#imagen-inventario {
+    width: 70px;       
+    height: auto;      
+    border-radius: 6px;
+    object-fit: cover;
+    
 }

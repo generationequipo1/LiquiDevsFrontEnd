@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../CSS/adminStyle.css">
+    <link rel="stylesheet" href="/CSS/style.css">
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +33,65 @@
             <button type="button" id="boton-eliminar-producto" class="boton-crud">Eliminar</button>
 
         </search>
+    </section>
+
+    <section id="section-lista-inventario">
+
+        <div class="contenedorInventario">
+
+            <div class="titulo-barra">
+                <h2>Inventario</h2>
+            </div>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <input type="text" placeholder="Buscar..." >
+        <div>
+            <button class=" boton-Borrar">Borrar</button>
+                <button class="boton-Crear">Crear producto</button>
+            </div>
+        </div>
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Imagen URL</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fila">
+                    <td>1</td>
+                    <td>Tiramisu</td>
+                    <td>crema con galleta</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td><img src="../Assets/tiramisu.png" id="imagen-inventario"></td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr class="fila">
+                    <td>2</td>
+                    <td>Tres Leches</td>
+                    <td>capa de galleta con crema</td>
+                    <td>200</td>
+                    <td>200</td>
+                    <td><img src="../Assets/tres leches.png" id="imagen-inventario"></td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Postre de Cafe</td>
+                    <td>postre a base de cafe</td>
+                    <td>300</td>
+                    <td>300</td>
+                    <td><img src="../Assets/cafe.png" id="imagen-inventario"></td>
+                    <td><button>Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
     </section>
 </body>
 
