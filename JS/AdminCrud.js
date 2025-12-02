@@ -67,5 +67,25 @@ function previewProductImage(event) {
   });
 })();
 
+//eliminar productos de la lista usando checkbox
 
+const boton_borrar = document.getElementById("boton-eliminar-producto");
+
+
+boton_borrar.addEventListener('click', borrar_elemento);
+
+
+function borrar_elemento(){
+    //Se deja por dentro de la funcion porque la busqueda del querySelector se debe ejecutar solamente cuando cuando se hace click
+    const elemento_seleccionado = document.querySelectorAll('input[type="checkbox"]:checked');
+    //Validacion del NodeList por console para hacer seguimiento del comportamiento
+    console.log(elemento_seleccionado);
+    if(elemento_seleccionado === 0){
+      alert("Elemento de lista no seeccionado");
+    }else{
+      for(let i = 0; i < elemento_seleccionado.length;i++ ){
+          elemento_seleccionado[i].closest('tr').remove();
+      }
+    }
+}
 
