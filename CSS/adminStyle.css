@@ -15,8 +15,6 @@
     background-color: rgb(221, 221, 221);
 
 }
-
-
 #container-busqueda{
     width: 60%;
     display: flex;
@@ -35,5 +33,4 @@
 .boton-crud{
     height: 40px;
     margin-left: 10px;
-    mar
 }
