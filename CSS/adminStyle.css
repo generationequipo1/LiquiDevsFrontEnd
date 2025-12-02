@@ -1,0 +1,38 @@
+#titulo-inventario{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(179, 179, 179);
+    min-width: 320px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#secccion-botones-crud{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    
+    justify-content: center;
+    background-color: rgb(221, 221, 221);
+
+}
+
+
+#container-busqueda{
+    width: 60%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+#form-busqueda{
+    height: 40px;
+}
+#form-busqueda input{
+    height: 40px;
+}
+#form-busqueda button{
+    margin: 0;
+}
+.boton-crud{
+    height: 40px;
+    margin-left: 10px;
+}
