@@ -32,7 +32,7 @@
                 <button type="submit" id="submit-search" class="boton-crud">🔎</button>
             </form>
             <button type="submit" id="boton-crear-producto" class="boton-crud">Crear Producto</button>
-            <button type="button" id="boton-editar-producto" class="boton-crud">Editar</button>
+            
             <button type="button" id="boton-eliminar-producto" class="boton-crud">Eliminar</button>
 
         </search>
@@ -117,30 +117,24 @@
 
         <div class="contenedorInventario">
 
-            <div class="titulo-barra">
-                <h2>Inventario</h2>
-            </div>
-            <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-                <input type="text" placeholder="Buscar..." >
-        <div>
-            <button class=" boton-Borrar">Borrar</button>
-                <button class="boton-Crear">Crear producto</button>
-            </div>
-        </div>
+           
+            
         <table class="tabla">
             <thead>
                 <tr>
+                    <th><input type="checkbox" name="selector-producto" class="selector-producto"></th>
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
                     <th>Stock</th>
-                    <th>Imagen URL</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="fila">
+                    <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
                     <td>1</td>
                     <td>Tiramisu</td>
                     <td>crema con galleta</td>
@@ -150,6 +144,7 @@
                     <td><button>Editar</button></td>
                 </tr>
                 <tr class="fila">
+                    <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
                     <td>2</td>
                     <td>Tres Leches</td>
                     <td>capa de galleta con crema</td>
@@ -159,6 +154,7 @@
                     <td><button>Editar</button></td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
                     <td>3</td>
                     <td>Postre de Cafe</td>
                     <td>postre a base de cafe</td>
