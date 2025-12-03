@@ -627,4 +627,40 @@ amarillo #E5E56A
         max-width: 400px;
     }
 }
+/*Aca empieza el estilo de la pagina catalogo*/
 
+/*Aca queda el estilo de la seccion catalogo fijo */
+#seccion-catalogo-fijo{
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+
+.container-cards-fijas{
+    width: 90%;
+    height: auto;
+    min-width: 320px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+    padding: 2%;
+    align-content: center;
+    background-color: #0000003b;
+    border-radius: 20px;
+    
+}
+
+.tarjeta-producto{
+    width: 20%;
+    min-width: 150px;
+    height: 250px;
+    margin: 1%;
+    background-color: rgba(255, 255, 255, 0.363);
+    border-radius: 15px;
+}
