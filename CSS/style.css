@@ -627,90 +627,64 @@ amarillo #E5E56A
         max-width: 400px;
     }
 }
+/*Aca empieza el estilo de la pagina catalogo*/
 
-.carrusel {
-  margin: 100px auto;
-  width: 90%;
-  display: flex;
-  overflow-x: auto;
-  gap: 1em;
-
+/*Aca queda el estilo de la seccion catalogo fijo */
+#seccion-catalogo-fijo{
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
 }
 
-.carrusel::-webkit-scrollbar {
-  display: none;
-  /*escodner la barra de scroll*/
-
+.container-cards-fijas{
+    width: 90%;
+    height: auto;
+    min-width: 320px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+    align-content: center;
+    background-color: #0000003b;
+    border-radius: 20px;
+    
 }
 
-.grupo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  animation: spin 30s infinite ease-in;
-  /* infinite linear;*/
-  padding-right: 1em;
+.tarjeta-producto{
+    width: 20%;
+    min-width: 150px;
+    height: 250px;
+    margin: 1%;
+    background-color: rgba(255, 255, 255, 0.363);
+    border-radius: 20px;
+}
+/* ===== Aqui va el BANNER ===== */
+#banner {
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
-.card {
-  flex: 0 0 8em;
-  /*5 veces el tamaño de la fuente raiz*/
-  height: 8em;
-  padding: 1em;
-  background: cornflowerblue;
-  font-size: 3rem;
-  border-radius: 0.2em;
-  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
-  /*background: linear-gradient(135deg, #3a7bd5, #00d2ff);*/
-  /*background:
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('imagenes/sport4.png') no-repeat center center;
-  align-content: center;*/
-
+.titulo-banner {
+    font-family: 'Pacifico', cursive;
+    color: #c9226b;
+    font-size: 42px;
 }
 
-.img {
-  width: auto;
-  height: 100%;
-  object-fit: cover;
-  /* proporcion*/
-  border-radius: 0.2em;
-
+.subtitulo-banner {
+    font-family: 'Nunito', sans-serif;
+    color: #b63767;
+    font-size: 18px;
+    max-width: 550px;
+    margin: 10px auto;
 }
 
-
-@keyframes spin {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+.icono-banner {
+    width: 50px;
+    margin-top: 10px;
 }
-
-
- 
-.titulo-sabor {
-  font-size: 1rem;          
-  font-weight: 600;         
-  color: #333;              
-  margin: 0;
-}
-
-.descripcion {
-  font-size: 0.75rem;       
-  color: #666;              
-  margin: 0;
-  line-height: 1.2;         
-}
-
-.precio {
-  font-size: 0.9rem;        
-  font-weight: 700;         
-  color: #ff4d4d;           
-  margin-top: 0.3em;
-}
-
-
