@@ -629,6 +629,71 @@ amarillo #E5E56A
 }
 /*Aca empieza el estilo de la pagina catalogo*/
 
+/* ===== Aqui va el BANNER ===== */
+#banner {
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.titulo-banner {
+    font-family: 'Pacifico', cursive;
+    color: #c9226b;
+    font-size: 42px;
+}
+
+.subtitulo-banner {
+    font-family: 'Nunito', sans-serif;
+    color: #b63767;
+    font-size: 18px;
+    max-width: 550px;
+    margin: 10px auto;
+}
+
+.icono-banner {
+    width: 50px;
+    margin-top: 10px;
+}
+
+
+/*Aca queda el estilo de la seccion catalogo fijo */
+#seccion-catalogo-fijo{
+    width: 100%;
+    height: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+
+.container-cards-fijas{
+    width: auto;
+    height: auto;
+    min-width: 320px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    background-color: #00000021;
+    backdrop-filter:blur(30px);
+    border-radius: 20px;
+    padding: 1%;
+    
+}
+
+.tarjeta-producto{
+    width: 190px;
+    min-width: 150px;
+    height: 250px;
+    margin: 1%;
+    
+    background-color: rgba(255, 255, 255, 0.363);
+    border-radius: 20px;
+}
+
+
 /*Aca queda el estilo de la seccion catalogo fijo */
 #seccion-catalogo-fijo{
     width: 100%;
