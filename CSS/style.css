@@ -649,7 +649,6 @@ amarillo #E5E56A
     display: flex;
     flex-flow: row wrap;
     justify-content:space-between;
-    padding: 2%;
     align-content: center;
     background-color: #0000003b;
     border-radius: 20px;
@@ -662,5 +661,5 @@ amarillo #E5E56A
     height: 250px;
     margin: 1%;
     background-color: rgba(255, 255, 255, 0.363);
-    border-radius: 15px;
+    border-radius: 20px;
 }
