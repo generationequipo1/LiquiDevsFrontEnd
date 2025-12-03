@@ -1,6 +1,4 @@
-// ===============================
-// VARIABLES
-// ===============================
+/*VARIABLES*/
 let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
 // Elementos del formulario
@@ -16,14 +14,10 @@ const imgPreview = document.getElementById("productImagePreview");
 // Tabla donde van los productos
 const tabla = document.querySelector("tbody");
 
-// ===============================
-// CARGAR INVENTARIO AL INICIAR
-// ===============================
+/*CARGAR INVENTARIO AL INICIAR*/
 document.addEventListener("DOMContentLoaded", cargarInventario);
 
-// ===============================
-// FUNCIÓN: PREVISUALIZAR IMAGEN
-// ===============================
+/*FUNCIÓN: PREVISUALIZAR IMAGEN*/
 function previewProductImage(event) {
     const file = event.target.files[0];
     if (!file) return;
@@ -39,9 +33,7 @@ function previewProductImage(event) {
     reader.readAsDataURL(file);
 }
 
-// ===============================
-// FUNCIÓN: GUARDAR PRODUCTO NUEVO
-// ===============================
+/*FUNCIÓN: GUARDAR PRODUCTO NUEVO*/
 function guardarProducto(e) {
     e.preventDefault();
 
@@ -63,9 +55,7 @@ function guardarProducto(e) {
     document.querySelector(".image-text").style.display = "block";
 }
 
-// ===============================
-// FUNCIÓN: CARGAR TABLA
-// ===============================
+/*FUNCIÓN: CARGAR TABLA*/
 function cargarInventario() {
     tabla.innerHTML = "";
 
@@ -90,18 +80,14 @@ function cargarInventario() {
     });
 }
 
-// ===============================
-// FUNCIÓN: ELIMINAR PRODUCTO
-// ===============================
+/*FUNCIÓN: ELIMINAR PRODUCTO */
 function eliminarProducto(index) {
     productos.splice(index, 1);
     localStorage.setItem("productos", JSON.stringify(productos));
     cargarInventario();
 }
 
-// ===============================
-// FUNCIÓN: EDITAR PRODUCTO (REDIRIGE)
-// ===============================
+/*FUNCIÓN: EDITAR PRODUCTO */
 function editarProducto(index) {
     localStorage.setItem("productoEditar", index);
     window.location.href = "editar_producto.html";

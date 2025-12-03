@@ -628,3 +628,78 @@ amarillo #E5E56A
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Aqui va el BANNER ===== */
+#banner {
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.titulo-banner {
+    font-family: 'Pacifico', cursive;
+    color: #c9226b;
+    font-size: 42px;
+}
+
+.subtitulo-banner {
+    font-family: 'Nunito', sans-serif;
+    color: #b63767;
+    font-size: 18px;
+    max-width: 550px;
+    margin: 10px auto;
+}
+
+.icono-banner {
+    width: 50px;
+    margin-top: 10px;
+}
+
