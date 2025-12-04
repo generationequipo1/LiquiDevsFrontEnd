@@ -106,3 +106,5 @@ function editarProducto(index) {
     localStorage.setItem("productoEditar", index);
     window.location.href = "editar_producto.html";
 }
+
+ 
