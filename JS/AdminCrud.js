@@ -78,12 +78,15 @@ function cargarInventario() {
     });
 }
 
+<<<<<<< HEAD
 
 
 
 // ===============================
 // FUNCIÓN: ELIMINAR PRODUCTO
 // ===============================
+=======
+>>>>>>> 1178f3dc3988d2b14ffdae0cb39f8411b10cf67e
 /*FUNCIÓN: ELIMINAR PRODUCTO */
 function eliminarProducto(index) {
     productos.splice(index, 1);
