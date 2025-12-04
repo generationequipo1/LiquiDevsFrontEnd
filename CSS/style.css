@@ -654,14 +654,78 @@ amarillo #E5E56A
     width: 50px;
     margin-top: 10px;
 }
+/*Aca queda el estilo de los botones que filtran*/
+.filtro-seccion{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 1%;
+    border: 1px solid black;
+    
+}
+.filtro-contenedor{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border: 1px solid black;
+    
+    
+}
+.filtros-principales, .contenedor-boton-emociones, .contenedor-boton-mostrar-todo{
+    width: 25%;
+    padding: 1%;
+    text-align: center;
+}   
+
+
+.filtro-contenedor button{
+    width: 100%;
+    min-height: 40px;
+    background-color: #E5E56A;
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    color: #bf155c;
+    font-weight: bold;
+
+}
+
+.filtro-contenedor button:hover {
+    box-shadow: 0 0 10px #E5E56A;
+    
+    min-height: 41px;
+}
+
+/*Este es el estilo para mostrar las opciones de filtrado*/
+.contenedor-mostrar-opciones{
+    width: 90%;
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border: 1px solid black;
+
+}
+
+.contenedor-mostrar-opciones button{
+    width: 15%;
+    min-height: 40px;
+    background-color: #E5E56A;
+    border-radius: 20px;
+    border: 2px solid #E5E56A;
+    color: #bf155c;
+    font-weight: bold;
+    margin: 1%;
+}
 
 
 /*Aca queda el estilo de la seccion catalogo fijo */
 #seccion-catalogo-fijo{
     width: 100%;
     height: auto;
-    
     display: flex;
+    flex-flow: columng dvx;
     justify-content: center;
     align-items: center;
     margin-top: 2%;
@@ -688,68 +752,12 @@ amarillo #E5E56A
     min-width: 150px;
     height: 250px;
     margin: 1%;
-    
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgba(255, 255, 255, 0.212);
     border-radius: 20px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.37);
+}
+.tarjeta-producto:hover{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.521);
 }
 
 
-/*Aca queda el estilo de la seccion catalogo fijo */
-#seccion-catalogo-fijo{
-    width: 100%;
-    height: auto;
-    border: 1px solid #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 1%;
-}
-
-.container-cards-fijas{
-    width: 90%;
-    height: auto;
-    min-width: 320px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:space-between;
-    align-content: center;
-    background-color: #0000003b;
-    border-radius: 20px;
-    
-}
-
-.tarjeta-producto{
-    width: 20%;
-    min-width: 150px;
-    height: 250px;
-    margin: 1%;
-    background-color: rgba(255, 255, 255, 0.363);
-    border-radius: 20px;
-}
-/* ===== Aqui va el BANNER ===== */
-#banner {
-    background-color: #fff;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.titulo-banner {
-    font-family: 'Pacifico', cursive;
-    color: #c9226b;
-    font-size: 42px;
-}
-
-.subtitulo-banner {
-    font-family: 'Nunito', sans-serif;
-    color: #b63767;
-    font-size: 18px;
-    max-width: 550px;
-    margin: 10px auto;
-}
-
-.icono-banner {
-    width: 50px;
-    margin-top: 10px;
-}
