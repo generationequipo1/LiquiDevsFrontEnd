@@ -25,18 +25,7 @@
     <div id="titulo-inventario">
         <h2>Inventario</h2>
     </div>
-    <section id="secccion-botones-crud">
-        <search id="container-busqueda">
-            <form action="/buscar" method="get" id="form-busqueda">
-                <input type="search" name="search-bar" id="search-bar-input">
-                <button type="submit" id="submit-search" class="boton-crud">🔎</button>
-            </form>
-            <button type="submit" id="boton-crear-producto" class="boton-crud">Crear Producto</button>
 
-            <button type="button" id="boton-eliminar-producto" class="boton-crud">Eliminar</button>
-
-        </search>
-    </section>
 
     <div class="container py-5">
         <div class="card product-card mx-auto">
@@ -118,6 +107,18 @@
     <section id="section-lista-inventario">
 
         <div class="contenedorInventario">
+
+            
+                <search id="container-busqueda">
+                    <form action="/buscar" method="get" id="form-busqueda">
+                        <input type="search" name="search-bar" id="search-bar-input">
+                        <button type="submit" id="submit-search" class="boton-crud">🔎</button>
+                    </form>
+                    <button type="submit" id="boton-crear-producto" class="boton-crud">Crear Producto</button>
+
+                    <button type="button" id="boton-eliminar-producto" class="boton-crud">Eliminar</button>
+                </search>
+            
             <table class="tabla">
                 <thead>
                     <tr>
@@ -132,36 +133,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="fila">
-                        <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
-                        <td>1</td>
-                        <td>Tiramisu</td>
-                        <td>crema con galleta</td>
-                        <td>100</td>
-                        <td>100</td>
-                        <td><img src="../Assets/tiramisu.png" id="imagen-inventario"></td>
-                        <td><button>Editar</button></td>
-                    </tr>
-                    <tr class="fila">
-                        <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
-                        <td>2</td>
-                        <td>Tres Leches</td>
-                        <td>capa de galleta con crema</td>
-                        <td>200</td>
-                        <td>200</td>
-                        <td><img src="../Assets/tres leches.png" id="imagen-inventario"></td>
-                        <td><button>Editar</button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
-                        <td>3</td>
-                        <td>Postre de Cafe</td>
-                        <td>postre a base de cafe</td>
-                        <td>300</td>
-                        <td>300</td>
-                        <td><img src="../Assets/cafe.png" id="imagen-inventario"></td>
-                        <td><button>Editar</button></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
