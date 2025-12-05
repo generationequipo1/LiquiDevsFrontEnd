@@ -64,6 +64,7 @@ function cargarInventario() {
         row.classList.add("fila");
 
         row.innerHTML = `
+            <td><input type="checkbox" name="selector-producto" class="selector-producto"></td>
             <td>${index + 1}</td>
             <td>${prod.nombre}</td>
             <td>${prod.descripcion}</td>
@@ -77,6 +78,10 @@ function cargarInventario() {
                 tabla.appendChild(row);
     });
 }
+
+
+
+
 
 /*FUNCIÓN: ELIMINAR PRODUCTO */
 function eliminarProducto(index) {
