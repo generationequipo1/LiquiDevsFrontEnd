@@ -22,12 +22,15 @@ body, p, span, li, a, .texto {
 }
 
 .nav-css{
-    background-color: transparent;
+    background-color: #fff7e9;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0, 05);
 }
 .navbar {
+    width: 100%;
     background: white;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0, 06);
 }
 
 .nav-container {
@@ -36,37 +39,57 @@ body, p, span, li, a, .texto {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
+    
 }
 
 
 .logo img {
-    height: 45px;
+    height: 65px;
+    justify-self: start;
 }
 
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+
+    justify-self: center;
 }
 
 .menu li a {
     text-decoration: none;
     color: #444;
-    font-size: 15px;
+    font-size: 16px;
+    font-family: "nunito", sans-serif;
+    font-weight: 300;
 }
 
+    
 /* Iconos del nav bar */
+.icons {
+    width: 160px;
+
+
+}
 .icons i {
-    font-size: 20px;
+    font-size: 22px;
     margin-left: 15px;
     cursor: pointer;
+    color: #333;
 }
 
 /* responsiva */
 @media (max-width: 768px) {
     .menu {
         display: none;
+    }
+
+    .icons {
+        margin-left: auto;
     }
 }
 
