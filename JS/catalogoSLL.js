@@ -102,6 +102,7 @@ function crearTarjetasCatalogoFijo(){
         boton.classList.add("boton");
         boton.textContent = "Lo quiero!"
 
+        
         //agregar informacion a contenedor de texto
         contenedorTexto.append(titulo,categoria,sabores,precio,boton);
         //Agregar elementos a contenedor tarjeta producto
