@@ -661,7 +661,7 @@ amarillo #E5E56A
     flex-flow: column;
     align-items: center;
     padding: 1%;
-    border: 1px solid black;
+    
     
 }
 .filtro-contenedor{
@@ -669,7 +669,7 @@ amarillo #E5E56A
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    border: 1px solid black;
+    
     
     
 }
@@ -700,7 +700,6 @@ amarillo #E5E56A
 /*Este es el estilo para mostrar las opciones de filtrado*/
 .contenedor-mostrar-opciones{
     width: 90%;
-    
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -734,13 +733,13 @@ amarillo #E5E56A
 }
 
 .container-cards-fijas{
-    width: auto;
+    width: 90%;
     height: auto;
     min-width: 320px;
     display: flex;
     flex-flow: row wrap;
     justify-content:center;
-    background-color: #00000021;
+    background-color: #0000001e;
     backdrop-filter:blur(30px);
     border-radius: 20px;
     padding: 1%;
@@ -748,7 +747,11 @@ amarillo #E5E56A
 }
 
 .tarjeta-producto{
-    width: 190px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    overflow: hidden; /*Oculta lo que sale del div*/
+    width: 200px;
     min-width: 150px;
     height: 250px;
     margin: 1%;
@@ -757,7 +760,70 @@ amarillo #E5E56A
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.37);
 }
 .tarjeta-producto:hover{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.521);
+    box-shadow: 0 0 15px #5FDAB8;
+    height: auto;
 }
 
+.tarjeta-producto img{
+    height: 100%;
+    max-height: 250px;
+    transition: filter 0.5s ease;
+}
+.tarjeta-producto img:hover{
+    /*filter: blur(5px);*/
+}
+.texto-tarjeta{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    background-color: rgba(255, 255, 255, 0.219);
 
+}
+
+.titulo-tarjeta {
+    color: #bf155c ;
+}
+.texto-tarjeta .boton{
+    margin: 0;
+}
+/* 
+rosado #FF9FD7
+azul #7FB6FF
+gris #D9D9D9
+naranja #FFB473
+verde #5FDAB8
+amarillo #E5E56A
+ */
+
+ /*Stile del carrrusel*/
+ .carrusel{
+    width: 90%;
+    height: auto;
+    min-width: 320px;
+    
+    justify-content:center;
+    background-color: #0000001e;
+    backdrop-filter:blur(30px);
+    border-radius: 20px;
+    padding: 1%;
+    
+    margin: 10px auto;
+ }
+ .grupo{
+    display: flex;
+    justify-content: space-around;
+    
+ }
+
+.grupo .card{
+    margin:30px;
+    border-radius: 15px;
+    overflow: hidden;
+ } 
+.grupo .card img{
+    min-width: 350px;
+    
+ } 
