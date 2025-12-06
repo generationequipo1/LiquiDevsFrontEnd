@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const productos = JSON.parse(localStorage.getItem("productos"));
     console.log(productos);
 
-    crearTarjetasCatalogoFijo();
+   crearTarjetasCatalogoFijo();
     
 });
 
