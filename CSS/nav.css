@@ -1,0 +1,84 @@
+/* NAV PERSONALIZADO */
+.nav-custom {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    z-index: 999;
+}
+
+/* CONTENEDOR */
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo img {
+    height: 50px;
+}
+
+/* MENÚ */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ICONOS */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HAMBURGUESA OCULTA EN DESKTOP */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+
+    /* Menú móvil oculto */
+    .menu {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 70%;
+        padding: 25px;
+        gap: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        transition: 0.3s;
+        display: flex;
+    }
+
+    /* Menú visible cuando se activa */
+    .menu.active {
+        transform: translateX(0);
+    }
+
+    /* Mostrar hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+}

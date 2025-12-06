@@ -20,36 +20,39 @@ h1, h2, h3, .titulo, .header-title {
 body, p, span, li, a, .texto {
     font-family: "Nunito", sans-serif;
 }
-
-.nav-css{
-    background-color: #fff7e9;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0, 05);
-}
-.navbar {
+/* Nav-Header */
+.nav-custom {
     width: 100%;
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0, 06);
+    padding: 18px 0;
+    
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: auto;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+
+    /* replicando como esta en figma */
+    justify-content: space-between;
+    gap: 40px;
+
     padding: 0 40px;
-    
 }
 
-
+/* Logo */
 .logo img {
-    height: 65px;
-    justify-self: start;
+    height: 55px;
+    display: block;
 }
 
-
+/* Menú */
 .menu {
     list-style: none;
     display: flex;
@@ -57,42 +60,87 @@ body, p, span, li, a, .texto {
     margin: 0;
     padding: 0;
 
-    justify-self: center;
+    margin-left: auto;
 }
 
 .menu li a {
-    text-decoration: none;
-    color: #444;
-    font-size: 16px;
-    font-family: "nunito", sans-serif;
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
     font-weight: 300;
+    letter-spacing: 0.7px;
+
+    /* Color blanco suave translúcido */
+    color: rgba(255, 255, 255, 0.55);
+
+    /* Suavidad en animación */
+    transition: all 0.35s ease;
+    position: relative;
 }
 
-    
-/* Iconos del nav bar */
+
+.menu li a:hover {
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+                 0 0 18px rgba(255, 200, 255, 0.4);
+}
+
+
+/*icono derecha*/
 .icons {
-    width: 160px;
-
-
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
-.icons i {
-    font-size: 22px;
-    margin-left: 15px;
+
+/* carrito */
+.btn-cart {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 10px;
     cursor: pointer;
-    color: #333;
 }
 
-/* responsiva */
+.btn-cart i {
+    font-size: 20px;
+    color: #444;
+}
+
+/* oculta en desktop */
+.menu-toggle {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+
+/*responsive*/
+
 @media (max-width: 768px) {
+
     .menu {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background: white;
+        width: 70%;
+        height: auto;
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+
         display: none;
+        box-shadow: -2px 0 12px rgba(0,0,0,0.12);
     }
 
-    .icons {
-        margin-left: auto;
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
-
 
 
 /* Sección sobre nosotros */
@@ -684,7 +732,7 @@ amarillo #E5E56A
     flex-flow: column;
     align-items: center;
     padding: 1%;
-    border: 1px solid black;
+    
     
 }
 .filtro-contenedor{
@@ -692,7 +740,7 @@ amarillo #E5E56A
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    border: 1px solid black;
+    
     
     
 }
@@ -723,7 +771,6 @@ amarillo #E5E56A
 /*Este es el estilo para mostrar las opciones de filtrado*/
 .contenedor-mostrar-opciones{
     width: 90%;
-    
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -757,13 +804,13 @@ amarillo #E5E56A
 }
 
 .container-cards-fijas{
-    width: auto;
+    width: 90%;
     height: auto;
     min-width: 320px;
     display: flex;
     flex-flow: row wrap;
     justify-content:center;
-    background-color: #00000021;
+    background-color: #0000001e;
     backdrop-filter:blur(30px);
     border-radius: 20px;
     padding: 1%;
@@ -771,7 +818,11 @@ amarillo #E5E56A
 }
 
 .tarjeta-producto{
-    width: 190px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    overflow: hidden; /*Oculta lo que sale del div*/
+    width: 200px;
     min-width: 150px;
     height: 250px;
     margin: 1%;
@@ -780,7 +831,70 @@ amarillo #E5E56A
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.37);
 }
 .tarjeta-producto:hover{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.521);
+    box-shadow: 0 0 15px #5FDAB8;
+    height: auto;
 }
 
+.tarjeta-producto img{
+    height: 100%;
+    max-height: 250px;
+    transition: filter 0.5s ease;
+}
+.tarjeta-producto img:hover{
+    /*filter: blur(5px);*/
+}
+.texto-tarjeta{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    background-color: rgba(255, 255, 255, 0.219);
 
+}
+
+.titulo-tarjeta {
+    color: #bf155c ;
+}
+.texto-tarjeta .boton{
+    margin: 0;
+}
+/* 
+rosado #FF9FD7
+azul #7FB6FF
+gris #D9D9D9
+naranja #FFB473
+verde #5FDAB8
+amarillo #E5E56A
+ */
+
+ /*Stile del carrrusel*/
+ .carrusel{
+    width: 90%;
+    height: auto;
+    min-width: 320px;
+    
+    justify-content:center;
+    background-color: #0000001e;
+    backdrop-filter:blur(30px);
+    border-radius: 20px;
+    padding: 1%;
+    
+    margin: 10px auto;
+ }
+ .grupo{
+    display: flex;
+    justify-content: space-around;
+    
+ }
+
+.grupo .card{
+    margin:30px;
+    border-radius: 15px;
+    overflow: hidden;
+ } 
+.grupo .card img{
+    min-width: 350px;
+    
+ } 

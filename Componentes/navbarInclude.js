@@ -8,4 +8,13 @@ fetch("/Componentes/navbar.html")
   })
   .catch(error => console.error("Error cargando navbar:", error));
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+});
+
 
