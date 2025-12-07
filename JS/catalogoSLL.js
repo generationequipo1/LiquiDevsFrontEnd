@@ -59,62 +59,85 @@ const productosPredefinidos = [{
 ]
 
 localStorage.setItem("productos-predefinidos", JSON.stringify(productosPredefinidos));
+
 document.addEventListener('DOMContentLoaded', function () {
-
-    const tarjetaCatalogo = document.getElementsByClassName("tarjeta-producto");
-
-    const productos = JSON.parse(localStorage.getItem("productos"));
-    console.log(productos);
-
-    crearTarjetasCatalogoFijo();
-
+    crearTarjetasCatalogoFijo(productosPredefinidos);
 });
 
+function crearTarjetasCatalogoFijo(listaProductos) {
 
+    const containerCatalogo = document.getElementById("container-cards-fijas");
+    containerCatalogo.innerHTML = "";
 
+    for (const producto of listaProductos) {
 
-
-function crearTarjetasCatalogoFijo() {
-
-
-
-    for (const producto of productosPredefinidos) {
-        const containerCatalogo = document.getElementById("container-cards-fijas")
-        //Colocar un for para crear en masa
-        // contenedor Tarjeta de productos
         const tarjetaProducto = document.createElement("div");
         tarjetaProducto.classList.add("tarjeta-producto");
 
-        //Imagen
         const imagen = document.createElement("img");
         imagen.src = producto.imagen;
         imagen.alt = producto.nombre;
-        //Contenedor texto
+
         const contenedorTexto = document.createElement("div");
         contenedorTexto.classList.add("texto-tarjeta");
-        //contenido texto
+
         const titulo = document.createElement("h3");
         titulo.classList.add("titulo-tarjeta");
         titulo.textContent = producto.nombre;
+
         const categoria = document.createElement("p");
-        categoria.classList.add("categoria")
+        categoria.classList.add("categoria");
         categoria.textContent = producto.categoria;
+
         const sabores = document.createElement("p");
-        sabores.classList.add("sabores")
+        sabores.classList.add("sabores");
         sabores.textContent = producto.sabores;
+
         const precio = document.createElement("p");
-        precio.classList.add("precio")
+        precio.classList.add("precio");
         precio.textContent = `$${producto.precio.toLocaleString("es-CO")}`;
+
         const boton = document.createElement("button");
         boton.classList.add("boton");
-        boton.textContent = "Lo quiero!"
+        boton.textContent = "Lo quiero!";
 
-        //agregar informacion a contenedor de texto
         contenedorTexto.append(titulo, categoria, sabores, precio, boton);
-        //Agregar elementos a contenedor tarjeta producto
         tarjetaProducto.append(imagen, contenedorTexto);
-        //Agregar tarjeta a container de tarjetas
         containerCatalogo.appendChild(tarjetaProducto);
     }
-
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    crearTarjetasCatalogoFijo(productosPredefinidos);
+
+    const btnEmociones = document.getElementById("btn-emociones");
+    const btnTodo = document.getElementById("btn-todo");
+    const boxEmociones = document.getElementById("box-emociones");
+    const botonesEmocion = document.querySelectorAll(".btn-emocion");
+
+    // para mostrar o desplegar emociones
+    btnEmociones.addEventListener("click", () => {
+        boxEmociones.style.display =
+            boxEmociones.style.display === "none" ? "block" : "none";
+    });
+
+    // para desplegar todos los productos
+    btnTodo.addEventListener("click", () => {
+        boxEmociones.style.display = "none";
+        crearTarjetasCatalogoFijo(productosPredefinidos);
+    });
+
+    // filtro apra poder seleccionar por emoción
+    botonesEmocion.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const emocionSeleccionada = boton.dataset.emocion;
+
+            const productosFiltrados = productosPredefinidos.filter(producto =>
+                producto.emocion === emocionSeleccionada
+            );
+
+            crearTarjetasCatalogoFijo(productosFiltrados);
+        });
+    });
+
+});

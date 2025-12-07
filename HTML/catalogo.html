@@ -34,17 +34,24 @@
     <section class="filtro-seccion">
         <div class="filtro-contenedor">
 
-            <div class="filtros-principales">
-                <button class="tab-btn" type="button" data-tab="sabores">Según el sabor</button>
-            </div>
-            <div class="contenedor-boton-emociones">
-                <button class="tab-btn" type="button" data-tab="emociones">Según el estado de ánimo</button>
-            </div>
-            <div class="contenedor-boton-mostrar-todo">
-                <button class="tab-btn" type="button" data-tab="todo">Mostrar todo</button>
-            </div>
+            <button class="tab-btn" id="btn-sabores">Según el sabor</button>
+            <button class="tab-btn" id="btn-emociones">Según el estado de ánimo</button>
+            <button class="tab-btn" id="btn-todo">Mostrar todo</button>
+
         </div>
-        <!--
+
+        
+        <div class="contenedor-emociones mt-3 text-center" id="box-emociones" style="display: none;">
+
+            <button class="btn-emocion" data-emocion="feliz">😊 Feliz</button>
+            <button class="btn-emocion" data-emocion="relajado">😌 Relajado</button>
+            <button class="btn-emocion" data-emocion="intenso">🔥 Intenso</button>
+            <button class="btn-emocion" data-emocion="melancolico">🌧 Melancólico</button>
+
+        </div>
+
+    </section>
+    <!--
         <div class="contenedor-mostrar-opciones">
 
             <button></button>
@@ -83,7 +90,6 @@
     <section>
         <div class="carrusel">
             <div class="grupo">
-                <!-- Los productos se cargarán dinámicamente desde localStorage -->
             </div>
 
         </div>
