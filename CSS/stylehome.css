@@ -114,13 +114,14 @@
 }
 
 .estado-animo-banner {
-  background-image: url("../Assets/");
-  background-size: cover;
+  background-image: url("../Assets/banner/banner-animo.png"); 
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: 200% 100%; 
 }
 
 .promo-banner {
-  background-image: url("../Assets/");
+  background-image: url("../Assets/home/ice-cream2-banner-home.png");
   background-size: cover;
   background-position: center;
 }
