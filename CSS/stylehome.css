@@ -112,3 +112,15 @@
         width: 240px;
     }
 }
+
+.estado-animo-banner {
+  background-image: url("../Assets/");
+  background-size: cover;
+  background-position: center;
+}
+
+.promo-banner {
+  background-image: url("../Assets/");
+  background-size: cover;
+  background-position: center;
+}

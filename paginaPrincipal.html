@@ -11,6 +11,8 @@
     <title>Sobre Nosotros</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -18,15 +20,83 @@
         <div id="navbar-placeholder"></div>
     </header>
     <main>
-        <section class="banner-home">
+        <section class="banner-home-carousel">
 
-            <div class="banner-contenido-overlay">
-                <p class="lema-banner">Helados con<br>código de sabor</p>
-                <a href="HTML/catalogo.html" class="btn-compra-animado">Compra tu sabor favorito</a>
+            <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"
+                data-bs-pause="hover">
+
+
+                <div class="carousel-inner">
+
+                    <!-- 1 slide inical -->
+                    <div class="carousel-item active">
+                        <div class="banner-home">
+
+                            <div class="banner-contenido-overlay">
+                                <p class="lema-banner">Helados con<br>código de sabor</p>
+                                <a href="HTML/catalogo.html" class="btn-compra-animado">
+                                    Compra tu sabor favorito
+                                </a>
+                            </div>
+
+                            <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
+
+                        </div>
+                    </div>
+
+                    <!-- 2 slide(para animo)= -->
+                    <div class="carousel-item">
+                        <div class="banner-home estado-animo-banner">
+
+                            <div class="banner-contenido-overlay">
+                                <p class="lema-banner">¿No sabes qué elegir?</p>
+                                <a href="HTML/estado_animo.html" class="btn-compra-animado">
+                                    Dinos cómo te sientes 💭
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 3 slide promo -->
+                    <div class="carousel-item">
+                        <div class="banner-home promo-banner">
+
+                            <div class="banner-contenido-overlay">
+                                <p class="lema-banner">Los más vendidos</p>
+                                <a href="HTML/catalogo.html" class="btn-compra-animado">
+                                    Ver productos 🔥
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
-            <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-
         </section>
+
+        <section class="home-animo container mt-5 text-center">
+            <h2>¿Cómo te sientes hoy?</h2>
+            <p>Nosotros te recomendamos el sabor perfecto</p>
+
+            <div class="d-flex justify-content-center gap-4 mt-3 flex-wrap">
+                <a href="HTML/catalogo.html" class="btn btn-warning">Feliz</a>
+                <a href="HTML/catalogo.html" class="btn btn-primary">Triste</a>
+                <a href="HTML/catalogo.html" class="btn btn-danger">Enojado</a>
+                <a href="HTML/catalogo.html" class="btn btn-success">Amargado</a>
+            </div>
+        </section>
+
 
 
 
@@ -35,9 +105,9 @@
 
     <div id="footer"></div>
 
-  <script src="../JS/paginaPrincipal.js"></script>
-  <script src="/Componentes/navbarInclude.js"></script>
-  <script src="../Componentes/cargarfooter.js"></script>
+    <script src="../JS/paginaPrincipal.js"></script>
+    <script src="/Componentes/navbarInclude.js"></script>
+    <script src="../Componentes/cargarfooter.js"></script>
 
 </body>
 
