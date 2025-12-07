@@ -1,83 +1,90 @@
 
 //boton_borrar.addEventListener('click',mostrarOpciones);
-const productosPredefinidos =[{
+const productosPredefinidos = [{
     imagen: "../Assets/Helados/copa_copa_de_helado_fresa.png",
     nombre: "Copa de Helado",
-    categoria:"Copa",
+    categoria: "Copa",
     sabores: "Fresa",
+    emocion: "feliz",
     precio: 19000
-},{
+}, {
     imagen: "../Assets/Helados/cono_de_crema_choc_vain.png",
     nombre: "Helado de crema",
-    categoria:"Helado",
+    categoria: "Helado",
     sabores: "chocolate - Vainilla",
+    emocion: "relajado",
     precio: 8000
 },
 {
     imagen: "../Assets/Helados/helado_de_limon.png",
     nombre: "Helado de Limon",
-    categoria:"Helado",
+    categoria: "Helado",
     sabores: "Limon",
+    emocion: "intenso",
     precio: 36000
 },
 {
     imagen: "../Assets/Helados/waffle_y_helado.png",
     nombre: "Waffle helado",
-    categoria:"Waffle",
+    categoria: "Waffle",
     sabores: "vainilla con M&M",
+    emocion: "feliz",
     precio: 17000
 },
 {
     imagen: "../Assets/Helados/helado_knickerbocker.png",
     nombre: "Helado Knickerbocker",
-    categoria:"Helado",
+    categoria: "Helado",
     sabores: "Chocolate - Fresas - M&M - Galletas",
+    emocion: "melancolico",
     precio: 21000
 },
 {
     imagen: "../Assets/Helados/cono_fresa.png",
     nombre: "Helado de Crema",
-    categoria:"Helado",
+    categoria: "Helado",
     sabores: "Fresa",
+    emocion: "feliz",
     precio: 8000
 },
 {
     imagen: "../Assets/Helados/copa_helado_fresa_maracuya_limon.png",
     nombre: "Copa de Helado",
-    categoria:"Copa",
+    categoria: "Copa",
     sabores: "Limon - Maracuya - Fresa",
+    emocion: "relajado",
     precio: 16000
 },
 
 ]
 
-localStorage.setItem("productos-predefinidos",JSON.stringify(productosPredefinidos));
-document.addEventListener('DOMContentLoaded', function(){
-    
+localStorage.setItem("productos-predefinidos", JSON.stringify(productosPredefinidos));
+document.addEventListener('DOMContentLoaded', function () {
+
     const tarjetaCatalogo = document.getElementsByClassName("tarjeta-producto");
 
     const productos = JSON.parse(localStorage.getItem("productos"));
     console.log(productos);
 
     crearTarjetasCatalogoFijo();
-    
+
 });
 
 
 
 
 
-function crearTarjetasCatalogoFijo(){
+function crearTarjetasCatalogoFijo() {
 
-    
 
-    for(const producto of productosPredefinidos){
+
+    for (const producto of productosPredefinidos) {
         const containerCatalogo = document.getElementById("container-cards-fijas")
         //Colocar un for para crear en masa
         // contenedor Tarjeta de productos
         const tarjetaProducto = document.createElement("div");
         tarjetaProducto.classList.add("tarjeta-producto");
-        
+
         //Imagen
         const imagen = document.createElement("img");
         imagen.src = producto.imagen;
@@ -102,10 +109,10 @@ function crearTarjetasCatalogoFijo(){
         boton.classList.add("boton");
         boton.textContent = "Lo quiero!"
 
-         //agregar informacion a contenedor de texto
-        contenedorTexto.append(titulo,categoria,sabores,precio,boton);
+        //agregar informacion a contenedor de texto
+        contenedorTexto.append(titulo, categoria, sabores, precio, boton);
         //Agregar elementos a contenedor tarjeta producto
-        tarjetaProducto.append(imagen,contenedorTexto);
+        tarjetaProducto.append(imagen, contenedorTexto);
         //Agregar tarjeta a container de tarjetas
         containerCatalogo.appendChild(tarjetaProducto);
     }
