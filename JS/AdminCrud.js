@@ -10,12 +10,25 @@ const categoryInput = document.getElementById("productCategory");
 const descInput = document.getElementById("productDescription");
 const imgInput = document.getElementById("productImageInput");
 const imgPreview = document.getElementById("productImagePreview");
+const crearProductoSeccion = document.querySelector(".noActive");
+const botonActivarSeccionCrear = document.getElementById("boton-crear-producto");
+
 
 // Tabla donde van los productos
 const tabla = document.querySelector("tbody");
 
 /*CARGAR INVENTARIO AL INICIAR*/
 document.addEventListener("DOMContentLoaded", cargarInventario);
+
+//Cree el evento para que al hacer click aparezca la seccion de crear producto
+botonActivarSeccionCrear.addEventListener('click',mostrarSeccionAgregarProducto);
+//Funcion que muestra o oculta la seccion de crear productos
+function mostrarSeccionAgregarProducto(){
+console.log("click detectado");
+crearProductoSeccion.classList.toggle("noActive");
+crearProductoSeccion.classList.toggle("container","py-5");
+} 
+
 
 /*FUNCIÓN: PREVISUALIZAR IMAGEN*/
 function previewProductImage(event) {
@@ -78,23 +91,15 @@ function cargarInventario() {
                 tabla.appendChild(row);
     });
 }
-
-
-
-
-
 /*FUNCIÓN: ELIMINAR PRODUCTO */
 function eliminarProducto(index) {
     productos.splice(index, 1);
     localStorage.setItem("productos", JSON.stringify(productos));
     cargarInventario();
 }
-
 //eliminar productos de la lista usando checkbox
-
 const boton_borrar = document.getElementById("boton-eliminar-producto");
 boton_borrar.addEventListener('click', borrar_elemento);
-
 
 function borrar_elemento(){
     //Se deja por dentro de la funcion porque la busqueda del querySelector se debe ejecutar solamente cuando cuando se hace click

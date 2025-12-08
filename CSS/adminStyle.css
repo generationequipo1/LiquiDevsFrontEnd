@@ -8,7 +8,9 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
+.noActive{
+  display: none;
+}
 
 
 #container-busqueda {
@@ -16,12 +18,17 @@
   display: flex;
   flex-flow: row;
   gap: 10px;
-  border: 1px solid black;
+  
+  align-items: center;
+  
+  padding-right: 8px;
 
 }
 
 #form-busqueda {
+  display: flex;
   height: 40px;
+  align-items: center;
 }
 
 #form-busqueda input {
@@ -34,14 +41,14 @@
 
 .boton-crud {
   height: 40px;
-  margin-left: 10px;
-  margin-right: 10px;
-  
+    
 }
-#boton-eliminar-producto{
-  background-color:#4b9fff;
-  text-align: end;
+/*Este corre solamente los botones a la derecha*/
+#boton-crear-producto {
+  margin-left: auto; 
 }
+
+
 
 /* ----- CRUD de productos ----- */
 
