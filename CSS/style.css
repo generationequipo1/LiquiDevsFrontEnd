@@ -921,3 +921,51 @@ amarillo #E5E56A
   color: #fa4b4b;           
   margin-top: 0.3em;
 }
+
+/* ===========================
+    Stilos del carrito sidebar */
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: #f7f7f7;
+  border-left: 1px solid #ddd;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.cart-sidebar h2 {
+  margin-top: 0;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .75rem;
+  font-size: 0.9rem;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-actions button {
+  margin-left: .25rem;
+}
+
+.cart-summary {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
