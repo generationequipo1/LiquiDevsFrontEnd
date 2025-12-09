@@ -28,8 +28,6 @@ console.log("click detectado");
 crearProductoSeccion.classList.toggle("noActive");
 crearProductoSeccion.classList.toggle("container","py-5");
 } 
-
-
 /*FUNCIÓN: PREVISUALIZAR IMAGEN*/
 function previewProductImage(event) {
     const file = event.target.files[0];
@@ -97,13 +95,18 @@ function eliminarProducto(index) {
     localStorage.setItem("productos", JSON.stringify(productos));
     cargarInventario();
 }
+//Contar elementos en checked
+
+
 //eliminar productos de la lista usando checkbox
 const boton_borrar = document.getElementById("boton-eliminar-producto");
 boton_borrar.addEventListener('click', borrar_elemento);
 
 function borrar_elemento(){
+
     //Se deja por dentro de la funcion porque la busqueda del querySelector se debe ejecutar solamente cuando cuando se hace click
     const elemento_seleccionado = document.querySelectorAll('input[type="checkbox"]:checked');
+    
     //Validacion del NodeList por console para hacer seguimiento del comportamiento
     console.log(elemento_seleccionado);
     if(elemento_seleccionado === 0){
