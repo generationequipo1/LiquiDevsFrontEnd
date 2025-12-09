@@ -1,5 +1,6 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,7 @@
     <header>
         <div id="navbar-placeholder"></div>
     </header>
-    
+
     <section class="seccion-contacto">
         <div class="contacto-form">
             <h2>Contáctanos</h2>
@@ -42,14 +43,14 @@
                 📍 Calle Byte #1234 <br>
                 Bogotá, Colombia
             </p>
-            
+
         </div>
 
-    </section>  
+    </section>
 
     <section class="FAQs">
-            <button  type="button" class="btn-faq-toggle" id="btn-toggle">Preguntas Frecuentes</button>
-          <div class="faq-box" id="faq-div">
+        <button type="button" class="btn-faq-toggle" id="btn-toggle">Preguntas Frecuentes</button>
+        <div class="faq-box" id="faq-div">
             <h2>Preguntas Frecuentes</h2>
 
             <div class="faq-item">
@@ -76,11 +77,27 @@
 
 
     </section>
-  <div id="footer"></div>
 
-  <script src="../JS/acerca_de_nosotros.js"></script>
-  <script src="/Componentes/navbarInclude.js"></script>
-  <script src="../Componentes/cargarfooter.js"></script>
+    <!-- Sidebar Carrito -->
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <h2>Carrito</h2>
+        <ul id="cart-items"></ul>
+
+        <div class="cart-summary">
+            <p>Items: <span id="cart-count">0</span></p>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button id="cart-clear">Vaciar carrito</button>
+            <button id="cart-checkout">Finalizar compra</button>
+        </div>
+    </aside>
+
+
+
+    <div id="footer"></div>
+
+    <script src="../JS/acerca_de_nosotros.js"></script>
+    <script src="/Componentes/navbarInclude.js"></script>
+    <script src="../Componentes/cargarfooter.js"></script>
 </body>
 
 </html>
