@@ -118,7 +118,7 @@ function borrar_elemento(){
     }
 }
 
-// ===============================
+// ==============================
 // FUNCIÓN: EDITAR PRODUCTO (REDIRIGE)
 // ===============================
 /*FUNCIÓN: EDITAR PRODUCTO */
