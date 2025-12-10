@@ -95,11 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-<<<<<<< HEAD
-   crearTarjetasCatalogoFijo();
-    
-=======
->>>>>>> 16647292ce5fa37504c6d5828a623f4873df724c
 });
 
 
