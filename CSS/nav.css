@@ -1,0 +1,145 @@
+/* --- NAVBAR GENERAL --- */
+.nav-custom {
+    width: 100%;
+    background: white;
+    padding: 15px 0;
+    border-bottom: 2px solid #f3d2e8;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.nav-container {
+    width: 100%;       
+    margin: 0;       
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;  
+}
+
+
+
+.logo img {
+    height: 55px;
+    object-fit: contain;
+}
+
+
+.right-elements-container {
+    display: flex; 
+    align-items: center;
+    gap: 30px; 
+}
+
+
+/* MENÚ */
+.menu {
+    display: flex; 
+    list-style: none;
+    gap: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    color: #444;
+    padding: 6px 0;
+    transition: .2s;
+}
+
+.menu li a:hover {
+    color: #d6287a;
+}
+
+
+.icons {
+    display: flex; 
+    align-items: center;
+    gap: 18px; 
+}
+
+/* CTA - botón Comprar */
+.btn-shop {
+    background: #e91e63;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-shop:hover {
+    background: #c2185b;
+}
+
+/* Íconos */
+.icons i {
+    font-size: 22px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.icons i:hover {
+    color: #e91e63;
+}
+
+/* Carrito */
+.btn-cart {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* menu en movil*/
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        display: flex; 
+        justify-content: space-between;
+    }
+    
+   
+    .right-elements-container {
+        justify-content: flex-end; 
+    }
+
+
+    .menu {
+        display: none; 
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: white;
+        width: 70%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+        border-radius: 12px 0 0 12px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    }
+
+    .menu.active {
+        display: flex; 
+    }
+
+    .menu-toggle {
+        display: block !important; 
+        font-size: 32px;
+    }
+
+    .btn-shop {
+        display: none; 
+    }
+}
