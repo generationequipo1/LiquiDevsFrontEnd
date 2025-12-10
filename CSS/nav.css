@@ -9,16 +9,16 @@
     z-index: 1000;
 }
 
+
 .nav-container {
-    max-width: 1250px;
-    margin: auto;
-
-    display: flex; 
-    justify-content: space-between; 
+    width: 100%;       
+    margin: 0;       
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    padding: 0 40px;
+    padding: 0 60px;  
 }
+
 
 
 .logo img {
@@ -30,7 +30,7 @@
 .right-elements-container {
     display: flex; 
     align-items: center;
-    gap: 40px; 
+    gap: 30px; 
 }
 
 
