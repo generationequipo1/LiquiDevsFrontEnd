@@ -1,142 +1,114 @@
-// ============================
-//   CARRITO CON LOCALSTORAGE
+// Estado del carrito
+let cart = [];
 
+// Referencias al DOM
+const cartItemsEl   = document.getElementById('cart-items');
+const cartCountEl   = document.getElementById('cart-count');
+const cartTotalEl   = document.getElementById('cart-total');
+const cartClearBtn  = document.getElementById('cart-clear');
+const cartCheckoutBtn = document.getElementById('cart-checkout');
 
-// Cargar carrito desde LocalStorage o inicializar vacío, traemos
-// del almacenamiento local del navegador el valor guardado bajo la clave cart :)
-//despues de convertir la cadena en un objeto Json utilizamos el operador logico ||
-// si el valor es null lo inicia como un arreglo
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// 1. Escuchar clicks en todos los botones "Agregar al carrito"
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn-agregar')) {
+    const btn = e.target;
+    const id      = btn.dataset.id;
+    const nombre  = btn.dataset.nombre;
+    const precio  = parseFloat(btn.dataset.precio);
 
-// ---- ACtualizamos el Contador ----
-function ActualizarCarrito() {
-    let totalProductos = 0;
-    cart.forEach(item => totalProductos += item.quantity)
-    document.getElementById("cart-count").textContent = totalProductos;
-    document.getElementById("cart-items-count").textContent = totalProductos;
-}
-ActualizarCarrito();
+    agregarAlCarrito({ id, nombre, precio });
+  }
 
-// ---- AGREGAR PRODUCTO ---- el querySelectorAll nos permite seleccionar varios elementos del DOM
-document.querySelectorAll(".add-cart-btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-        //buscar si esta 
-        let nuevoProductoId = parseInt(btn.dataset.id)
-        const itemIndex = cart.findIndex(item => Number(item.id) === nuevoProductoId); 
-        if (itemIndex > -1) { 
-            modificarCantidad(nuevoProductoId, true)
-        } else {
-            const product = {
-            id: btn.dataset.id,
-            name: btn.dataset.name,
-            price: btn.dataset.price,
-            img: btn.dataset.img,
-            quantity: 1
-        };
+  if (e.target.classList.contains('btn-eliminar-item')) {
+    const id = e.target.dataset.id;
+    eliminarDelCarrito(id);
+  }
 
-        cart.push(product);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        actualizarTodo();
-        }
-    });
+  if (e.target.classList.contains('btn-mas')) {
+    const id = e.target.dataset.id;
+    cambiarCantidad(id, 1);
+  }
+
+  if (e.target.classList.contains('btn-menos')) {
+    const id = e.target.dataset.id;
+    cambiarCantidad(id, -1);
+  }
 });
 
-function modificarCantidad(id, proceso) {
-    console.log(typeof id); //Numero
-    const itemIndex = cart.findIndex(item => Number(item.id) === id);
-    
-    if (itemIndex > -1) {
-        if(proceso) {
-            cart[itemIndex].price = cart[itemIndex].price * (cart[itemIndex].quantity + 1); 
-            cart[itemIndex].quantity += 1;
-        }
-        else {
-            cart[itemIndex].price = cart[itemIndex].price * (cart[itemIndex].quantity - 1); 
-            cart[itemIndex].quantity -= 1;
-        }
-        console.log(proceso === "eliminar");
-        
-        if(cart[itemIndex].quantity == 0 || proceso === "eliminar") {
-            cart = cart.filter(item => Number(item.id) !== id);
-        }
-        actualizarTodo()  
+// 2. Funciones de lógica
+function agregarAlCarrito(producto) {
+  const itemExistente = cart.find(item => item.id === producto.id);
+
+  if (itemExistente) {
+    itemExistente.cantidad += 1;
+  } else {
+    cart.push({ ...producto, cantidad: 1 });
+  }
+
+  renderCarrito();
+}
+
+function eliminarDelCarrito(id) {
+  cart = cart.filter(item => item.id !== id);
+  renderCarrito();
+}
+
+function cambiarCantidad(id, delta) {
+  cart = cart.map(item => {
+    if (item.id === id) {
+      const nuevaCantidad = item.cantidad + delta;
+      return { ...item, cantidad: nuevaCantidad < 1 ? 1 : nuevaCantidad };
     }
-    
-}
-function actualizarTodo() {
-    actualizarLocalStorage();
-    ActualizarCarrito();
-    MostrarCarrito();
-    ActualizarTotalCarrito()
+    return item;
+  });
+  renderCarrito();
 }
 
-function actualizarLocalStorage() {
-    const cartJSON = JSON.stringify(cart);
-    localStorage.setItem('cart', cartJSON);
-    console.log(cart);
-    
+function vaciarCarrito() {
+  cart = [];
+  renderCarrito();
 }
 
-// ---- MOSTRAR CARRITO EN EL SIDEBAR ----
-function MostrarCarrito() {
-    const container = document.getElementById("cart-items");
-    container.innerHTML = "";
+// 3. Render del carrito en el sidebar
+function renderCarrito() {
+  cartItemsEl.innerHTML = '';
 
-    cart.forEach(item => {
-        container.innerHTML += `
-            <div class="card rounded-4 border border-white mb-2 bg-dark text-light" style="max-width: 540px;">
-                <div class="card-body p-2">
-                    <div class="d-flex align-items-center">
-                    <div class="me-3">
-                        <i class="bi bi-trash3 text-center d-flex mb-2" onClick="modificarCantidad(${item.id}, 'eliminar')" ></i>
-                        <div class="border border-white rounded-4" style="width: 60px; height: 60px;">
-                            <img src="${item.img}">
-                        </div>
-                    </div>
+  let total = 0;
+  let count = 0;
 
-                    <div class="flex-grow-1">
-                        <h5 class="card-title mb-0 fw-normal">${item.name}</h5>
-                        <p class="card-text mb-0">
-                        <small class="text-secondary fw-bold">En stock</small>
-                        </p>
-                        <p class="card-text fw-bold fs-5">$ ${item.price} </p>
-                    </div>
+  cart.forEach(item => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    count += item.cantidad;
 
-                    <div class="d-flex flex-column align-items-end justify-content-between" style="height: 80px;">
-                        <i class="bi bi-heart-fill"></i>
-                        <div class="d-flex align-items-center gap-2">
-                        <button onClick="modificarCantidad(${item.id}, ${true})" class="btn btn-outline-light btn-sm p-0 rounded-2 d-flex justify-content-center align-items-center" style="width: 25px; height: 25px;">+</button>
-                        <span class="fw-bold">${item.quantity || 0}</span>
-                        <button onClick="modificarCantidad(${item.id}, ${false})" class="btn btn-outline-light btn-sm p-0 rounded-2 d-flex justify-content-center align-items-center" style="width: 25px; height: 25px;">-</button>
-                        </div>
-                    </div>
+    const li = document.createElement('li');
+    li.classList.add('cart-item');
+    li.innerHTML = `
+      <div class="cart-item-details">
+        <strong>${item.nombre}</strong><br>
+        $${item.precio.toFixed(2)} x ${item.cantidad} = $${subtotal.toFixed(2)}
+      </div>
+      <div class="cart-item-actions">
+        <button class="btn-menos" data-id="${item.id}">-</button>
+        <button class="btn-mas" data-id="${item.id}">+</button>
+        <button class="btn-eliminar-item" data-id="${item.id}">X</button>
+      </div>
+    `;
+    cartItemsEl.appendChild(li);
+  });
 
-                    </div>
-                </div>
-            </div>
-        `;
-    });
+  cartCountEl.textContent = count;
+  cartTotalEl.textContent = total.toFixed(2);
 }
-MostrarCarrito();
 
-/* -- Actualizar el total del carrito */
-function ActualizarTotalCarrito() {
-    let totalCheck = document.getElementById("cart-total-check");
-    totalCheck.textContent = ""
-    let total = 0;
-    cart.forEach(item => {
-        total += parseInt(item.price)
-    });
-    totalCheck.textContent = total;
+// 4. Botones generales
+cartClearBtn.addEventListener('click', vaciarCarrito);
 
-}
-ActualizarTotalCarrito();
-
-// ---- ABRIR Y CERRAR SIDEBAR ----
-document.getElementById("btn-cart").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.add("open");
-});
-
-document.getElementById("close-sidebar").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.remove("open");
+cartCheckoutBtn.addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Tu carrito está vacío');
+    return;
+  }
+  alert('Simulación de pago realizada. Gracias por tu compra.');
+  vaciarCarrito();
 });

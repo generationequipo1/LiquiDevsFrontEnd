@@ -1,20 +1,14 @@
-// js/includes.js
+fetch("../Componentes/navbar.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("navbar-placeholder").innerHTML = html;
 
-// Cargar navbar
-fetch("/Componentes/navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar-placeholder").innerHTML = data;
-  })
-  .catch(error => console.error("Error cargando navbar:", error));
-
-  document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
-
-    toggle.addEventListener("click", () => {
+    
+    if (toggle && menu) {
+      toggle.addEventListener("click", () => {
         menu.classList.toggle("active");
-    });
-});
-
-
+      });
+    }
+  });

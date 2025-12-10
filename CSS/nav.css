@@ -1,84 +1,134 @@
-/* NAV PERSONALIZADO */
+/* --- NAVBAR GENERAL --- */
 .nav-custom {
+    width: 100%;
     background: white;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-    position: relative;
-    z-index: 999;
+    padding: 15px 0;
+    border-bottom: 2px solid #f3d2e8; /* línea suave como Figma */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* CONTENEDOR */
+/* Contenedor  */
 .nav-container {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: auto;
-    display: flex;
-    justify-content: space-between;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+
+    padding: 0 40px;
 }
 
-/* LOGO */
+/* Logo */
 .logo img {
-    height: 50px;
+    height: 55px;
+    object-fit: contain;
 }
 
-/* MENÚ */
+
+/* MENÚ  */
 .menu {
-    list-style: none;
     display: flex;
-    gap: 25px;
+    justify-content: center;
+    list-style: none;
+    gap: 35px;
+    padding: 0;
+    margin: 0;
 }
 
 .menu li a {
     text-decoration: none;
-    color: #444;
+    font-family: "Nunito", sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    color: #444;
+    padding: 6px 0;
+    transition: .2s;
 }
 
-/* ICONOS */
+.menu li a:hover {
+    color: #d6287a; /* rosado figma */
+}
+
+/* ICONOS  */
 .icons {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
 }
 
+/* CTA - botón Comprar */
+.btn-shop {
+    background: #e91e63;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-shop:hover {
+    background: #c2185b;
+}
+
+/* ÍCONOS */
 .icons i {
-    font-size: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.icons i:hover {
+    color: #e91e63;
+}
+
+/* Carrito */
+.btn-cart {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-/* HAMBURGUESA OCULTA EN DESKTOP */
+/* --- MOBILE --- */
 .menu-toggle {
     display: none;
-    font-size: 28px;
 }
 
-/* ----------- RESPONSIVE ----------- */
 @media (max-width: 768px) {
 
-    /* Menú móvil oculto */
     .menu {
+        display: none;
         position: absolute;
-        top: 75px;
+        top: 80px;
         right: 0;
         background: white;
-        flex-direction: column;
         width: 70%;
-        padding: 25px;
+        flex-direction: column;
         gap: 20px;
-        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-        transform: translateX(100%);
-        transition: 0.3s;
+        padding: 25px;
+        border-radius: 12px 0 0 12px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    }
+
+    .menu.active {
         display: flex;
     }
 
-    /* Menú visible cuando se activa */
-    .menu.active {
-        transform: translateX(0);
+    .menu-toggle {
+        display: block !important;
+        font-size: 32px;
     }
 
-    /* Mostrar hamburguesa */
-    .menu-toggle {
-        display: block;
+    .nav-container {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .btn-shop {
+        display: none; /* oculto en móvil */
     }
 }
