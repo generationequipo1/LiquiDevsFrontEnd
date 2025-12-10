@@ -3,35 +3,40 @@
     width: 100%;
     background: white;
     padding: 15px 0;
-    border-bottom: 2px solid #f3d2e8; /* línea suave como Figma */
+    border-bottom: 2px solid #f3d2e8;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Contenedor  */
 .nav-container {
     max-width: 1250px;
     margin: auto;
 
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
 
     padding: 0 40px;
 }
 
-/* Logo */
+
 .logo img {
     height: 55px;
     object-fit: contain;
 }
 
 
-/* MENÚ  */
+.right-elements-container {
+    display: flex; 
+    align-items: center;
+    gap: 40px; 
+}
+
+
+/* MENÚ */
 .menu {
-    display: flex;
-    justify-content: center;
+    display: flex; 
     list-style: none;
     gap: 35px;
     padding: 0;
@@ -48,15 +53,14 @@
 }
 
 .menu li a:hover {
-    color: #d6287a; /* rosado figma */
+    color: #d6287a;
 }
 
-/* ICONOS  */
+
 .icons {
-    display: flex;
-    justify-content: flex-end;
+    display: flex; 
     align-items: center;
-    gap: 18px;
+    gap: 18px; 
 }
 
 /* CTA - botón Comprar */
@@ -74,7 +78,7 @@
     background: #c2185b;
 }
 
-/* ÍCONOS */
+/* Íconos */
 .icons i {
     font-size: 22px;
     cursor: pointer;
@@ -94,15 +98,26 @@
     cursor: pointer;
 }
 
-/* --- MOBILE --- */
+/* menu en movil*/
 .menu-toggle {
     display: none;
 }
 
 @media (max-width: 768px) {
 
+    .nav-container {
+        display: flex; 
+        justify-content: space-between;
+    }
+    
+   
+    .right-elements-container {
+        justify-content: flex-end; 
+    }
+
+
     .menu {
-        display: none;
+        display: none; 
         position: absolute;
         top: 80px;
         right: 0;
@@ -116,19 +131,15 @@
     }
 
     .menu.active {
-        display: flex;
+        display: flex; 
     }
 
     .menu-toggle {
-        display: block !important;
+        display: block !important; 
         font-size: 32px;
     }
 
-    .nav-container {
-        grid-template-columns: auto 1fr auto;
-    }
-
     .btn-shop {
-        display: none; /* oculto en móvil */
+        display: none; 
     }
 }
