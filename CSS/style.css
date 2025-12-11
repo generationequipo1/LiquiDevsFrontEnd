@@ -21,55 +21,6 @@ body, p, span, li, a, .texto {
     font-family: "Nunito", sans-serif;
 }
 
-.nav-css{
-    background-color: transparent;
-}
-.navbar {
-    background: white;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.logo img {
-    height: 45px;
-}
-
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: #444;
-    font-size: 15px;
-}
-
-/* Iconos del nav bar */
-.icons i {
-    font-size: 20px;
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-/* responsiva */
-@media (max-width: 768px) {
-    .menu {
-        display: none;
-    }
-}
-
 
 
 /* Sección sobre nosotros */
@@ -154,6 +105,7 @@ body, p, span, li, a, .texto {
 
 /* cards equipo */
 
+
 .contenedor-cards2 {
   display: flex;
   gap: 1.5rem;
@@ -179,7 +131,7 @@ body, p, span, li, a, .texto {
 }
 
 .card2 img {
-  width: 70%;
+  width: 95%;
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
@@ -200,12 +152,8 @@ body, p, span, li, a, .texto {
   color: #555;
   font-size: 0.95rem;
 }
-.titulo {
-  text-align: center;
-  font-size: 2rem;        
-  color: #4da6ff;         
-  font-weight: 600;
-}
+
+
 
 
 /* footer */
@@ -655,46 +603,55 @@ amarillo #E5E56A
     margin-top: 10px;
 }
 /*Aca queda el estilo de los botones que filtran*/
-.filtro-seccion{
+.filtro-seccion {
     width: 100%;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
-    padding: 1%;
-    
-    
+    padding: 30px 0;
 }
-.filtro-contenedor{
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    
-    
-    
-}
-.filtros-principales, .contenedor-boton-emociones, .contenedor-boton-mostrar-todo{
-    width: 25%;
-    padding: 1%;
-    text-align: center;
-}   
 
-
-.filtro-contenedor button{
+.filtro-contenedor {
     width: 100%;
-    min-height: 40px;
-    background-color: #E5E56A;
-    border-radius: 20px;
-    border: 2px solid #E5E56A;
-    color: #bf155c;
-    font-weight: bold;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
 
+
+.filtros-principales,
+.contenedor-boton-emociones,
+.contenedor-boton-mostrar-todo {
+    width: 100%;
+}
+
+
+.filtro-contenedor button {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #FFE6C9;
+    border: 2px solid #ffd5a5;
+    border-radius: 30px;
+
+    color: #bf155c;
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
 .filtro-contenedor button:hover {
-    box-shadow: 0 0 10px #E5E56A;
-    
-    min-height: 41px;
+    background-color: #ffddb7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.filtro-contenedor button:active {
+    transform: scale(0.97);
 }
 
 /*Este es el estilo para mostrar las opciones de filtrado*/
@@ -799,50 +756,22 @@ verde #5FDAB8
 amarillo #E5E56A
  */
 
- /*Stile del carrrusel*/
- /*
- .carrusel{
-    width: 90%;
-    height: auto;
-    min-width: 320px;
-    
-    justify-content:center;
-    background-color: #0000001e;
-    backdrop-filter:blur(30px);
-    border-radius: 20px;
-    padding: 1%;
-    
-    margin: 10px auto;
- }
- .grupo{
-    display: flex;
-    justify-content: space-around;
-    
- }
-
-.grupo .card{
-    margin:30px;
-    border-radius: 15px;
-    overflow: hidden;
- } 
-.grupo .card img{
-    min-width: 350px;
-    
- } 
-    */
-    .carrusel2 {
+ /*Aqui el estilo del carrrusel*/
+ 
+ .carrusel2 {
   margin: 100px auto;
-  width: 90%;
+  width: 100%;
   display: flex;
-  overflow-x: auto;
-  gap: 1em;
+  overflow-y: auto;
+  gap: 1em;  
 
 }
+
 
 .carrusel2::-webkit-scrollbar {
   display: none;
   /*escodner la barra de scroll*/
-
+ 
 }
 
 .grupo2 {
@@ -855,32 +784,89 @@ amarillo #E5E56A
   padding-right: 1em;
 }
 
-.card2 {
-  flex: 0 0 8em;
+
+.card3 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 7em;
   /*5 veces el tamaño de la fuente raiz*/
   height: 9em;
-  padding: 1em;
-  /*background: rgb(249, 249, 250);*/
-  background: linear-gradient(135deg, #ffffff, #f9f9f9); 
+  padding: 0.5em;
+  /*background: cornflowerblue;*/
   font-size: 3rem;
-  border-radius: 0.2em;
+  border-radius: 0.5em;
   box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
-  /*background: linear-gradient(135deg, #3a7bd5, #00d2ff);*/
-  /*background:
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('imagenes/sport4.png') no-repeat center center;
-  align-content: center;*/
+  background:transparent;
+  backdrop-filter: blur(6px); 
+  /*background-color: #ffffff;*/
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+ 
 
+}
+.card3:hover {
+  transform: scale(1.09);   
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* sombra más intensa */
 }
 
 .img2 {
   width: auto;
-  height: 1000%;
+  height: 80%;
   object-fit: cover;
   /* proporcion*/
   border-radius: 0.2em;
 
 }
+.titulo-sabor2 {
+  text-align: center;
+  font-size: 1.4rem; 
+  color: #4da6ff;         
+  font-weight: 600;
+}
+
+.descripcion2 {
+  font-size: 0.85rem; 
+  color: #813e64; 
+  margin: 4px 0;
+  font-weight: 500;
+  min-height: 35px; 
+}
+
+.precio2 {
+  font-size: 0.9rem; 
+  color: #222211; 
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.btn-agregar {
+    align-self: center;
+  padding: 6px 12px; 
+  background-color: #FF9FD7; 
+  border: 2px solid #eee7eb;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem; 
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-agregar:hover {
+  background-color: #E1306C; 
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.card-interna-texto {
+    background-color: #ffffff; 
+    padding: 6px;
+    border-radius: 0.2em;
+    margin-top: -70px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 @keyframes spin {
@@ -894,78 +880,45 @@ amarillo #E5E56A
 }
 
 
- 
-.titulo-sabor2 {
-  font-size: 1rem;          
-  font-weight: 600;         
-  color: #333;              
-  margin: 0;
+
+
+/* emociones catalogo */
+#box-emociones {
+    display: none;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
-.descripcion2 {
-  font-size: 0.75rem;       
-  color: #666;              
-  margin: 0;
-  line-height: 1.2;         
+
+.card-emocion {
+    width: 150px;
+    height: 170px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: transform 0.25s ease;
 }
 
-.precio2 {
-  font-size: 0.9rem;        
-  font-weight: 700;         
-  color: #fa4b4b;           
-  margin-top: 0.3em;
-}
-#1234 {
-  font-size: 0.9rem;        
-  font-weight: 700;         
-  color: #fa4b4b;           
-  margin-top: 0.3em;
+
+.card-emocion img {
+    width: 120px;
+    height: 120px; 
+    object-fit: contain; 
+    display: block;
 }
 
-/* ===========================
-    Stilos del carrito sidebar */
 
-.cart-sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 100vh;
-  background-color: #f7f7f7;
-  border-left: 1px solid #ddd;
-  padding: 1rem;
-  overflow-y: auto;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-  z-index: 1000;
+.card-emocion p {
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
-.cart-sidebar h2 {
-  margin-top: 0;
-}
 
-#cart-items {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: .75rem;
-  font-size: 0.9rem;
-}
-
-.cart-item-details {
-  flex: 1;
-}
-
-.cart-item-actions button {
-  margin-left: .25rem;
-}
-
-.cart-summary {
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
+.card-emocion:hover {
+    transform: scale(1.07);
 }

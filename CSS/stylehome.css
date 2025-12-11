@@ -1,0 +1,127 @@
+.banner-home {
+  width: 100%;
+  height: 460px;
+
+  background-color: #ffe6c9;
+  background-image: url("../Assets/home/background-banner-home-color.png");
+  background-size: 200% 100%;  
+  background-repeat: no-repeat;
+  background-position: 0 center;
+
+  animation: moverFondo 35s linear infinite;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 90px;
+  overflow: hidden;
+}
+
+
+/* @keyframes moverFondo {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 100% center;
+    }
+} */
+
+
+.banner-contenido-overlay {
+    max-width: 520px;
+    z-index: 2;
+}
+
+.lema-banner {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.2rem;
+    color: #b31257;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+
+
+.btn-compra-animado {
+    display: inline-block;
+    background-color: #222;
+    color: #fff;
+    padding: 14px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-compra-animado:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+
+
+.heladomuneco-banner {
+    position: relative;
+    width: 320px;
+    max-width: 100%;
+    animation: flotar 3.5s ease-in-out infinite;
+    z-index: 2;
+
+}
+
+
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .banner-home {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        height: auto;
+    }
+
+    .banner-contenido-overlay {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .lema-banner {
+        font-size: 2.4rem;
+    }
+
+    .heladomuneco-banner {
+        width: 240px;
+    }
+}
+
+.estado-animo-banner {
+  background-image: url("../Assets/banner/banner-animo.png"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200% 100%; 
+}
+
+.promo-banner {
+  background-image: url("../Assets/home/ice-cream2-banner-home.png");
+  background-size: cover;
+  background-position: center;
+}
