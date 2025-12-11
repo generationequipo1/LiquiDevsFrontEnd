@@ -8,28 +8,26 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
-#secccion-botones-crud {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(221, 221, 221);
+.noActive{
+  display: none;
 }
 
+
 #container-busqueda {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-flow: row;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  
+  padding-right: 8px;
+
 }
 
 #form-busqueda {
-  height: 40px;
   display: flex;
+  height: 40px;
   align-items: center;
 }
 
@@ -43,9 +41,14 @@
 
 .boton-crud {
   height: 40px;
-  margin-left: 10px;
-  margin-right: 10px;
+    
 }
+/*Este corre solamente los botones a la derecha*/
+#boton-crear-producto {
+  margin-left: auto; 
+}
+
+
 
 /* ----- CRUD de productos ----- */
 
@@ -178,6 +181,7 @@ textarea.form-pill {
 .boton-Crear:hover {
     background: #2f88e6;
 }
+
 
 
 .tabla {

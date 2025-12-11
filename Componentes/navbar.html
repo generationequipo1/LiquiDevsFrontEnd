@@ -1,30 +1,27 @@
-<nav class="navbar nav-css">
+<nav class="nav-custom">
     <div class="nav-container">
 
-
-        <a class="logo" href="#">
+        <a class="logo" href="/paginaPrincipal.html">
             <img src="../Assets/logos/LogoByte.png" alt="Logo">
         </a>
 
+        <div class="right-elements-container"> 
 
-        <ul class="menu">
-            <li><a href="/paginaPrincipal.html">Inicio</a></li>
-            <li><a href="/HTML/catalogo.html">Catálogo</a></li>
-            <li><a href="/HTML/acercaDeNosotros.html">¿Quiénes Somos?</a></li>
-            <li><a href="/HTML/contactanos.html">Contáctanos</a></li>
-        </ul>
+            <ul class="menu">
+                <li><a href="/paginaPrincipal.html">Inicio</a></li>
+                <li><a href="/HTML/catalogo.html">Menú</a></li>
+                <li><a href="/HTML/acercaDeNosotros.html">¿Quiénes Somos?</a></li>
+                <li><a href="/HTML/contactanos.html">Contáctanos</a></li>
+            </ul>
 
-        <!-- iconos -->
-        <div class="icons">
-            <i class="bi bi-search"></i>
-            <i class="bi bi-person"></i>
-            <!-- ICONO DE CARRITO -->
-            <button id="btn-cart" class="btn btn-outline-primary position-relative">
-                <i class="bi bi-cart"></i>
-                <span id="cart-count"
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
-            </button>
+            <div class="icons">
+                <a class="btn-shop" href="/HTML/catalogo.html">Comprar</a>
+                <i class="bi bi-person"></i>
+                <button id="btn-cart" class="btn-cart">
+                    <i class="bi bi-cart"></i>
+                </button>
+                <i class="bi bi-list menu-toggle"></i>
+            </div>
         </div>
-
     </div>
 </nav>
