@@ -7,11 +7,14 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
     let telefono = document.getElementById("telefono").value.trim();
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
+    let direccion = document.getElementById("direccion").value.trim();
+    let infoAdicional = document.getElementById("infoAdicional").value.trim();
 
      document.getElementById("errorNombre").textContent = "";//pa borrar
     document.getElementById("errorTelefono").textContent = "";
     document.getElementById("errorEmail").textContent = "";
     document.getElementById("errorPassword").textContent = "";
+    
     
     let valido = true;
         if (nombre === "") {
@@ -53,7 +56,19 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
             icon: "error"
         });
         return;
+         
     }
+    if (direccion === "") { 
+        //document.getElementById("errorDireccion").textContent = "La dirección es obligatoria"; // Se corrigió ID
+        valido = false;
+        Swal.fire({
+            title: "DIRECCIÓN INVÁLIDA",
+            text: "La dirección es obligatoria",
+            icon: "error"
+        });
+        return;
+    }
+  
     if (!valido) return;//con este return lo regresamos a donde empeiza la funcion
 
     
@@ -61,7 +76,10 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         nombre: nombre,
         telefono: telefono,
         email: email,
-        password: password
+        password: password,
+        direccion: direccion,
+        infoAdicional: infoAdicional
+        
     };
 
     
