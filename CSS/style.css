@@ -923,3 +923,120 @@ amarillo #E5E56A
     transform: scale(1.07);
 }
 
+/* registro */
+
+.reg-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 90px auto;
+    padding: 38px 32px;
+
+    background: #fff; /* limpio, profesional */
+    border-radius: 22px;
+
+    border: 2px solid #ffb3d9;        /* rosado suave */
+    box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.reg-title {
+    font-family: "Pacifico", cursive;
+    font-size: 34px;
+    color: #b31257; /* color del banner */
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.reg-label {
+    text-align: left;
+    font-weight: 700;
+    font-size: 15px;
+    color: #b31257;
+}
+
+.reg-input {
+    width: 100%;
+    padding: 13px 15px;
+
+    background: #fffdfc;           
+    border: 2px solid #ffb3d9;
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-family: "Nunito", sans-serif;
+
+    transition: 0.25s ease;
+}
+
+.reg-input:focus {
+    border-color: #d96aa5;          
+    box-shadow: 0 0 6px #ffb3d97e;
+    outline: none;
+}
+
+textarea.reg-input {
+    resize: none;
+}
+
+
+.reg-error {
+    color: #d60059;
+    font-size: 13px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-top: -8px;
+}
+
+.reg-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+
+    color: white;
+    background: #b31257; 
+    border: none;
+    border-radius: 18px;
+
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.reg-btn:hover {
+    background: #8c0d45;
+    box-shadow: 0 4px 12px rgba(179, 18, 87, 0.35);
+}
+
+
+
+.reg-success {
+    margin-top: 16px;
+    color: #48d8b6;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+
+.reg-login-link {
+    color: #b31257;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.reg-login-link:hover {
+    text-decoration: underline;
+}
