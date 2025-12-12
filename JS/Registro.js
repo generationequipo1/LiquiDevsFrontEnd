@@ -21,8 +21,8 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         //document.getElementById("errorNombre").textContent = "El nombre es obligatorio";
         valido = false;
         Swal.fire({
-            title: "NOMBRE INVALIDO",
-            text: "El Nombre es obligatorio",
+            title: "Nombre Invalido",
+            text: "El nombre es obligatorio",
             icon: "error"
         });
         return;
@@ -31,8 +31,8 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         //document.getElementById("errorTelefono").textContent = "Debe tener 10 números";
         valido = false;
         Swal.fire({
-            title: "TELEFONO INVALIDO",
-            text: "debe contener 10 numeros",
+            title: "Teléfono Inválido",
+            text: "Debe contener 10 números",
             icon: "error"
         });
         return;
@@ -41,8 +41,8 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         //document.getElementById("errorEmail").textContent = "Correo inválido";
         valido = false;
         Swal.fire({
-            title: "CORREO INVALIDO",
-            text: "verifica tu correo",
+            title: "Correo Inválido",
+            text: "Verifica tu correo",
             icon: "error"
         });
         return;
@@ -51,8 +51,8 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         //document.getElementById("errorPassword").textContent = "Mínimo 8 caracteres";
         valido = false;
          Swal.fire({
-            title: "CONTRASEÑA INVALIDA",
-            text: "debe tener minimo 8 caracteres",
+            title: "Contraseña Inválida",
+            text: "Debe tener mínimo 8 caracteres",
             icon: "error"
         });
         return;
@@ -62,7 +62,7 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         //document.getElementById("errorDireccion").textContent = "La dirección es obligatoria"; // Se corrigió ID
         valido = false;
         Swal.fire({
-            title: "DIRECCIÓN INVÁLIDA",
+            title: "Dirección Inválida",
             text: "La dirección es obligatoria",
             icon: "error"
         });
