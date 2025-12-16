@@ -1,3 +1,7 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
 .banner-home {
   width: 100%;
   height: 460px;
@@ -15,6 +19,14 @@
   overflow: hidden;
 }
 
+.banner-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,230,201,.95) 40%, rgba(255,230,201,.6) 70%, rgba(255,230,201,.2) 100%);
+  z-index: 1;
+}
+
 .banner-contenido-overlay {
   max-width: 520px;
   z-index: 2;
@@ -25,30 +37,32 @@
   font-size: 3.2rem;
   color: #b31257;
   line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.sublema-banner {
+  font-size: 1.1rem;
+  color: #444;
   margin-bottom: 25px;
 }
 
 .btn-compra-animado {
-  display: inline-block;
   background-color: #222;
   color: #fff;
   padding: 14px 34px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: .3s ease;
 }
 
 .btn-compra-animado:hover {
   transform: scale(1.08);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
 }
 
 .heladomuneco-banner {
-  position: relative;
   width: 320px;
-  max-width: 100%;
   animation: flotar 3.5s ease-in-out infinite;
   z-index: 2;
 }
@@ -59,44 +73,13 @@
   100% { transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .banner-home {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    height: auto;
-  }
-
-  .banner-contenido-overlay {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .lema-banner {
-    font-size: 2.4rem;
-  }
-
-  .heladomuneco-banner {
-    width: 240px;
-  }
-}
-
 .estado-animo-banner {
   background-image: url("../Assets/banner/banner-animo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 200% 100%;
 }
 
 .promo-banner {
   background-image: url("../Assets/home/ice-cream2-banner-home.png");
   background-size: cover;
-  background-position: center;
-}
-
-.porque-elegirnos {
-  padding: 40px 0;
 }
 
 .titulo-seccion {
@@ -109,29 +92,24 @@
   background: #fff;
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transition: transform .3s ease;
-}
-
-.feature-box i {
-  font-size: 2.5rem;
-  color: #b31257;
-  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  transition: .3s ease;
 }
 
 .feature-box:hover {
   transform: translateY(-8px);
 }
 
-.sabores-destacados {
-  padding-bottom: 40px;
+.feature-box i {
+  font-size: 2.5rem;
+  color: #b31257;
 }
 
 .sabor-box {
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  transition: transform .3s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  transition: .3s ease;
 }
 
 .sabor-box:hover {
@@ -139,7 +117,95 @@
 }
 
 .sabor-box img {
-  width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+.paso-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  transition: .3s ease;
+}
+
+.paso-box i {
+  font-size: 2.2rem;
+  color: #b31257;
+}
+
+.paso-box:hover {
+  transform: translateY(-8px);
+}
+
+.cta-final {
+  background: linear-gradient(135deg, #ffe6c9, #ffd1e3);
+  padding: 60px 20px;
+  border-radius: 30px;
+}
+
+.cta-final h2 {
+  font-family: 'Pacifico', cursive;
+  color: #b31257;
+  font-size: 2.4rem;
+}
+
+@media (max-width: 768px) {
+  .banner-home {
+    flex-direction: column;
+    padding: 40px 20px;
+    height: auto;
+    text-align: center;
+  }
+
+  .heladomuneco-banner {
+    width: 240px;
+  }
+
+  .lema-banner {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .banner-home {
+    padding: 30px 16px;
+    gap: 20px;
+  }
+
+  .banner-contenido-overlay {
+    text-align: center;
+  }
+
+  .lema-banner {
+    font-size: 2rem;
+  }
+
+  .sublema-banner {
+    font-size: 1rem;
+  }
+
+  .btn-compra-animado {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.05rem;
+  }
+
+  .heladomuneco-banner {
+    width: 200px;
+  }
+
+  .feature-box,
+  .paso-box {
+    padding: 20px;
+  }
+
+  .cta-final {
+    padding: 40px 16px;
+  }
+
+  .cta-final h2 {
+    font-size: 1.9rem;
+  }
 }
