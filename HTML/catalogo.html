@@ -107,7 +107,7 @@
                     <h4 class="titulo-sabor2">Chocolate</h4>
                     <p class="descripcion2">Helado cremoso con cacao premium.</p>
                     <p class="precio2">$8.000</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                    <button class="add-cart-btn" data-id="5" data-name="Chocolate" data-precio="8000" data-img="/Assets/image1.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -119,7 +119,7 @@
                     <h4 class="titulo-sabor2">Fresa</h4>
                     <p class="descripcion2">Helado artesanal con trozos de fresa natural.</p>
                     <p class="precio2">$7.500</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                   <button class="add-cart-btn" data-id="6" data-name="Fresa" data-precio="7500" data-img="/Assets/image2.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -131,7 +131,7 @@
                     <h4 class="titulo-sabor2">Vainilla</h4>
                     <p class="descripcion2">Receta tradicional con vainilla natural de Madagascar.</p>
                     <p class="precio2">$7.000</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                    <button class="add-cart-btn" data-id="1" data-name="Vainilla" data-precio="7000" data-img="/Assets/image3.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -143,7 +143,7 @@
                     <h4 class="titulo-sabor2">Mango</h4>
                     <p class="descripcion2">Helado refrescante preparado con mango 100% natural.</p>
                     <p class="precio2">$8.500</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                    <button class="add-cart-btn" data-id="2" data-name="Mango" data-precio="8500" data-img="/Assets/image4.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -155,7 +155,7 @@
                     <h4 class="titulo-sabor2">Cookies & Cream</h4>
                     <p class="descripcion2">Mezcla cremosa con trozos de galleta crocante.</p>
                     <p id="1234" class="precio2">$9.000</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                    <button class="add-cart-btn" data-id="3" data-name="Cookies & Cream" data-precio="9000" data-img="/Assets/image5.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -168,7 +168,7 @@
                     <h4 class="titulo-sabor2">Limón</h4>
                     <p class="descripcion2">Helado ligero y ácido para refrescar cualquier día.</p>
                     <p class="precio2">$6.500</p>
-                    <button class="btn-agregar" data-id="1" data-nombre="Producto 1" data-precio="25000">
+                    <button class="add-cart-btn" data-id="4" data-name="Limon" data-precio="6500" data-img="/Assets/image6.png">
                         Agregar al carrito
                     </button>
                     </div>
@@ -290,22 +290,11 @@
     </section>-->
 
 
-    <!-- Sidebar Carrito -->
-    <aside id="cart-sidebar" class="cart-sidebar">
-        <h2>Carrito</h2>
-        <ul id="cart-items"></ul>
-
-        <div class="cart-summary">
-            <p>Items: <span id="cart-count">0</span></p>
-            <p>Total: $<span id="cart-total">0.00</span></p>
-            <button id="cart-clear">Vaciar carrito</button>
-            <button id="cart-checkout">Finalizar compra</button>
-        </div>
-    </aside>
+   
 
     <div id="footer"></div>
 
-
+    <script src="/JS/Cart.js"></script>
     <script src="/JS/ctalogo.js"></script>
     <script src="/Componentes/navbarInclude.js"></script>
     <script src="../Componentes/cargarfooter.js"></script>
