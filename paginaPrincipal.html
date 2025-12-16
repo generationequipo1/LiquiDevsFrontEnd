@@ -4,76 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- aqui va BOOTSTRAP -->    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-<!-- NAVBAR CSS -->
     <link rel="stylesheet" href="../CSS/nav.css">
-
-<!-- Estilos generales del sitio -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/stylehome.css">
-    <title>Sobre Nosotros</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <title>Sobre Nosotros</title>
 </head>
 
 <body>
     <header>
         <div id="navbar-placeholder"></div>
     </header>
-    <main>
-        <section class="banner-home-carousel">
 
+    <main>
+
+        <section class="banner-home-carousel">
             <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"
                 data-bs-pause="hover">
-
-
                 <div class="carousel-inner">
 
-                    <!-- 1 slide inical -->
                     <div class="carousel-item active">
                         <div class="banner-home">
-
                             <div class="banner-contenido-overlay">
                                 <p class="lema-banner">Helados con<br>código de sabor</p>
-                                <a href="HTML/catalogo.html" class="btn-compra-animado">
-                                    Compra tu sabor favorito
-                                </a>
+                                <a href="HTML/catalogo.html" class="btn-compra-animado">Compra tu sabor favorito</a>
                             </div>
-
                             <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-
                         </div>
                     </div>
 
-                    <!-- 2 slide(para animo)= -->
                     <div class="carousel-item">
                         <div class="banner-home estado-animo-banner">
-
                             <div class="banner-contenido-overlay">
                                 <p class="lema-banner">¿No sabes qué elegir?</p>
-                                <a href="HTML/estado_animo.html" class="btn-compra-animado">
-                                    Dinos cómo te sientes 💭
-                                </a>
+                                <a href="HTML/estado_animo.html" class="btn-compra-animado">Dinos cómo te sientes 💭</a>
                             </div>
                             <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
                         </div>
                     </div>
 
-                    <!-- 3 slide promo -->
                     <div class="carousel-item">
                         <div class="banner-home promo-banner">
-
                             <div class="banner-contenido-overlay">
                                 <p class="lema-banner">Los más vendidos</p>
-                                <a href="HTML/catalogo.html" class="btn-compra-animado">
-                                    Ver productos 🔥
-                                </a>
+                                <a href="HTML/catalogo.html" class="btn-compra-animado">Ver productos 🔥</a>
                             </div>
                             <img src="Assets/home/ice-cream2-banner-home.png" class="heladomuneco-banner">
                         </div>
@@ -81,14 +59,94 @@
 
                 </div>
 
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
 
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHome"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </button>
+            </div>
+        </section>
+
+        <section class="porque-elegirnos container text-center mt-5">
+            <h2 class="titulo-seccion">¿Por qué elegirnos?</h2>
+            <div class="row mt-4 justify-content-center">
+
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <i class="bi bi-emoji-smile"></i>
+                        <h5>Ingredientes naturales</h5>
+                        <p>Helados hechos con frutas reales y sin conservantes artificiales.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <i class="bi bi-truck"></i>
+                        <h5>Envíos rápidos</h5>
+                        <p>Entrega segura y fresca directamente a tu puerta.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <i class="bi bi-stars"></i>
+                        <h5>Sabores únicos</h5>
+                        <p>Recetas exclusivas inspiradas en emociones y experiencias.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <i class="bi bi-heart"></i>
+                        <h5>Hecho con amor</h5>
+                        <p>Elaborados artesanalmente para ofrecerte lo mejor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sabores-destacados container mt-5">
+            <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card sabor-box">
+                        <img src="..." class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5>Chocolate Intenso</h5>
+                            <p>$10000</p>
+                            <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card sabor-box">
+                        <img src="..." class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5>Fresa Natural</h5>
+                            <p>$10000</p>
+                            <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card sabor-box">
+                        <img src="..." class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5>Vainilla Cremosa</h5>
+                            <p>$10000</p>
+                            <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -104,19 +162,15 @@
             </div>
         </section>
 
-
-
-
     </main>
 
-    <!-- Sidebar Carrito -->
     <aside id="cart-sidebar" class="cart-sidebar">
         <h2>Carrito</h2>
         <ul id="cart-items"></ul>
 
         <div class="cart-summary">
             <p>Items: <span id="cart-count">0</span></p>
-            <p>Total: $<span id="cart-total">0.00</span></p>
+            <p>Total: $<span id="cart-total">00</span></p>
             <button id="cart-clear">Vaciar carrito</button>
             <button id="cart-checkout">Finalizar compra</button>
         </div>
