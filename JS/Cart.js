@@ -114,7 +114,7 @@ function actualizarTotalCarrito() {
   totalSpan.textContent = total.toFixed(2);
 }
 
-//===== Mostrar totales ====//
+//===== Actualizar ====//
 function actualizarTodo() {
   actualizarContadorCarrito();
   mostrarCarrito();
