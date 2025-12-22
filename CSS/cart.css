@@ -1,0 +1,147 @@
+/* ===============================
+   ICONO CARRITO (NAVBAR)
+================================ */
+
+#btn-cart {
+  border: none;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+#btn-cart i {
+  font-size: 22px;
+  color: #000;
+}
+
+/* Badge contador */
+#cart-count {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 6px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); }
+  100% { transform: scale(1); }
+}
+
+/* ===============================
+   PANEL CARRITO
+================================ */
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.25);
+  padding: 16px;
+  transition: right 0.35s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel.open {
+  right: 0;
+}
+
+/* ===============================
+   HEADER CARRITO
+================================ */
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cart-header h4 {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ===============================
+   LISTA DE PRODUCTOS
+================================ */
+
+#cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 15px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.cart-item-info span {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ===============================
+   BOTONES + - X
+================================ */
+
+.cart-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.cart-actions button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* ===============================
+   FOOTER / TOTAL
+================================ */
+
+.cart-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.cart-footer p {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 480px) {
+  .cart-panel {
+    width: 100%;
+  }
+}
