@@ -369,212 +369,168 @@ amarillo #E5E56A
 
 /*Desde aca empieza el estilo de pagina contactenos*/
 
-/*contactanos*/
-.seccion-contacto    {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 40px;
-    
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f7c6d0;
 }
 
-
-/* Caja izquierda */
-.contacto-form {
-    width: 100%;
-    max-width: 450px;
-    background: #f3f3f3;
-    padding: 40px;
-    border-radius: 15px;
-    border: 2px solid #c5c5c5;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-   
+/* ===== HERO ===== */
+.hero-dudas {
+  text-align: center;
+  margin: 40px 0;
 }
 
-.contacto-form h2 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 25px;
+.hero-dudas img {
+  width: 120px;
 }
 
-.contacto-form form input,
-.contacto-form form textarea {
-    padding: 14px 18px;
-    border-radius: 12px;
-   
+.hero-dudas p {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.contacto-form textarea {
-    height: 120px;
-    resize: none;
+/* ===== CONTACTO ===== */
+.contacto-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-#btn-enviar {
-    width: 100%;
-    padding: 12px;
-    background: #f8b6d0;
-    border: none;
-    border-radius: 20px;
-    font-weight: 600;
-    cursor: pointer;
+/* Cards */
+.card-contacto {
+  background: #fff;
+  border-radius: 28px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-#btn-enviar:hover {
-    background: #f09aba;
+.card-imagen img {
+  width: 100%;
+  border-radius: 22px;
 }
 
-
-/* formulario */
-.contacto-form h2 {
+/* Form */
+.card-contacto h2 {
   font-size: 32px;
   margin-bottom: 25px;
 }
 
-.contacto-form form {
+form {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+}
+
+input, textarea {
+  padding: 14px 18px;
+  border-radius: 20px;
+  border: 2px solid #ddd;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Botones */
+.btn-group {
+  display: flex;
   gap: 12px;
 }
 
-.contacto-form input,
-.contacto-form textarea {
- width: 100%;
- max-width: 360px;
-  padding: 15px;
-  border-radius: 20px;
-  border: 2px solid #c5c5c5;
-  font-size: 16px;
-  background: #fffafc;
-  
-}
-.contacto-form textarea {
-    height: 120px;
-    resize: none;
-}
-
-/* BOTONES */
 .btn-enviar {
-  width: 100%;
-  max-width: 360px;
-  background: #f6b3d0;
+  flex: 1;
+  background: #3b82f6;
+  color: #fff;
   border: none;
   padding: 14px;
-  border-radius: 20px;
-  cursor: pointer;
+  border-radius: 18px;
   font-weight: 600;
 }
 
 .btn-whatsapp {
-  display: block;
-  width: 100%;
-  max-width: 200px;
-  margin-top: 10px;
-  background: #25d366;
-  color: white;
-  padding: 12px;
+  flex: 1;
+  background: #22c55e;
+  color: #fff;
   text-align: center;
-  border-radius: 15px;
-  text-decoration: none;
+  padding: 14px;
+  border-radius: 18px;
   font-weight: 600;
+  text-decoration: none;
 }
 
-/* IMAGEN */
-.contacto-imagen img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 10px;
-  display: block;
-}
-
-.direccion {
-  margin-top: 12px;
-  font-size: 16px;
-  color: #444;
+/* ===== FAQ CTA ===== */
+.faq-cta {
+  margin-top: 25px;
   text-align: center;
 }
 
-/* Botón para abrir Freguntas frecuentas */
+.faq-cta img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
 .btn-faq-toggle {
-    width: 100%;
-    max-width: 420px;
-    margin-top: 15px;
-    padding: 12px 20px;
-    background-color: #bf155c;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    text-align: center;
+  background: #e96b9c;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 20px;
+  font-weight: 700;
 }
 
-.btn-faq-toggle:hover {
-    background-color: #a3134f;
-}
-
-.FAQs{
-    display: flex;
-    align-items: center;
-    flex-flow: column;
-}
-/* Contenedor de preguntas frecuentes*/
+/* ===== FAQ ===== */
 .faq-box {
-    display: none;
-    margin-top: 25px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #00000022;
-    width: 90%;
+  display: none;
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 35px;
+  border-radius: 26px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
+
 .faq-box.active {
-    display: block;
+  display: block;
 }
 
-
-/* Preguntas */
 .faq-item {
-    margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .faq-question {
-    width: 100%;
-    text-align: left;
-    background: #f1f1f1;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
+  width: 100%;
+  background: #f1f1f1;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: left;
 }
 
 .faq-answer {
-    display: none;
-    padding: 10px 15px;
-    background: #ffffff;
+  display: none;
+  padding: 12px 16px;
 }
 
 .faq-answer.open {
-    display: block;
+  display: block;
 }
 
-@media (max-width: 768px) {
-    .contacto-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .contacto-form {
-        width: 100%;
-        max-width: 400px;
-    }
+/* Responsive */
+@media (max-width: 900px) {
+  .contacto-wrapper {
+    flex-direction: column;
+  }
 }
+
+
 /*Aca empieza el estilo de la pagina catalogo*/
 
 /* ===== Aqui va el BANNER ===== */
@@ -919,7 +875,7 @@ amarillo #E5E56A
 
 .card-emocion:hover {
     transform: scale(1.07);
-}  */
+}
 
 /* registro */
 
@@ -1038,4 +994,3 @@ textarea.reg-input {
 .reg-login-link:hover {
     text-decoration: underline;
 }
-
