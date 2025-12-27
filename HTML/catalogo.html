@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,87 +21,93 @@
 
 <body>
 
-<header>
-  <div id="navbar-placeholder"></div>
-</header>
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
+  <div id="carrito-placeholder"></div>
 
-<main>
+  <main>
 
-<section class="text-center py-5 bg-light">
-  <div class="container">
-    <h1 class="titulo-banner">Helados con código de sabor 🍦</h1>
-    <p class="subtitulo-banner">
-      Encuentra el helado perfecto según tu estado de ánimo
-    </p>
-  </div>
-</section>
+    <section class="text-center py-5 bg-light">
+      <div class="container">
+        <h1 class="titulo-banner">Helados con código de sabor 🍦</h1>
+        <p class="subtitulo-banner">
+          Encuentra el helado perfecto según tu estado de ánimo
+        </p>
+      </div>
+    </section>
 
-<section class="container mt-5">
-  <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
+    <section class="container mt-5">
+      <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
 
-  <div class="carrusel2">
-    <div class="grupo2">
-    </div>
-  </div>
-</section>
+      <div class="carrusel2">
+        <div class="grupo2">
+        </div>
+      </div>
+    </section>
 
-<section class="container text-center mt-5">
-  <h2 class="titulo-seccion mb-3">Buscar por sabor</h2>
+    <section class="container text-center mt-5">
+      <h2 class="titulo-seccion mb-3">Buscar por sabor</h2>
 
-  <div class="d-flex justify-content-center gap-2 flex-wrap">
-    <button class="btn btn-outline-dark btn-sabor" data-sabor="fresa">Fresa</button>
-    <button class="btn btn-outline-dark btn-sabor" data-sabor="chocolate">Chocolate</button>
-    <button class="btn btn-outline-dark btn-sabor" data-sabor="vainilla">Vainilla</button>
-    <button class="btn btn-outline-dark btn-sabor" data-sabor="limon">Limón</button>
-  </div>
-</section>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <button class="btn btn-outline-dark btn-sabor" data-sabor="fresa">Fresa</button>
+        <button class="btn btn-outline-dark btn-sabor" data-sabor="chocolate">Chocolate</button>
+        <button class="btn btn-outline-dark btn-sabor" data-sabor="vainilla">Vainilla</button>
+        <button class="btn btn-outline-dark btn-sabor" data-sabor="limon">Limón</button>
+      </div>
+    </section>
 
-<section class="container text-center mt-5">
-  <h2 class="titulo-seccion mb-4">Buscar por emoción</h2>
+    <section class="container text-center mt-5">
+      <h2 class="titulo-seccion mb-4">Buscar por emoción</h2>
 
-  <div class="d-flex justify-content-center gap-4 flex-wrap">
-    <div class="card-emocion" data-emocion="feliz">
-      <img src="/Assets/Emociones/feliz-helado1.png">
-      <p>Feliz</p>
-    </div>
-    <div class="card-emocion" data-emocion="relajado">
-      <img src="/Assets/Emociones/relajado-helado1.jpg.png">
-      <p>Relajado</p>
-    </div>
-    <div class="card-emocion" data-emocion="intenso">
-      <img src="/Assets/Emociones/intenso-helado1.png">
-      <p>Intenso</p>
-    </div>
-    <div class="card-emocion" data-emocion="melancolico">
-      <img src="/Assets/Emociones/melancolico-helado1.png">
-      <p>Melancólico</p>
-    </div>
-  </div>
+      <div class="d-flex justify-content-center gap-4 flex-wrap">
+        <div class="card-emocion" data-emocion="feliz">
+          <img src="/Assets/Emociones/feliz-helado1.png">
+          <p>Feliz</p>
+        </div>
+        <div class="card-emocion" data-emocion="relajado">
+          <img src="/Assets/Emociones/relajado-helado1.jpg.png">
+          <p>Relajado</p>
+        </div>
+        <div class="card-emocion" data-emocion="intenso">
+          <img src="/Assets/Emociones/intenso-helado1.png">
+          <p>Intenso</p>
+        </div>
+        <div class="card-emocion" data-emocion="melancolico">
+          <img src="/Assets/Emociones/melancolico-helado1.png">
+          <p>Melancólico</p>
+        </div>
+      </div>
 
-  <button id="btn-todo" class="btn btn-dark mt-4 px-4">
-    Mostrar todo
-  </button>
-</section>
+      <button id="btn-todo" class="btn btn-dark mt-4 px-4">
+        Mostrar todo
+      </button>
+    </section>
 
-<section class="container mt-5 mb-5">
-  <h2 class="titulo-seccion text-center mb-4">Nuestro catálogo</h2>
+    <section class="container mt-5 mb-5">
+      <h2 class="titulo-seccion text-center mb-4">Nuestro catálogo</h2>
 
-  <div id="container-cards-fijas">
-    
-  </div>
-</section>
+      <div id="container-cards-fijas">
 
-</main>
+      </div>
+    </section>
 
-<div id="footer"></div>
+  </main>
 
-<script src="/JS/productos.js"></script>
-<script src="/JS/carrusel.js"></script>
-<script src="/JS/catalogoSLL.js"></script>
-<script src="/JS/Cart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/Componentes/navbarInclude.js"></script>
-<script src="../Componentes/cargarfooter.js"></script>
+  <div id="footer"></div>
+
+  <script src="/Componentes/navbarInclude.js"></script>
+  <script src="../Componentes/cartinclude.js"></script>
+
+  <script src="/JS/productos.js"></script>
+  <script src="/JS/carrusel.js"></script>
+  <script src="/JS/catalogoSLL.js"></script>
+  <script src="/JS/cart.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../Componentes/cargarfooter.js"></script>
+
 
 </body>
+
 </html>
