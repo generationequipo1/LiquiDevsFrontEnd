@@ -1,5 +1,6 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+
 function guardar() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -10,6 +11,7 @@ function actualizarContador() {
   if (badge) badge.textContent = total;
 }
 
+
 function renderCart() {
   const contenedor = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -17,6 +19,20 @@ function renderCart() {
   if (!contenedor || !totalEl) return;
 
   contenedor.innerHTML = "";
+
+    // si no hay productos muestra mensaje
+
+  if (cart.length === 0) {
+    contenedor.innerHTML = `
+      <div class="cart-empty">
+        🛒<br>
+        Tu carrito está vacío
+      </div>
+    `;
+    totalEl.textContent = "0";
+    return;
+  }
+
   let total = 0;
 
   cart.forEach((p, index) => {
@@ -25,10 +41,12 @@ function renderCart() {
     contenedor.innerHTML += `
       <div class="cart-item">
         <img src="${p.img}">
-        
         <div class="cart-item-info">
           <strong>${p.name}</strong>
-          <span>$${p.price.toLocaleString()}</span>
+          <span>$${p.price.toLocaleString()} x ${p.quantity}</span>
+          <small class="cart-subtotal">
+            Subtotal: $${(p.price * p.quantity).toLocaleString()}
+          </small>
 
           <div class="cart-controls">
             <button class="btn-minus" data-index="${index}">−</button>
@@ -59,6 +77,14 @@ function agregarProducto(producto) {
   actualizarContador();
   renderCart();
 
+    // animación del icono carrito
+
+  const btnCart = document.getElementById("btn-cart");
+  if (btnCart) {
+    btnCart.classList.add("shake");
+    setTimeout(() => btnCart.classList.remove("shake"), 400);
+  }
+
   Swal.fire({
     toast: true,
     position: "top-end",
@@ -69,60 +95,85 @@ function agregarProducto(producto) {
   });
 }
 
+
 document.addEventListener("click", e => {
-  if (e.target.classList.contains("add-cart-btn")) {
-    agregarProducto({
-      id: Number(e.target.dataset.id),
-      name: e.target.dataset.name,
-      price: Number(e.target.dataset.price),
-      img: e.target.dataset.img
-    });
-  }
+  if (!e.target.classList.contains("add-cart-btn")) return;
+
+  e.target.classList.add("added");
+  setTimeout(() => e.target.classList.remove("added"), 300);
+
+  const id = Number(e.target.dataset.id);
+  const producto = productos.find(p => p.id === id);
+  if (!producto) return;
+
+  agregarProducto({
+    id: producto.id,
+    name: producto.nombre,
+    price: producto.precio,
+    img: producto.imagen
+  });
 });
+
+// abre y cierra el panel del carrito
 
 document.addEventListener("DOMContentLoaded", () => {
   actualizarContador();
 
-  setTimeout(() => {
-    const btnCart = document.getElementById("btn-cart");
-    const cartPanel = document.getElementById("cart-panel");
-    const cerrar = document.getElementById("cerrar-carrito");
+  const btnCart = document.getElementById("btn-cart");
+  const cartPanel = document.getElementById("cart-panel");
+  const cerrar = document.getElementById("cerrar-carrito");
 
-    if (btnCart && cartPanel) {
-      btnCart.onclick = () => {
-        cartPanel.classList.toggle("open");
-        renderCart();
-      };
-    }
+  if (btnCart) {
+    btnCart.onclick = () => {
+      cartPanel.classList.toggle("open");
+      renderCart();
+    };
+  }
 
-    if (cerrar && cartPanel) {
-      cerrar.onclick = () => cartPanel.classList.remove("open");
-    }
-  }, 100);
+  if (cerrar) {
+    cerrar.onclick = () => cartPanel.classList.remove("open");
+  }
 });
+
+// controla sumar, restar y eliminar
 
 document.addEventListener("click", e => {
 
-  // para las operaciones, suma
   if (e.target.classList.contains("btn-plus")) {
-    const i = e.target.dataset.index;
-    cart[i].quantity++;
+    cart[e.target.dataset.index].quantity++;
   }
 
-  // resta
   if (e.target.classList.contains("btn-minus")) {
     const i = e.target.dataset.index;
     cart[i].quantity--;
     if (cart[i].quantity <= 0) cart.splice(i, 1);
   }
+  // confirma antes de borrar
 
-  // eliminar producto
   if (e.target.classList.contains("btn-remove")) {
     const i = e.target.dataset.index;
-    cart.splice(i, 1);
+
+    Swal.fire({
+      title: "¿Eliminar producto?",
+      text: "Se quitará del carrito",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar"
+    }).then(res => {
+      if (res.isConfirmed) {
+        cart.splice(i, 1);
+        guardar();
+        actualizarContador();
+        renderCart();
+      }
+    });
+    return;
   }
 
   guardar();
   actualizarContador();
   renderCart();
 });
+
+
