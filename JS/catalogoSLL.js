@@ -1,123 +1,68 @@
-const productosPredefinidos = [
-    {
-        imagen: "../Assets/Helados/copa_copa_de_helado_fresa.png",
-        nombre: "Copa de Helado",
-        categoria: "Copa",
-        sabores: "Fresa",
-        emocion: "feliz",
-        precio: 19000
-    },
-    {
-        imagen: "../Assets/Helados/cono_de_crema_choc_vain.png",
-        nombre: "Helado de crema",
-        categoria: "Helado",
-        sabores: "chocolate - Vainilla",
-        emocion: "relajado",
-        precio: 8000
-    },
-    {
-        imagen: "../Assets/Helados/helado_de_limon.png",
-        nombre: "Helado de Limon",
-        categoria: "Helado",
-        sabores: "Limon",
-        emocion: "intenso",
-        precio: 36000
-    },
-    {
-        imagen: "../Assets/Helados/waffle_y_helado.png",
-        nombre: "Waffle helado",
-        categoria: "Waffle",
-        sabores: "vainilla con M&M",
-        emocion: "feliz",
-        precio: 17000
-    },
-    {
-        imagen: "../Assets/Helados/helado_knickerbocker.png",
-        nombre: "Helado Knickerbocker",
-        categoria: "Helado",
-        sabores: "Chocolate - Fresas - M&M - Galletas",
-        emocion: "melancolico",
-        precio: 21000
-    },
-    {
-        imagen: "../Assets/Helados/cono_fresa.png",
-        nombre: "Helado de Crema",
-        categoria: "Helado",
-        sabores: "Fresa",
-        emocion: "feliz",
-        precio: 8000
-    },
-    {
-        imagen: "../Assets/Helados/copa_helado_fresa_maracuya_limon.png",
-        nombre: "Copa de Helado",
-        categoria: "Copa",
-        sabores: "Limon - Maracuya - Fresa",
-        emocion: "relajado",
-        precio: 16000
-    }
-];
-
-localStorage.setItem("productos-predefinidos", JSON.stringify(productosPredefinidos));
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    crearTarjetasCatalogoFijo(productosPredefinidos);
+    renderizarProductos(productos);
 
-    const btnEmociones = document.getElementById("btn-emociones");
     const btnTodo = document.getElementById("btn-todo");
-    const boxEmociones = document.getElementById("box-emociones");
-
-
+    const botonesSabor = document.querySelectorAll(".btn-sabor");
     const tarjetasEmocion = document.querySelectorAll(".card-emocion");
 
-
-    btnEmociones.addEventListener("click", () => {
-        boxEmociones.style.display =
-            boxEmociones.style.display === "none" ? "flex" : "none";
-    });
-
+    
     btnTodo.addEventListener("click", () => {
-        boxEmociones.style.display = "none";
-        crearTarjetasCatalogoFijo(productosPredefinidos);
+        renderizarProductos(productos);
     });
 
+    
+    botonesSabor.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const sabor = btn.dataset.sabor;
 
-    tarjetasEmocion.forEach(card => {
-        card.addEventListener("click", () => {
-
-            const emocionSeleccionada = card.dataset.emocion;
-
-            const productosFiltrados = productosPredefinidos.filter(
-                producto => producto.emocion === emocionSeleccionada
+            const filtrados = productos.filter(producto =>
+                producto.sabores.includes(sabor)
             );
 
-            crearTarjetasCatalogoFijo(productosFiltrados);
+            renderizarProductos(filtrados);
         });
     });
 
+    
+    tarjetasEmocion.forEach(card => {
+        card.addEventListener("click", () => {
+            const emocion = card.dataset.emocion;
+
+            const filtrados = productos.filter(
+                producto => producto.emocion === emocion
+            );
+
+            renderizarProductos(filtrados);
+        });
+    });
 });
 
+function renderizarProductos(lista) {
+    const contenedor = document.getElementById("container-cards-fijas");
+    contenedor.innerHTML = "";
 
-function crearTarjetasCatalogoFijo(listaProductos) {
+    lista.forEach(producto => {
+        const card = document.createElement("div");
+        card.classList.add("card3");
 
-    const containerCatalogo = document.getElementById("container-cards-fijas");
-    containerCatalogo.innerHTML = "";
-
-    listaProductos.forEach(producto => {
-        const tarjetaProducto = document.createElement("div");
-        tarjetaProducto.classList.add("tarjeta-producto");
-
-        tarjetaProducto.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <div class="texto-tarjeta">
-                <h3 class="titulo-tarjeta">${producto.nombre}</h3>
-                <p class="categoria">${producto.categoria}</p>
-                <p class="sabores">${producto.sabores}</p>
-                <p class="precio">$${producto.precio.toLocaleString("es-CO")}</p>
-                <button class="boton">Lo quiero!</button>
+        card.innerHTML = `
+            <img src="${producto.imagen}" class="img2" alt="${producto.nombre}">
+            <div class="card-interna-texto">
+                <h4 class="titulo-sabor2">${producto.nombre}</h4>
+                <p class="descripcion2">${producto.descripcion}</p>
+                <p class="precio2">$${producto.precio.toLocaleString("es-CO")}</p>
+                <button 
+                    class="add-cart-btn"
+                    data-id="${producto.id}"
+                    data-name="${producto.nombre}"
+                    data-price="${producto.precio}"
+                    data-img="${producto.imagen}">
+                    Agregar al carrito
+                </button>
             </div>
         `;
 
-        containerCatalogo.appendChild(tarjetaProducto);
+        contenedor.appendChild(card);
     });
 }

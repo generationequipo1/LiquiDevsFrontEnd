@@ -1,133 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- aqui va BOOTSTRAP -->    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- NAVBAR CSS -->
-    <link rel="stylesheet" href="../CSS/nav.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<!-- Estilos generales del sitio -->
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/stylehome.css">
-    <title>Sobre Nosotros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="../CSS/nav.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/stylehome.css">
+  <link rel="stylesheet" href="../CSS/cart.css">
+
+
+  <title>Inicio | Ice Cream Mood</title>
 </head>
 
 <body>
-    <header>
-        <div id="navbar-placeholder"></div>
-    </header>
-    <main>
-        <section class="banner-home-carousel">
 
-            <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"
-                data-bs-pause="hover">
+<header>
+  <div id="navbar-placeholder"></div>
+</header>
+<div id="carrito-placeholder"></div>
 
+<main>
 
-                <div class="carousel-inner">
+<section class="banner-home-carousel">
+  <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
 
-                    <!-- 1 slide inical -->
-                    <div class="carousel-item active">
-                        <div class="banner-home">
-
-                            <div class="banner-contenido-overlay">
-                                <p class="lema-banner">Helados con<br>código de sabor</p>
-                                <a href="HTML/catalogo.html" class="btn-compra-animado">
-                                    Compra tu sabor favorito
-                                </a>
-                            </div>
-
-                            <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-
-                        </div>
-                    </div>
-
-                    <!-- 2 slide(para animo)= -->
-                    <div class="carousel-item">
-                        <div class="banner-home estado-animo-banner">
-
-                            <div class="banner-contenido-overlay">
-                                <p class="lema-banner">¿No sabes qué elegir?</p>
-                                <a href="HTML/estado_animo.html" class="btn-compra-animado">
-                                    Dinos cómo te sientes 💭
-                                </a>
-                            </div>
-                            <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-                        </div>
-                    </div>
-
-                    <!-- 3 slide promo -->
-                    <div class="carousel-item">
-                        <div class="banner-home promo-banner">
-
-                            <div class="banner-contenido-overlay">
-                                <p class="lema-banner">Los más vendidos</p>
-                                <a href="HTML/catalogo.html" class="btn-compra-animado">
-                                    Ver productos 🔥
-                                </a>
-                            </div>
-                            <img src="Assets/home/ice-cream2-banner-home.png" class="heladomuneco-banner">
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
-        </section>
-
-        <section class="home-animo container mt-5 text-center">
-            <h2>¿Cómo te sientes hoy?</h2>
-            <p>Nosotros te recomendamos el sabor perfecto</p>
-
-            <div class="d-flex justify-content-center gap-4 mt-3 flex-wrap">
-                <a href="HTML/catalogo.html" class="btn btn-warning">😊 Feliz</a>
-                <a href="HTML/catalogo.html" class="btn btn-primary">😌 Relajado</a>
-                <a href="HTML/catalogo.html" class="btn btn-danger">🔥 Intenso</a>
-                <a href="HTML/catalogo.html" class="btn btn-success">🌧 Melancólico</a>
-            </div>
-        </section>
-
-
-
-
-    </main>
-
-    <!-- Sidebar Carrito -->
-    <aside id="cart-sidebar" class="cart-sidebar">
-        <h2>Carrito</h2>
-        <ul id="cart-items"></ul>
-
-        <div class="cart-summary">
-            <p>Items: <span id="cart-count">0</span></p>
-            <p>Total: $<span id="cart-total">0.00</span></p>
-            <button id="cart-clear">Vaciar carrito</button>
-            <button id="cart-checkout">Finalizar compra</button>
+      <div class="carousel-item active">
+        <div class="banner-home">
+          <div class="banner-contenido-overlay">
+            <p class="lema-banner">Helados con<br>código de sabor</p>
+            <p class="sublema-banner">Helados artesanales inspirados en emociones</p>
+            <a href="HTML/catalogo.html" class="btn-compra-animado">Explorar sabores</a>
+          </div>
+          <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
         </div>
-    </aside>
+      </div>
 
-    <div id="footer"></div>
+      <div class="carousel-item">
+        <div class="banner-home estado-animo-banner">
+          <div class="banner-contenido-overlay">
+            <p class="lema-banner">¿No sabes qué elegir?</p>
+            <p class="sublema-banner">Te ayudamos según cómo te sientes</p>
+            <a href="HTML/catalogo.html" class="btn-compra-animado">Descubrir mi sabor</a>
+          </div>
+          <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
+        </div>
+      </div>
 
-    <script src="../JS/paginaPrincipal.js"></script>
-    <script src="/Componentes/navbarInclude.js"></script>
-    <script src="../Componentes/cargarfooter.js"></script>
+      <div class="carousel-item">
+        <div class="banner-home promo-banner">
+          <div class="banner-contenido-overlay">
+            <p class="lema-banner">Los favoritos</p>
+            <p class="sublema-banner">Sabores más elegidos</p>
+            <a href="HTML/catalogo.html" class="btn-compra-animado">Ver catálogo</a>
+          </div>
+          <img src="Assets/home/ice-cream2-banner-home.png" class="heladomuneco-banner">
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+<section class="porque-elegirnos container text-center mt-5">
+  <h2 class="titulo-seccion">Lo que nos hace diferentes</h2>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-6 col-md-3">
+      <div class="feature-box">
+        <i class="bi bi-emoji-smile"></i>
+        <h5>Ingredientes naturales</h5>
+        <p>Frutas reales y sin conservantes</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="feature-box">
+        <i class="bi bi-truck"></i>
+        <h5>Envíos rápidos</h5>
+        <p>Entrega segura y fresca</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="feature-box">
+        <i class="bi bi-stars"></i>
+        <h5>Sabores únicos</h5>
+        <p>Inspirados en emociones</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="feature-box">
+        <i class="bi bi-heart"></i>
+        <h5>Hecho con amor</h5>
+        <p>Producción artesanal</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sabores-destacados container mt-5">
+  <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card sabor-box text-center">
+        <img src="Assets/sabores/chocolate.jpg" class="card-img-top">
+        <div class="card-body">
+          <span class="badge bg-warning text-dark mb-2">Top ventas</span>
+          <h5>Chocolate intenso</h5>
+          <p>$10.000</p>
+          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card sabor-box text-center">
+        <img src="Assets/sabores/fresa.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5>Fresa natural</h5>
+          <p>$10.000</p>
+          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card sabor-box text-center">
+        <img src="Assets/sabores/vainilla.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5>Vainilla cremosa</h5>
+          <p>$10.000</p>
+          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="como-funciona container mt-5 text-center">
+  <h2 class="titulo-seccion mb-4">¿Cómo funciona?</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 mb-4">
+      <div class="paso-box">
+        <i class="bi bi-emoji-smile"></i>
+        <h5>Elige tu estado</h5>
+        <p>Cuéntanos cómo te sientes</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="paso-box">
+        <i class="bi bi-lightning-charge"></i>
+        <h5>Recomendamos</h5>
+        <p>Sabores ideales para ti</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="paso-box">
+        <i class="bi bi-cart"></i>
+        <h5>Compra fácil</h5>
+        <p>Agrega al carrito</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="paso-box">
+        <i class="bi bi-truck"></i>
+        <h5>Disfruta</h5>
+        <p>Entrega en tu casa</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final text-center mt-5">
+  <h2>Encuentra el sabor que conecta contigo</h2>
+  <p>No todos los días se sienten igual</p>
+  <a href="HTML/catalogo.html" class="btn btn-dark btn-lg mt-3">Explorar sabores 🍦</a>
+</section>
+
+</main>
+
+<div id="footer"></div>
+
+
+<script src="/Componentes/navbarInclude.js"></script>
+<script src="../Componentes/cartinclude.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../Componentes/cargarfooter.js"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,295 @@
+
+.titulo-banner {
+  font-family: 'Pacifico', cursive;
+  color: #c9226b;
+  font-size: 42px;
+}
+
+.subtitulo-banner {
+  font-family: 'Nunito', sans-serif;
+  color: #b63767;
+  font-size: 18px;
+  max-width: 550px;
+  margin: 10px auto;
+}
+
+
+
+.titulo-seccion {
+  font-family: 'Pacifico', cursive;
+  color: #bf155c;
+  font-size: 34px;
+}
+
+
+
+.btn-sabor {
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-weight: 600;
+}
+
+
+
+.card-emocion {
+  width: 150px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.card-emocion img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.card-emocion p {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-emocion:hover {
+  transform: scale(1.07);
+}
+
+
+
+#container-cards-fijas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+
+
+.card-catalogo {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.card-catalogo:hover {
+  transform: translateY(-6px);
+}
+
+.card-catalogo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card-catalogo h5 {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #bf155c;
+}
+
+.card-catalogo p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-catalogo button {
+  margin-top: 8px;
+}
+
+
+.carrusel2 {
+  margin: 80px auto;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 10px 5px;
+
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.carrusel2:active {
+  cursor: grabbing;
+}
+
+
+.carrusel2::-webkit-scrollbar {
+  display: none;
+}
+
+.grupo2 {
+  display: flex;
+  gap: 16px;
+  padding: 5px;
+}
+
+
+.card3 {
+  flex: 0 0 220px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  padding: 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card3:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+}
+
+.img2 {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.card-interna-texto {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.titulo-sabor2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #bf155c;
+}
+
+.descripcion2 {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 4px 0;
+}
+
+.precio2 {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+
+.add-cart-btn {
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: none;
+  background-color: #bf155c;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.add-cart-btn:hover {
+  background-color: #9e124b;
+  transform: scale(1.05);
+}
+
+
+
+.filtros-catalogo {
+  width: 100%;
+  background: #f3f3f3;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+
+.filtro-bloque {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+
+.filtro-sabores {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn-sabor {
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: 2px solid #bf155c;
+  background: transparent;
+  color: #bf155c;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-sabor:hover,
+.btn-sabor.active {
+  background: #bf155c;
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+.filtro-emociones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card-emocion {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-emocion:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+}
+
+.card-emocion img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.card-emocion p {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #bf155c;
+}
+
+
+
+.btn-mostrar-todo {
+  padding: 14px 40px;
+  border-radius: 30px;
+  border: none;
+  background: #1f1f1f;
+  color: white;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-mostrar-todo:hover {
+  background: #000;
+  transform: scale(1.05);
+}
