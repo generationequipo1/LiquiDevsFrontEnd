@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Catálogo</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,24 +23,31 @@
   <header>
     <div id="navbar-placeholder"></div>
   </header>
+
   <div id="carrito-placeholder"></div>
 
   <main>
 
-    <section class="text-center py-5 bg-light">
-      <div class="container">
-        <h1 class="titulo-banner">Helados con código de sabor 🍦</h1>
-        <p class="subtitulo-banner">
-          Encuentra el helado perfecto según tu estado de ánimo
-        </p>
-      </div>
+    <!-- banner principal -->
+    <section class="hero-emocion">
+      <div class="container text-center">
+        <h1>Helados con código de sabor 🍦</h1>
+        <p>Elige un helado según cómo te sientes hoy</p>
+
+        <div class="hero-actions">
+          <a href="#emociones" class="btn-hero">Explorar por emoción</a>
+          <a href="#destacados" class="btn-hero">Ver destacados</a>
+          <a href="#sabores" class="btn-hero small">Buscar por sabor</a>
+        </div>
+
     </section>
 
-    <section class="container mt-5">
+
+    <!-- carrusel de sabores destacados -->
+    <section class="container mt-5" id="destacados">
       <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
 
       <div class="carrusel-wrapper">
-
         <button class="btn-scroll left" id="prevBtn">‹</button>
 
         <div class="carrusel2">
@@ -49,13 +55,13 @@
         </div>
 
         <button class="btn-scroll right" id="nextBtn">›</button>
-
       </div>
     </section>
 
-
-    <section class="container text-center mt-5">
+    <!-- filtro buscar por sabor -->
+    <section class="container text-center mt-5" id="sabores">
       <h2 class="titulo-seccion mb-3">Buscar por sabor</h2>
+
 
       <div class="d-flex justify-content-center gap-2 flex-wrap">
         <button class="btn btn-outline-dark btn-sabor" data-sabor="fresa">Fresa</button>
@@ -65,7 +71,8 @@
       </div>
     </section>
 
-    <section class="container text-center mt-5">
+    <!-- filtro buscar por emocion  -->
+    <section class="container text-center mt-5" id="emociones">
       <h2 class="titulo-seccion mb-4">Buscar por emoción</h2>
 
       <div class="d-flex justify-content-center gap-4 flex-wrap">
@@ -73,14 +80,17 @@
           <img src="/Assets/Emociones/feliz-helado1.png">
           <p>Feliz</p>
         </div>
+
         <div class="card-emocion" data-emocion="relajado">
           <img src="/Assets/Emociones/relajado-helado1.jpg.png">
           <p>Relajado</p>
         </div>
+
         <div class="card-emocion" data-emocion="intenso">
           <img src="/Assets/Emociones/intenso-helado1.png">
           <p>Intenso</p>
         </div>
+
         <div class="card-emocion" data-emocion="melancolico">
           <img src="/Assets/Emociones/melancolico-helado1.png">
           <p>Melancólico</p>
@@ -92,12 +102,10 @@
       </button>
     </section>
 
+    <!-- catalogo -->
     <section class="container mt-5 mb-5">
       <h2 class="titulo-seccion text-center mb-4">Nuestro catálogo</h2>
-
-      <div id="container-cards-fijas">
-
-      </div>
+      <div id="container-cards-fijas"></div>
     </section>
 
   </main>
@@ -105,17 +113,13 @@
   <div id="footer"></div>
 
   <script src="/JS/cart.js"></script>
-
   <script src="/Componentes/navbarInclude.js"></script>
   <script src="../Componentes/cartinclude.js"></script>
-
   <script src="/JS/productos.js"></script>
   <script src="/JS/carrusel.js"></script>
   <script src="/JS/catalogoSLL.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../Componentes/cargarfooter.js"></script>
-
 
 </body>
 
