@@ -114,26 +114,6 @@ document.addEventListener("click", e => {
   });
 });
 
-// abre y cierra el panel del carrito
-
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarContador();
-
-  const btnCart = document.getElementById("btn-cart");
-  const cartPanel = document.getElementById("cart-panel");
-  const cerrar = document.getElementById("cerrar-carrito");
-
-  if (btnCart) {
-    btnCart.onclick = () => {
-      cartPanel.classList.toggle("open");
-      renderCart();
-    };
-  }
-
-  if (cerrar) {
-    cerrar.onclick = () => cartPanel.classList.remove("open");
-  }
-});
 
 // controla sumar, restar y eliminar
 
@@ -177,3 +157,26 @@ document.addEventListener("click", e => {
 });
 
 
+function initCart() {
+  actualizarContador();
+
+  const btnCart = document.getElementById("btn-cart");
+  const cartPanel = document.getElementById("cart-panel");
+  const cerrar = document.getElementById("cerrar-carrito");
+
+  if (!btnCart || !cartPanel) {
+    console.warn("Carrito no encontrado en el DOM");
+    return;
+  }
+
+  btnCart.addEventListener("click", () => {
+    cartPanel.classList.toggle("open");
+    renderCart();
+  });
+
+  if (cerrar) {
+    cerrar.addEventListener("click", () => {
+      cartPanel.classList.remove("open");
+    });
+  }
+}
