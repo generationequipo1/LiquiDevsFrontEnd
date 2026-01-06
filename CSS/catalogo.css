@@ -104,16 +104,19 @@
 
 
 .carrusel2 {
-  margin: 80px auto;
+  margin: 40px 0;
   width: 100%;
-  display: flex;
   overflow-x: auto;
-  gap: 16px;
-  padding: 10px 5px;
+  overflow-y: hidden;
 
+  padding: 20px 30px;     
   scroll-behavior: smooth;
+
   cursor: grab;
+
+  background: linear-gradient(180deg, #fff 0%, #fff5fa 100%);
 }
+
 
 .carrusel2:active {
   cursor: grabbing;
@@ -126,17 +129,18 @@
 
 .grupo2 {
   display: flex;
-  gap: 16px;
-  padding: 5px;
+  gap: 20px;
+  width: max-content;     
+  padding-right: 20px;
 }
 
 
 .card3 {
-  flex: 0 0 220px;
+  flex: 0 0 240px;       
   background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  padding: 14px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 16px;
 
   display: flex;
   flex-direction: column;
@@ -145,10 +149,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
 .card3:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.18);
 }
+
 
 .img2 {
   width: 100%;
@@ -292,4 +298,47 @@
 .btn-mostrar-todo:hover {
   background: #000;
   transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .card3 {
+    flex: 0 0 200px;
+  }
+
+  .carrusel2 {
+    padding: 15px;
+  }
+}
+
+
+.carrusel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.btn-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 20;
+}
+
+.btn-scroll.left {
+  left: 0;
+}
+
+.btn-scroll.right {
+  right: 0;
 }
