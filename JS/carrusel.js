@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  
   if (typeof productos === "undefined") {
     console.error("productos.js no está cargado");
     return;
   }
 
+  
   const contenedor = document.querySelector(".grupo2");
   if (!contenedor) {
     console.warn("No se encontró .grupo2");
     return;
   }
 
-  // filtrar destacados
+  // filtro de productos destacados
   const destacados = productos.filter(p => p.destacado === true);
 
   if (destacados.length === 0) {
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  
   contenedor.innerHTML = "";
 
   destacados.forEach(producto => {
@@ -41,6 +42,32 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
+  });
+
+  // scrollear con botones
+  const carrusel = document.querySelector(".carrusel2");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  if (!carrusel || !nextBtn || !prevBtn) {
+    console.warn("Botones de carrusel no encontrados");
+    return;
+  }
+
+  const scrollAmount = 300;
+
+  nextBtn.addEventListener("click", () => {
+    carrusel.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    carrusel.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
   });
 
 });

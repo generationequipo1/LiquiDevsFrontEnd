@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contáctanos</title>
- <!-- aqui va BOOTSTRAP -->
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <!-- NAVBAR CSS -->
@@ -15,12 +14,13 @@
 
   <!-- Estilos generales del sitio -->
   <link rel="stylesheet" href="../CSS/style.css">
-  <!-- aqui va solo el link que va utilizar para esta pagina -->
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+
+  <!-- CSS de esta página . -->
+  <link rel="stylesheet" href="../CSS/contactanos.css">
 </head>
 
 <body>
@@ -30,40 +30,71 @@
 </header>
 
 <!-- ===== HERO DUDAS ===== -->
-<section class="hero-dudas">
+<!--<section class="hero-dudas">
   <img src="../Assets/preguntas-helado.png" alt="Dudas">
   <p>¿Tienes dudas?</p>
-</section>
+</section>--->
 
-<!-- ===== SECCIÓN CONTACTO ===== -->
+<!-- ===== Sección Contactanos ===== -->
 <section class="contacto-wrapper">
 
   <!-- CARD FORM -->
   <div class="card-contacto">
-
     <h2>Contáctanos</h2>
 
-    <form id="form-contacto" action="https://formspree.io/f/xdkvbrra" method="POST">
-      <input type="email" name="email" placeholder="Correo electrónico" required>
-      <input type="text" name="nombre" placeholder="Nombre completo" required>
-      <input type="tel" name="telefono" placeholder="Teléfono" required>
-      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+    <form id="form-contacto" action="https://formspree.io/f/xdkvbrra" method="POST" novalidate>
 
+      <!-- Email -->
+      <div class="field" data-field="email">
+        <label class="sr-only" for="email">Correo electrónico</label>
+        <input id="email" type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+        <div class="hint">
+          <span class="msg" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- Nombre -->
+      <div class="field" data-field="nombre">
+        <label class="sr-only" for="nombre">Nombre completo</label>
+        <input id="nombre" type="text" name="nombre" placeholder="Nombre completo" autocomplete="name" required minlength="3">
+        <div class="hint">
+          <span class="msg" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="field" data-field="telefono">
+        <label class="sr-only" for="telefono">Teléfono</label>
+        <input id="telefono" type="tel" name="telefono" placeholder="Teléfono" inputmode="numeric" autocomplete="tel" required>
+        <div class="hint">
+          <span class="msg" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="field" data-field="mensaje">
+        <label class="sr-only" for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required minlength="10"></textarea>
+        <div class="hint">
+          <span class="msg" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- Estado general del formulario -->
+      <div class="form-status" id="form-status" aria-live="polite"></div>
+
+      <!-- Botones -->
       <div class="btn-group">
-        <button type="submit" class="btn-enviar">Enviar mensaje</button>
+        <button type="submit" class="btn-enviar" id="btn-enviar" disabled>
+          Enviar mensaje
+        </button>
+
         <a href="https://wa.me/573174070511" target="_blank" class="btn-whatsapp">
           Escríbenos por WhatsApp
         </a>
       </div>
     </form>
 
-    <!-- CTA FAQ -->
-    <div class="faq-cta">
-      <img src="../Assets/preguntas-frecuentes-helado.png" alt="FAQ">
-      <button id="btn-faq" class="btn-faq-toggle">
-        Preguntas Frecuentes
-      </button>
-    </div>
 
   </div>
 
@@ -73,29 +104,51 @@
     <p class="direccion">
       Calle Byte #1234<br>
       Bogotá, Colombia<br>
-      3006789056
+       01833 576 2088
     </p>
   </div>
 
 </section>
 
-<!-- ===== FAQ ===== -->
-<section id="faq-box" class="faq-box">
-  <h3>Preguntas Frecuentes</h3>
+<section id="faq" class="faq-box">
+  <div class="faq-header-inline">
+    <img 
+      src="../Assets/preguntas-frecuentes-helado.png" 
+      alt="Preguntas frecuentes"
+      class="faq-icon-img"
+    >
+    <span class="faq-title">Preguntas Frecuentes</span>
+  </div>
+
 
   <div class="faq-item">
-    <button class="faq-question">¿Cuánto tarda el envío?</button>
-    <div class="faq-answer">Entre 2 y 5 días hábiles.</div>
+    <button type="button" class="faq-question" aria-expanded="false">
+      ¿Cuánto tarda el envío?
+      <i class="bi bi-chevron-down"></i>
+    </button>
+    <div class="faq-answer" hidden>
+      Entre 2 y 5 días hábiles.
+    </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">¿Cuál es el costo del envío?</button>
-    <div class="faq-answer">Se calcula automáticamente al finalizar la compra.</div>
+    <button type="button" class="faq-question" aria-expanded="false">
+      ¿Cuál es el costo del envío?
+      <i class="bi bi-chevron-down"></i>
+    </button>
+    <div class="faq-answer" hidden>
+      Se calcula automáticamente al finalizar la compra.
+    </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">¿Puedo hacer seguimiento a mi pedido?</button>
-    <div class="faq-answer">Sí, recibirás el número de guía por correo.</div>
+    <button type="button" class="faq-question" aria-expanded="false">
+      ¿Puedo hacer seguimiento a mi pedido?
+      <i class="bi bi-chevron-down"></i>
+    </button>
+    <div class="faq-answer" hidden>
+      Sí, recibirás el número de guía por correo.
+    </div>
   </div>
 </section>
 
@@ -103,10 +156,9 @@
 <div id="footer"></div>
 
 <!-- JS -->
-    <script src="../JS/acerca_de_nosotros.js"></script>
-    <script src="/Componentes/navbarInclude.js"></script>
-    <script src="../Componentes/cargarfooter.js"></script>
-    <script src="/JS/contactanos.js"></script>
+<script src="/Componentes/navbarInclude.js"></script>
+<script src="../Componentes/cargarfooter.js"></script>
+<script src="/JS/contactanos.js"></script>
 
 </body>
 </html>

@@ -54,6 +54,7 @@ body, p, span, li, a, .texto {
     align-items: center;
 }
 
+
 .container-botones {
     display: flex;
     width: 80%;
@@ -102,6 +103,221 @@ body, p, span, li, a, .texto {
 #imagen-helado {
     width: 100%;
 }
+/*PROPUESTA PAR MEJORA DE LA PAGINA ----------------------*/
+
+.story {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 4rem 8%;
+}
+
+/* CONTENEDOR */
+.story-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGEN */
+.story-item img {
+  width: 100%;
+  max-width: 320px; 
+  border-radius: 16px;
+}
+
+/* ANIMACIÓN */
+/*.anim {
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}*/
+
+.delay1 { animation-delay: 0.2s; }
+.delay2 { animation-delay: 0.4s; }
+.delay3 { animation-delay: 0.6s; }
+
+/*.anim-left {
+  opacity: 0;
+  animation: fadeLeft 1.8s ease forwards;
+}*/
+
+/*.anim-right {
+  opacity: 0;
+  animation: fadeRight 1.8s ease forwards;
+}*/
+.story-item img {
+  transition: transform 0.4s ease;
+}
+
+.story-item:hover img {
+  transform: scale(1.04);
+}
+
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SECCIÓN 1 · TEXTO EN 3 COLUMNAS */
+.valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  padding: 4rem 8%;
+}
+
+.valor {
+  background: rgba(255,255,255,0.65);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.valor h3 {
+  color: #bf155c;
+  margin-bottom: 0.3rem;
+}
+
+.valor h4 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.valor p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* SECCIÓN 3 · IMPACTO SOCIAL */
+.impacto {
+  padding: 5rem 12%;
+  display: flex;
+  justify-content: center;
+}
+
+.impacto-texto {
+  max-width: 700px;
+  background: rgba(255,255,255,0.7);
+  padding: 3rem;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.impacto-texto h2 {
+  color: #bf155c;
+  margin-bottom: 1.5rem;
+}
+
+.impacto-texto p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+
+/* ANIMACIONES*/
+/*.fade {
+  animation: fadeUp 1.2s ease forwards;
+}*/
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1.3s ease;
+}
+
+.trabajamos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 4rem 8%;
+}
+
+.trabajamos-texto {
+  flex: 1;
+  font-size: 10rem;
+  margin-bottom: 0.5rem;
+}
+
+.trabajamos-texto h2 {
+  font-size: 5.2rem;
+  margin-bottom: 1rem;
+  color: #bf155c;
+}
+
+.trabajamos-texto p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* tu video */
+.about-image video {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.reveal.left {
+  transform: translateX(-60px);
+}
+
+.reveal.right {
+  transform: translateX(60px);
+}
+
+.reveal.show.left,
+.reveal.show.right {
+  transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+/*AQUI TERMINA -------------------------------------------*/
+
 
 /* cards equipo */
 
@@ -369,15 +585,27 @@ amarillo #E5E56A
 
 /*Desde aca empieza el estilo de pagina contactenos*/
 
+/* ============ Base contactanos ============ */
 body {
   font-family: 'Nunito', sans-serif;
   background: #f7c6d0;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 /* ===== HERO ===== */
 .hero-dudas {
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 10px;
 }
 
 .hero-dudas img {
@@ -386,154 +614,363 @@ body {
 
 .hero-dudas p {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
+  margin-top: 10px;
 }
 
-/* ===== CONTACTO ===== */
+/* ===== Layout Cards ===== */
 .contacto-wrapper {
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   gap: 50px;
   justify-content: center;
-  align-items: center;
+
+  /* ambas cards con la misma altura visual */
+  align-items: stretch;
+
   padding: 40px 20px;
 }
 
-/* Cards */
 .card-contacto {
-  background: #fff;
-  border-radius: 28px;
-  padding: 40px;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 36px 38px;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  max-width: 460px;
+
+  /* Card ambas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+
+  
+  min-height: 640px;
 }
 
-.card-imagen img {
-  width: 100%;
-  border-radius: 22px;
-}
-
-/* Form */
 .card-contacto h2 {
   font-size: 32px;
-  margin-bottom: 25px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #2b2b2b;
 }
 
-form {
+/* ===== Form ===== */
+#form-contacto {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-input, textarea {
+.field input,
+.field textarea {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
   padding: 14px 18px;
-  border-radius: 20px;
-  border: 2px solid #ddd;
+  border-radius: 16px;
+  border: 2px solid #e3e3e3;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
 }
 
-textarea {
-  resize: none;
+.field textarea {
   height: 120px;
+  resize: none;
+}
+
+/* Estado visual */
+.field.is-error input,
+.field.is-error textarea {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.12);
+}
+
+.field.is-ok input,
+.field.is-ok textarea {
+  border-color: #2ecc71;
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.12);
+}
+
+/* Mensajes */
+.hint {
+  min-height: 20px; 
+  margin-top: 6px;
+}
+
+.msg {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.field.is-error .msg {
+  color: #c0392b;
+}
+
+.field.is-ok .msg {
+  color: #1e8e3e;
+}
+
+/* Estado general */
+.form-status {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 4px;
+  min-height: 22px; 
+  color: #6b7280;
 }
 
 /* Botones */
 .btn-group {
   display: flex;
   gap: 12px;
+  margin-top: 10px;
 }
 
 .btn-enviar {
   flex: 1;
-  background: #3b82f6;
-  color: #fff;
+  background: #f8046e;
+  color: white;
   border: none;
   padding: 14px;
   border-radius: 18px;
-  font-weight: 600;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn-enviar:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-enviar:not(:disabled):hover {
+  transform: translateY(-1px);
 }
 
 .btn-whatsapp {
   flex: 1;
-  background: #22c55e;
+  background: #0cca78;
   color: #fff;
   text-align: center;
   padding: 14px;
   border-radius: 18px;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
+  transition: transform 0.15s ease;
 }
 
-/* ===== FAQ CTA ===== */
+.btn-whatsapp:hover {
+  transform: translateY(-1px);
+}
+
+/* CTA FAQ  */
 .faq-cta {
-  margin-top: 25px;
+  margin-top: 22px;
   text-align: center;
 }
 
 .faq-cta img {
-  width: 60px;
-  margin-bottom: 10px;
+  width: 64px;
+  display: block;
+  margin: 0 auto 10px;
 }
 
 .btn-faq-toggle {
+  display: inline-block;
   background: #e96b9c;
   color: #fff;
   border: none;
   padding: 12px 28px;
   border-radius: 20px;
-  font-weight: 700;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 18px rgba(233, 107, 156, 0.25);
+  transition: transform 0.15s ease;
 }
 
-/* ===== FAQ ===== */
-.faq-box {
-  display: none;
-  max-width: 700px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 35px;
-  border-radius: 26px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+.btn-faq-toggle:hover {
+  transform: translateY(-1px);
 }
 
-.faq-box.active {
-  display: block;
+/* ===== Card Imagen ===== */
+.card-imagen {
+  align-items: center;
+  text-align: center;
+  gap: 16px;
 }
 
-.faq-item {
-  margin-bottom: 14px;
-}
-
-.faq-question {
+.card-imagen img {
   width: 100%;
-  background: #f1f1f1;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-align: left;
-}
-
-.faq-answer {
-  display: none;
-  padding: 12px 16px;
-}
-
-.faq-answer.open {
+  height: auto;
+  border-radius: 22px;
   display: block;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .contacto-wrapper {
-    flex-direction: column;
+.direccion {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* faq */
+.faq-header-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;      
+  border: none;          
+  padding: 0;            
+  box-shadow: none;      
+}
+
+.faq-icon-img {
+  width: 32px;           
+  height: auto;
+}
+
+.faq-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;           
+}
+
+.faq-box{
+  max-width: 900px;
+  margin: 15px auto 60px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+  backdrop-filter: blur(6px);
+}
+
+.faq-box h3{
+  font-size: 22px;
+  font-weight: 900;
+  color: #2b2b2b;
+  margin: 0 0 16px;
+  letter-spacing: -0.2px;
+}
+
+/* “Badge” del título como en tu referencia */
+.faq-title-chip{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #e78fb0; /* rosa suave */
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  box-shadow: 0 10px 18px rgba(231,143,176,0.22);
+  margin: 0 auto 14px;
+}
+
+/* Si no quieres cambiar HTML, usa el h3 como chip */
+.faq-box h3{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #e78fb0;
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(231,143,176,0.22);
+}
+
+/* Lista de items */
+.faq-item + .faq-item{
+  margin-top: 12px;
+}
+
+/* Botón pregunta: estilo tarjeta */
+.faq-question{
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.07);
+  background: #fafafa;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 800;
+  color: #222;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.faq-question:hover{
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.10);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+/* Chevron icon */
+.faq-question i{
+  font-size: 18px;
+  opacity: 0.75;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.faq-question[aria-expanded="true"]{
+  background: #ffffff;
+  border-color: rgba(231,143,176,0.45);
+  box-shadow: 0 12px 24px rgba(231,143,176,0.18);
+}
+
+.faq-question[aria-expanded="true"] i{
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Respuesta */
+.faq-answer{
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* En mobile: más compacto y legible */
+@media (max-width: 768px){
+  .faq-box{
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .faq-question{
+    padding: 13px 14px;
+  }
+
+  .faq-answer{
+    padding: 12px 14px;
   }
 }
 
 
 /*Aca empieza el estilo de la pagina catalogo*/
 
-/* ===== Aqui va el BANNER ===== */
+/* ===== Aqui va el BANNER .git ===== */
 #banner {
     background-color: #fff;
     padding-top: 40px;
