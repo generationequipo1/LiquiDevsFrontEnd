@@ -18,7 +18,7 @@ function validarContrasena(){
         contador++;
         console.log("Contraseña incorrecta, intenta de nuevo\nIntento " + contador);
 
-        mensajeValidacion.innerText = "La contreseña incorrecta, intenta de nuevo\nIntento " + contador;
+        mensajeValidacion.innerText = "Contraseña o Usuario incorrecto, intenta de nuevo\nIntento " + contador;
         if(contador >= 3){
             mensajeValidacion.innerText = "Usuario bloqueado";   
         }
