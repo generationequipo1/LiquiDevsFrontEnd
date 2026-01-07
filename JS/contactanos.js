@@ -1,5 +1,5 @@
 // ======================
-// Validación - Contactanos
+// Validación - Contactanos finales
 // ======================
 const form = document.getElementById("form-contacto");
 const btnEnviar = document.getElementById("btn-enviar");
