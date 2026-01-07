@@ -12,9 +12,9 @@ function validarContrasena(){
     //console.log(validarContrasena);
 
     const usuario =  JSON.parse(localStorage.getItem("usuarioRegistrado")) || [];
-    console.log(usuario);
     
-    if(validarContrasena.length <= 8 || !validarContrasena.match(/\d/) || !validarContrasena.match(/[A-Z]/) ){
+    
+    if(entradaCorreo.value != usuario.email || contrasena.value != usuario.password){
         contador++;
         console.log("Contraseña incorrecta, intenta de nuevo\nIntento " + contador);
 
@@ -22,6 +22,7 @@ function validarContrasena(){
         if(contador >= 3){
             mensajeValidacion.innerText = "Usuario bloqueado";   
         }
+
 
     }else{
         console.log("contraseña correcta, bienvenido ", usuario.nombre);
