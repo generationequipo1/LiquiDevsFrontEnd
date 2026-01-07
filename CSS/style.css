@@ -54,6 +54,7 @@ body, p, span, li, a, .texto {
     align-items: center;
 }
 
+
 .container-botones {
     display: flex;
     width: 80%;
@@ -102,6 +103,221 @@ body, p, span, li, a, .texto {
 #imagen-helado {
     width: 100%;
 }
+/*PROPUESTA PAR MEJORA DE LA PAGINA ----------------------*/
+
+.story {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 4rem 8%;
+}
+
+/* CONTENEDOR */
+.story-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGEN */
+.story-item img {
+  width: 100%;
+  max-width: 320px; 
+  border-radius: 16px;
+}
+
+/* ANIMACIÓN */
+/*.anim {
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}*/
+
+.delay1 { animation-delay: 0.2s; }
+.delay2 { animation-delay: 0.4s; }
+.delay3 { animation-delay: 0.6s; }
+
+/*.anim-left {
+  opacity: 0;
+  animation: fadeLeft 1.8s ease forwards;
+}*/
+
+/*.anim-right {
+  opacity: 0;
+  animation: fadeRight 1.8s ease forwards;
+}*/
+.story-item img {
+  transition: transform 0.4s ease;
+}
+
+.story-item:hover img {
+  transform: scale(1.04);
+}
+
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SECCIÓN 1 · TEXTO EN 3 COLUMNAS */
+.valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  padding: 4rem 8%;
+}
+
+.valor {
+  background: rgba(255,255,255,0.65);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.valor h3 {
+  color: #bf155c;
+  margin-bottom: 0.3rem;
+}
+
+.valor h4 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.valor p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* SECCIÓN 3 · IMPACTO SOCIAL */
+.impacto {
+  padding: 5rem 12%;
+  display: flex;
+  justify-content: center;
+}
+
+.impacto-texto {
+  max-width: 700px;
+  background: rgba(255,255,255,0.7);
+  padding: 3rem;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.impacto-texto h2 {
+  color: #bf155c;
+  margin-bottom: 1.5rem;
+}
+
+.impacto-texto p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+
+/* ANIMACIONES*/
+/*.fade {
+  animation: fadeUp 1.2s ease forwards;
+}*/
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1.3s ease;
+}
+
+.trabajamos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 4rem 8%;
+}
+
+.trabajamos-texto {
+  flex: 1;
+  font-size: 10rem;
+  margin-bottom: 0.5rem;
+}
+
+.trabajamos-texto h2 {
+  font-size: 5.2rem;
+  margin-bottom: 1rem;
+  color: #bf155c;
+}
+
+.trabajamos-texto p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* tu video */
+.about-image video {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.reveal.left {
+  transform: translateX(-60px);
+}
+
+.reveal.right {
+  transform: translateX(60px);
+}
+
+.reveal.show.left,
+.reveal.show.right {
+  transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+/*AQUI TERMINA -------------------------------------------*/
+
 
 /* cards equipo */
 
