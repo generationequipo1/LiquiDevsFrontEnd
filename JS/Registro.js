@@ -72,7 +72,7 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
     if (!valido) return;//con este return lo regresamos a donde empeiza la funcion
 
     
-    let usuario = {
+    const usuario = {
         nombre: nombre,
         telefono: telefono,
         email: email,
@@ -94,7 +94,5 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
         icon: 'success',
         confirmButtonText: 'Aceptar'
 });
-
-    
     document.getElementById("formRegistro").reset();
 });

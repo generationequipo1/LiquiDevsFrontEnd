@@ -1,0 +1,81 @@
+body{
+    background-image: url(../Assets/background_login.jpg);
+     background-size:cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+h1, h2, h3, p {
+    font-family: 'Pacifico', cursive;
+}
+ p {
+    font-family: "Nunito", sans-serif;
+}
+.login {
+    margin: 100px auto;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-flow: column;
+    backdrop-filter: blur(30px);
+    background-color: rgba(245, 245, 245, 0.164);
+    border-radius: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.login h2{
+    font-size: 30px;
+    font-weight: lighter;
+    color: #bf155c;
+}
+
+.login a{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: lighter;
+    color: #bf155c;
+}
+.login a:hover{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color:#bf155c;
+    cursor: pointer;
+}
+.login input{
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    backdrop-filter: blur(30px);    
+    border: 0;
+    padding: 5px;
+}
+.login #correo{
+    margin-bottom: 20px;
+}
+
+.login button{
+    height: 30px ;
+    border: 2px solid #bf155c;
+    background-color: #bf155c;
+    border-radius: 10px;
+    width: 120px;
+    color: white;
+    margin: 10px;
+}
+
+.login button:hover{
+    background-color: #bf155c00;
+    border: 2px solid #bf155c;
+    color: #bf155c;
+    font-weight: bold;
+    cursor: pointer;
+}
+#notificacion2{
+    font-family: "Nunito", sans-serif;
+    margin: 5px;
+    font-size: 14px;
+    
+}
+
