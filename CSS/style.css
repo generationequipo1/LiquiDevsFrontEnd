@@ -585,12 +585,16 @@ amarillo #E5E56A
 
 /*Desde aca empieza el estilo de pagina contactenos*/
 
-/* ============ Base contactanos ============ */
-body {
+/* ============ Base y Reset ============ */
+/*body {
   font-family: 'Nunito', sans-serif;
-  background: #f7c6d0;
-}
+  /*background: #f7c6d0;*/
+  /*margin: 0;
+  padding: 0;
+  color: #333;
+}*/
 
+/* Ocultar labels para accesibilidad pero no visualmente */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -602,368 +606,266 @@ body {
   border: 0;
 }
 
-/* ===== HERO ===== */
-.hero-dudas {
-  text-align: center;
-  margin: 40px 0 10px;
-}
-
-.hero-dudas img {
-  width: 120px;
-}
-
-.hero-dudas p {
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 10px;
-}
-
-/* ===== Layout Cards ===== */
+/* ===== Layout Principal ===== */
 .contacto-wrapper {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 40px auto;
   display: flex;
-  gap: 50px;
+  gap: 30px;
   justify-content: center;
-
-  /* ambas cards con la misma altura visual */
-  align-items: stretch;
-
-  padding: 40px 20px;
+  align-items: stretch; /* Mantiene ambas tarjetas del mismo alto */
+  padding: 0 20px;
 }
 
+/* Tarjeta Base */
 .card-contacto {
   background: #ffffff;
-  border-radius: 26px;
-  padding: 36px 38px;
+  border-radius: 28px;
+  padding: 40px;
   width: 100%;
-  max-width: 460px;
-
-  /* Card ambas */
+  max-width: 480px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
-
-  
-  min-height: 640px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
 
 .card-contacto h2 {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #2b2b2b;
+  font-family: 'Pacifico', cursive; /* Fuente juguetona para el título */
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #bf155c;
+  text-align: center;
+  
+}
+.card-contacto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* ===== Form ===== */
+/* ===== Formulario y Validaciones ===== */
 #form-contacto {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 5px;
 }
 
 .field input,
 .field textarea {
   width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-  padding: 14px 18px;
-  border-radius: 16px;
-  border: 2px solid #e3e3e3;
+  padding: 15px 20px;
+  border-radius: 18px;
+  border: 2px solid #eee;
   font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fcfcfc;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background: #fff;
 }
 
 .field textarea {
-  height: 120px;
+  height: 130px;
   resize: none;
 }
 
-/* Estado visual */
-.field.is-error input,
-.field.is-error textarea {
-  border-color: #e74c3c;
-  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.12);
+/* Interacción Focus */
+.field input:focus,
+.field textarea:focus {
+  border-color: #f8046e;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(248, 4, 110, 0.1);
+  transform: translateY(-2px);
 }
 
-.field.is-ok input,
-.field.is-ok textarea {
-  border-color: #2ecc71;
-  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.12);
-}
-
-/* Mensajes */
+/* Mensajes de Error (Solo visibles cuando hay error) */
 .hint {
-  min-height: 20px; 
-  margin-top: 6px;
+  min-height: 22px;
+  margin: 4px 0 10px 10px;
 }
 
 .msg {
   font-size: 13px;
-  font-weight: 600;
-  color: #6b7280;
+  font-weight: 700;
+  display: none; /* Oculto por defecto */
 }
 
 .field.is-error .msg {
-  color: #c0392b;
+  display: block;
+  color: #e74c3c;
 }
 
-.field.is-ok .msg {
-  color: #1e8e3e;
+.field.is-error input,
+.field.is-error textarea {
+  border-color: #e74c3c;
+  background: #fffafa;
 }
 
-/* Estado general */
-.form-status {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 4px;
-  min-height: 22px; 
-  color: #6b7280;
-}
-
-/* Botones */
+/* ===== Botones ===== */
 .btn-group {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 15px;
   margin-top: 10px;
 }
 
 .btn-enviar {
-  flex: 1;
   background: #f8046e;
   color: white;
   border: none;
-  padding: 14px;
-  border-radius: 18px;
+  padding: 16px;
+  border-radius: 20px;
   font-weight: 800;
+  font-size: 17px;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 20px rgba(248, 4, 110, 0.25);
+  transition: all 0.3s ease;
 }
 
 .btn-enviar:disabled {
-  opacity: 0.55;
+  background: #ccc;
+  box-shadow: none;
   cursor: not-allowed;
-  transform: none;
 }
 
 .btn-enviar:not(:disabled):hover {
-  transform: translateY(-1px);
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
 
 .btn-whatsapp {
-  flex: 1;
-  background: #0cca78;
-  color: #fff;
+  background: #fff;
+  color: #0cca78;
+  border: 2px solid #0cca78;
   text-align: center;
   padding: 14px;
-  border-radius: 18px;
+  border-radius: 20px;
   font-weight: 800;
   text-decoration: none;
-  transition: transform 0.15s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(-1px);
-}
-
-/* CTA FAQ  */
-.faq-cta {
-  margin-top: 22px;
-  text-align: center;
-}
-
-.faq-cta img {
-  width: 64px;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-.btn-faq-toggle {
-  display: inline-block;
-  background: #e96b9c;
+  background: #0cca78;
   color: #fff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 20px;
-  font-weight: 900;
-  text-decoration: none;
-  box-shadow: 0 10px 18px rgba(233, 107, 156, 0.25);
-  transition: transform 0.15s ease;
+  box-shadow: 0 8px 20px rgba(12, 202, 120, 0.2);
 }
 
-.btn-faq-toggle:hover {
-  transform: translateY(-1px);
-}
-
-/* ===== Card Imagen ===== */
+/* ===== Card de Imagen y Mapa ===== */
 .card-imagen {
-  align-items: center;
   text-align: center;
-  gap: 16px;
+  justify-content: space-between; /* Empuja el contenido para llenar el alto */
 }
 
 .card-imagen img {
-  width: 100%;
+  max-width: 85%;
   height: auto;
-  border-radius: 22px;
-  display: block;
-  max-width: 520px;
   margin: 0 auto;
 }
 
 .direccion {
-  margin-top: 18px;
-  text-align: center;
-  font-size: 16px;
+  background: #fff5f7;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 15px;
   font-weight: 700;
-  color: #333;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 20px 0;
+  color: #555;
+  border: 1px dashed #fbc2d4;
 }
 
-/* faq */
+/* Contenedor del Mapa */
+.embed-map-responsive {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden; /* Corta las esquinas del iframe */
+  line-height: 0;
+  border: 3px solid #fdf2f5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.embed-map-frame {
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+
+/* ===== FAQ Section ===== */
+.faq-box {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
 .faq-header-inline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: none;      
-  border: none;          
-  padding: 0;            
-  box-shadow: none;      
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #fdf2f5;
 }
 
 .faq-icon-img {
-  width: 32px;           
-  height: auto;
+  width: 45px;
 }
 
 .faq-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #000;           
-}
-
-.faq-box{
-  max-width: 900px;
-  margin: 15px auto 60px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.06);
-  padding: 28px;
-  border-radius: 24px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
-  backdrop-filter: blur(6px);
-}
-
-.faq-box h3{
-  font-size: 22px;
-  font-weight: 900;
-  color: #2b2b2b;
-  margin: 0 0 16px;
-  letter-spacing: -0.2px;
-}
-
-/* “Badge” del título como en tu referencia */
-.faq-title-chip{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: #e78fb0; /* rosa suave */
-  color: #fff;
-  font-weight: 900;
-  font-size: 14px;
-  box-shadow: 0 10px 18px rgba(231,143,176,0.22);
-  margin: 0 auto 14px;
-}
-
-/* Si no quieres cambiar HTML, usa el h3 como chip */
-.faq-box h3{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: #e78fb0;
-  color: #fff;
-  box-shadow: 0 10px 18px rgba(231,143,176,0.22);
-}
-
-/* Lista de items */
-.faq-item + .faq-item{
-  margin-top: 12px;
-}
-
-/* Botón pregunta: estilo tarjeta */
-.faq-question{
-  width: 100%;
-  border: 1px solid rgba(0,0,0,0.07);
-  background: #fafafa;
-  padding: 14px 16px;
-  border-radius: 14px;
+  font-size: 24px;
   font-weight: 800;
-  color: #222;
-  text-align: left;
+  color: #bf155c;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 18px 22px;
+  border-radius: 15px;
+  font-weight: 700;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  transition: all 0.2s ease;
 }
 
-.faq-question:hover{
-  background: #ffffff;
-  border-color: rgba(0,0,0,0.10);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  transform: translateY(-1px);
+.faq-question:hover {
+  background: #fff0f5;
+  border-color: #fbc2d4;
 }
 
-/* Chevron icon */
-.faq-question i{
-  font-size: 18px;
-  opacity: 0.75;
-  transition: transform .2s ease, opacity .2s ease;
-}
-
-.faq-question[aria-expanded="true"]{
-  background: #ffffff;
-  border-color: rgba(231,143,176,0.45);
-  box-shadow: 0 12px 24px rgba(231,143,176,0.18);
-}
-
-.faq-question[aria-expanded="true"] i{
-  transform: rotate(180deg);
-  opacity: 1;
-}
-
-/* Respuesta */
-.faq-answer{
-  margin-top: 10px;
-  padding: 12px 14px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 12px;
-  color: #444;
+.faq-answer {
+  padding: 15px 22px;
+  font-size: 15px;
+  color: #666;
   line-height: 1.6;
 }
+.faq-box {
+  /* Agregamos una transición para que el movimiento sea suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* En mobile: más compacto y legible */
-@media (max-width: 768px){
-  .faq-box{
-    padding: 20px;
-    border-radius: 20px;
+.faq-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 850px) {
+  .contacto-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
-
-  .faq-question{
-    padding: 13px 14px;
-  }
-
-  .faq-answer{
-    padding: 12px 14px;
+  
+  .card-contacto {
+    max-width: 100%;
   }
 }
 
