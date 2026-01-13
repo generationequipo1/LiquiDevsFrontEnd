@@ -13,93 +13,97 @@ const fields = {
 };
 
 const validators = {
-  email: (value) => {
-    const v = value.trim();
-    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(v);
-    return ok ? { ok: true, msg: "Correo válido." } : { ok: false, msg: "Ingresa un correo válido (ej: correo@dominio.com)." };
-  },
-  nombre: (value) => {
-    const v = value.trim();
-    if (v.length < 3) return { ok: false, msg: "El nombre debe tener al menos 3 caracteres." };
-    return { ok: true, msg: "Nombre válido." };
-  },
-  telefono: (value) => {
-    const v = value.replace(/\s+/g, "").trim();
-    const ok = /^[0-9]{7,12}$/.test(v);
-    return ok ? { ok: true, msg: "Teléfono válido." } : { ok: false, msg: "Usa solo números (7 a 12 dígitos)." };
-  },
-  mensaje: (value) => {
-    const v = value.trim();
-    if (v.length < 10) return { ok: false, msg: "El mensaje debe tener al menos 10 caracteres." };
-    return { ok: true, msg: "Mensaje listo para enviar." };
-  },
+  email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(v.trim()) 
+    ? { ok: true, msg: "Correo válido." } 
+    : { ok: false, msg: "Ingresa un correo válido." },
+    
+  nombre: (v) => v.trim().length >= 3 
+    ? { ok: true, msg: "Nombre válido." } 
+    : { ok: false, msg: "Mínimo 3 caracteres." },
+    
+  telefono: (v) => /^[0-9]{7,12}$/.test(v.replace(/\s+/g, "").trim()) 
+    ? { ok: true, msg: "Teléfono válido." } 
+    : { ok: false, msg: "Usa 7 a 12 números." },
+    
+  mensaje: (v) => v.trim().length >= 10 
+    ? { ok: true, msg: "Mensaje listo." } 
+    : { ok: false, msg: "Mínimo 10 caracteres." },
 };
 
-function setFieldState(inputEl, result) {
+/**
+ * Actualiza el estado visual de UN campo
+ * @param {boolean} forceShow - Si es true, muestra el error aunque el usuario no haya tocado el campo
+ */
+function updateFieldVisuals(inputEl, forceShow = false) {
   const wrapper = inputEl.closest(".field");
   const msgEl = wrapper.querySelector(".msg");
+  const valResult = validators[inputEl.id](inputEl.value);
+  const isDirty = inputEl.dataset.touched === "true"; // ¿El usuario ya tocó el campo?
 
   wrapper.classList.remove("is-ok", "is-error");
 
-  // Si está vacío, no lo marcamos en verde aún (pero sí podemos orientar)
   if (inputEl.value.trim() === "") {
-    msgEl.textContent = "Este campo es obligatorio.";
-    wrapper.classList.add("is-error");
+    if (forceShow || isDirty) {
+      wrapper.classList.add("is-error");
+      msgEl.textContent = "Este campo es obligatorio.";
+    }
     return false;
   }
 
-  if (result.ok) {
-    wrapper.classList.add("is-ok");
-    msgEl.textContent = result.msg;
+  if (valResult.ok) {
+    if (isDirty) wrapper.classList.add("is-ok");
+    msgEl.textContent = valResult.msg;
     return true;
   } else {
-    wrapper.classList.add("is-error");
-    msgEl.textContent = result.msg;
+    if (forceShow || isDirty) {
+      wrapper.classList.add("is-error");
+      msgEl.textContent = valResult.msg;
+    }
     return false;
   }
 }
 
-function validateAll() {
-  const rEmail = setFieldState(fields.email, validators.email(fields.email.value));
-  const rNombre = setFieldState(fields.nombre, validators.nombre(fields.nombre.value));
-  const rTel = setFieldState(fields.telefono, validators.telefono(fields.telefono.value));
-  const rMsg = setFieldState(fields.mensaje, validators.mensaje(fields.mensaje.value));
+function checkAll() {
+  // Validamos todos pero sin forzar que se vea el rojo (silenciosamente)
+  const rEmail = updateFieldVisuals(fields.email, false);
+  const rNombre = updateFieldVisuals(fields.nombre, false);
+  const rTel = updateFieldVisuals(fields.telefono, false);
+  const rMsg = updateFieldVisuals(fields.mensaje, false);
 
   const allOk = rEmail && rNombre && rTel && rMsg;
-
   btnEnviar.disabled = !allOk;
-
-  if (allOk) {
-    statusEl.textContent = "Todo listo. Puedes enviar el mensaje.";
-    statusEl.style.color = "#1e8e3e";
-  } else {
-    statusEl.textContent = "Completa correctamente los campos para habilitar el envío.";
-    statusEl.style.color = "#6b7280";
-  }
+  
+  statusEl.textContent = allOk ? "¡Todo listo para enviar!" : "";
+  statusEl.style.color = "#1e8e3e";
 
   return allOk;
 }
 
-// Validación en tiempo real
+// Eventos
 Object.values(fields).forEach((input) => {
-  input.addEventListener("input", validateAll);
-  input.addEventListener("blur", validateAll);
+  input.addEventListener("input", () => {
+    input.dataset.touched = "true"; // Marcamos que el usuario ya empezó a escribir
+    checkAll();
+  });
+
+  input.addEventListener("blur", () => {
+    input.dataset.touched = "true";
+    updateFieldVisuals(input, true); // Al salir del campo, si está mal, mostramos error
+    checkAll();
+  });
 });
 
-// Estado inicial
-validateAll();
-
-// Submit Formspree 
+// Envío del formulario
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    const ok = validateAll();
+    
+    // Forzamos visualización de errores en todos los campos antes de enviar
+    const ok = Object.values(fields).every(input => updateFieldVisuals(input, true));
     if (!ok) return;
 
     btnEnviar.disabled = true;
     statusEl.textContent = "Enviando mensaje...";
-    statusEl.style.color = "#6b7280";
 
     try {
       const response = await fetch(form.action, {
@@ -109,17 +113,19 @@ if (form) {
       });
 
       if (response.ok) {
-        statusEl.textContent = "Mensaje enviado correctamente. Te responderemos pronto.";
-        statusEl.style.color = "#1e8e3e";
+        statusEl.textContent = "¡Mensaje enviado! Te responderemos pronto.";
         form.reset();
-        validateAll();
+        // Limpiamos los estados visuales
+        Object.values(fields).forEach(input => {
+            delete input.dataset.touched;
+            input.closest(".field").classList.remove("is-ok", "is-error");
+        });
+        checkAll();
       } else {
-        statusEl.textContent = "Hubo un error al enviar. Intenta nuevamente.";
-        statusEl.style.color = "#c0392b";
-        btnEnviar.disabled = false;
+        throw new Error();
       }
     } catch (err) {
-      statusEl.textContent = "Error de conexión. Revisa tu internet e intenta de nuevo.";
+      statusEl.textContent = "Error al enviar. Intenta de nuevo.";
       statusEl.style.color = "#c0392b";
       btnEnviar.disabled = false;
     }
@@ -127,41 +133,22 @@ if (form) {
 }
 
 // ======================
-// FAQ: acordeon
+// FAQ: acordeon (Mejorado con clases)
 // ======================
-const faqQuestions = document.querySelectorAll(".faq-question");
-
-faqQuestions.forEach((btn) => {
+document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
-    // cerrar los otros
-    faqQuestions.forEach((other) => {
-      if (other !== btn) {
-        other.setAttribute("aria-expanded", "false");
-        const otherAnswer = other.parentElement.querySelector(".faq-answer");
-        otherAnswer.hidden = true;
-      }
+    const isExpanded = btn.getAttribute("aria-expanded") === "true";
+    
+    // Cerrar otros
+    document.querySelectorAll(".faq-question").forEach(other => {
+      other.setAttribute("aria-expanded", "false");
+      other.nextElementSibling.hidden = true;
     });
 
-    // toggle del actual
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!expanded));
-    const answer = btn.parentElement.querySelector(".faq-answer");
-    answer.hidden = expanded;
+    // Abrir el actual si estaba cerrado
+    if (!isExpanded) {
+      btn.setAttribute("aria-expanded", "true");
+      btn.nextElementSibling.hidden = false;
+    }
   });
 });
-
-// ======================
-// Scroll FAQ
-// ======================
-const btnFaqAnchor = document.getElementById("btn-faq");
-if (btnFaqAnchor) {
-  btnFaqAnchor.addEventListener("click", (e) => {
-    // Deja funcionar el href, pero con scroll suave
-    e.preventDefault();
-    document.getElementById("faq")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-}
-
-
-
-
