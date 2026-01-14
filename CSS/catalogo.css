@@ -170,3 +170,23 @@ body {
   background: #b31257;
   color: white;
 }
+
+.toolbar-catalogo {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  padding: 20px;
+}
+
+.toolbar-catalogo input,
+.toolbar-catalogo select {
+  transition: all 0.3s ease;
+}
+
+.toolbar-catalogo input:focus,
+.toolbar-catalogo select:focus {
+  outline: none;
+  border-color: #b31257;
+  box-shadow: 0 0 0 3px rgba(179,18,87,0.15);
+}

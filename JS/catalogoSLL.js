@@ -1,158 +1,131 @@
-/* referencias dom */
 const containerCards = document.getElementById("container-cards-fijas");
 const inputBusqueda = document.getElementById("input-busqueda");
+const filtroTipo = document.getElementById("filtro-tipo");
 const filtroSabor = document.getElementById("filtro-sabor");
+const filtroMixto = document.getElementById("filtro-mixto");
 const ordenPrecio = document.getElementById("orden-precio");
+const btnMostrarTodos = document.getElementById("btn-mostrar-todos");
+const contadorResultados = document.getElementById("contador-resultados");
+const chipsFiltros = document.getElementById("chips-filtros");
 
-/* carrito y localstorage */
 let carrito = JSON.parse(localStorage.getItem("carritoHelados")) || [];
 
-/* al cargar la pag */
 document.addEventListener("DOMContentLoaded", () => {
-  if (!containerCards) {
-    console.error("❌ falta el contenedor de cards");
-    return;
-  }
-
-  if (!Array.isArray(productos)) {
-    console.error("❌ el array de productos no existe");
-    return;
-  }
-
-  generarFiltrosSabores(productos);
   renderizarProductos(productos);
+  animarContador(productos.length);
 
-  // listeners de los filtros
-  if (inputBusqueda) {
-    inputBusqueda.addEventListener("input", aplicarFiltros);
-  }
+  [inputBusqueda, filtroTipo, filtroSabor, filtroMixto, ordenPrecio]
+    .forEach(el => el.addEventListener("input", aplicarFiltros));
 
-  if (filtroSabor) {
-    filtroSabor.addEventListener("change", aplicarFiltros);
-  }
-
-  if (ordenPrecio) {
-    ordenPrecio.addEventListener("change", aplicarFiltros);
-  }
+  btnMostrarTodos.addEventListener("click", resetFiltros);
 });
 
-/* funcion para filtrar todo */
 function aplicarFiltros() {
   let lista = [...productos];
 
-  const texto = inputBusqueda
-    ? inputBusqueda.value.trim().toLowerCase()
-    : "";
+  if (inputBusqueda.value)
+    lista = lista.filter(p => p.nombre.toLowerCase().includes(inputBusqueda.value.toLowerCase()));
 
-  const sabor = filtroSabor ? filtroSabor.value : "todos";
-  const orden = ordenPrecio ? ordenPrecio.value : "";
+  if (filtroTipo.value !== "todos")
+    lista = lista.filter(p => p.tipo === filtroTipo.value);
 
-  // por nombre
-  if (texto !== "") {
+  if (filtroSabor.value !== "todos")
+    lista = lista.filter(p => p.sabores.includes(filtroSabor.value));
+
+  if (filtroMixto.value !== "todos")
     lista = lista.filter(p =>
-      p.nombre.toLowerCase().includes(texto)
+      filtroMixto.value === "si" ? p.sabores.length > 1 : p.sabores.length === 1
     );
-  }
 
-  // por sabor
-  if (sabor !== "todos") {
-    lista = lista.filter(p =>
-      Array.isArray(p.sabores) && p.sabores.includes(sabor)
-    );
-  }
-
-  // por precio
-  if (orden === "menor") {
-    lista.sort((a, b) => a.precio - b.precio);
-  }
-
-  if (orden === "mayor") {
-    lista.sort((a, b) => b.precio - a.precio);
-  }
+  if (ordenPrecio.value === "menor") lista.sort((a, b) => a.precio - b.precio);
+  if (ordenPrecio.value === "mayor") lista.sort((a, b) => b.precio - a.precio);
 
   renderizarProductos(lista);
+  animarContador(lista.length);
+  actualizarUI();
+  renderizarChips();
 }
 
-/* pintar las cards en el html */
+function resetFiltros() {
+  inputBusqueda.value = "";
+  filtroTipo.value = "todos";
+  filtroSabor.value = "todos";
+  filtroMixto.value = "todos";
+  ordenPrecio.value = "";
+  renderizarProductos(productos);
+  animarContador(productos.length);
+  actualizarUI();
+  chipsFiltros.innerHTML = "";
+}
+
+function actualizarUI() {
+  const hayFiltros =
+    inputBusqueda.value ||
+    filtroTipo.value !== "todos" ||
+    filtroSabor.value !== "todos" ||
+    filtroMixto.value !== "todos" ||
+    ordenPrecio.value;
+
+  btnMostrarTodos.classList.toggle("d-none", !hayFiltros);
+}
+
+function animarContador(valor) {
+  let actual = 0;
+  const step = Math.max(1, Math.floor(valor / 20));
+  const interval = setInterval(() => {
+    actual += step;
+    if (actual >= valor) {
+      actual = valor;
+      clearInterval(interval);
+    }
+    contadorResultados.textContent = `${actual} resultado${actual !== 1 ? "s" : ""}`;
+  }, 20);
+}
+
+function renderizarChips() {
+  chipsFiltros.innerHTML = "";
+
+  const chips = [];
+
+  if (inputBusqueda.value) chips.push(inputBusqueda.value);
+  if (filtroTipo.value !== "todos") chips.push(filtroTipo.value);
+  if (filtroSabor.value !== "todos") chips.push(filtroSabor.value);
+  if (filtroMixto.value !== "todos") chips.push(filtroMixto.value);
+
+  chips.forEach(texto => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = texto;
+    chipsFiltros.appendChild(chip);
+  });
+}
+
 function renderizarProductos(lista) {
   containerCards.innerHTML = "";
 
   if (!lista.length) {
-    containerCards.innerHTML = "<p>No se encontraron productos</p>";
+    containerCards.innerHTML = `<p style="grid-column:1/-1;text-align:center;opacity:.6">Sin resultados 🍦</p>`;
     return;
   }
 
-  lista.forEach(producto => {
+  lista.forEach(p => {
     const card = document.createElement("div");
     card.className = "card3";
 
     card.innerHTML = `
-      <div class="img-wrapper">
-        <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
-      </div>
-
-      <h4 class="titulo-sabor2">${producto.nombre}</h4>
-      <p class="precio2">$${producto.precio.toLocaleString("es-CO")}</p>
-
-      <button
-        class="btn-compra-animado add-cart-btn"
-        data-id="${producto.id}"
-        data-name="${producto.nombre}"
-        data-price="${producto.precio}">
+      <span class="badge-tipo">${p.tipo}</span>
+      ${p.sabores.length > 1 ? `<span class="badge-mixto">Mixto</span>` : ""}
+      <img src="${p.imagen}" alt="${p.nombre}">
+      <h4>${p.nombre}</h4>
+      <p>$${p.precio.toLocaleString("es-CO")}</p>
+      <button class="add-cart-btn"
+        data-id="${p.id}"
+        data-name="${p.nombre}"
+        data-price="${p.precio}">
         Agregar
       </button>
     `;
 
     containerCards.appendChild(card);
-  });
-}
-
-/* escuchar clicks en botones de compra */
-document.addEventListener("click", e => {
-  const btn = e.target.closest(".add-cart-btn");
-  if (!btn) return;
-
-  const producto = {
-    id: btn.dataset.id,
-    nombre: btn.dataset.name,
-    precio: Number(btn.dataset.price)
-  };
-
-  agregarAlCarrito(producto);
-});
-
-/* logica del carrito */
-function agregarAlCarrito(producto) {
-  const existente = carrito.find(p => p.id === producto.id);
-
-  if (existente) {
-    existente.cantidad++;
-  } else {
-    carrito.push({ ...producto, cantidad: 1 });
-  }
-
-  localStorage.setItem("carritoHelados", JSON.stringify(carrito));
-  console.log("🛒 carrito al día:", carrito);
-}
-
-/* armar el select de sabores solo con los que hay */
-function generarFiltrosSabores(productos) {
-  if (!filtroSabor) return;
-
-  const sabores = new Set();
-
-  productos.forEach(p => {
-    if (Array.isArray(p.sabores)) {
-      p.sabores.forEach(s => sabores.add(s));
-    }
-  });
-
-  filtroSabor.innerHTML = `<option value="todos">Todos los sabores</option>`;
-
-  sabores.forEach(sabor => {
-    const opt = document.createElement("option");
-    opt.value = sabor;
-    opt.textContent = sabor.charAt(0).toUpperCase() + sabor.slice(1);
-    filtroSabor.appendChild(opt);
   });
 }
