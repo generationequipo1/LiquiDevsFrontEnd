@@ -1,195 +1,244 @@
 const productos = [
+  
   {
     id: 1,
-    nombre: "Copa de Helado",
-    descripcion: "Copa refrescante con fresa natural",
-    precio: 19000,
-    imagen: "../Assets/Helados/copa_copa_de_helado_fresa.png",
+    nombre: "Helado Artesanal Frutos Rojos",
+    descripcion: "Delicioso helado artesanal de frutos rojos seleccionados",
+    precio: 12000,
+    imagen: "../Assets/Helados/artesanal-frutosrojos.png",
     tipo: "vaso",
-    sabores: ["fresa"],
-    mixto: false
+    sabores: ["frutos rojos"],
+    mixto: false,
+    categoria: "Artesanal"
   },
   {
     id: 2,
-    nombre: "Helado de crema",
-    descripcion: "Chocolate y vainilla en cono crujiente",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono-vainilla-helado.jpg",
-    tipo: "cono",
-    sabores: ["chocolate", "vainilla"],
-    mixto: true
+    nombre: "Helado Artesanal Pistacho",
+    descripcion: "Sabor intenso a pistacho premium",
+    precio: 12000,
+    imagen: "../Assets/Helados/artesanal-pistacho.png",
+    tipo: "vaso",
+    sabores: ["pistacho"],
+    mixto: false,
+    categoria: "Artesanal"
   },
   {
     id: 3,
-    nombre: "Helado de limón",
-    descripcion: "Refrescante y cítrico",
-    precio: 36000,
-    imagen: "../Assets/Helados/helado_de_limon.png",
+    nombre: "Helado Artesanal Tiramisú",
+    descripcion: "Clásico postre italiano hecho helado",
+    precio: 12000,
+    imagen: "../Assets/Helados/artesanal-tiramisu.png",
     tipo: "vaso",
-    sabores: ["limon"],
-    mixto: false
+    sabores: ["tiramisu"],
+    mixto: false,
+    categoria: "Artesanal"
   },
+
+  
   {
     id: 4,
-    nombre: "Waffle con helado",
-    descripcion: "Waffle tibio con helado y M&M",
-    precio: 17000,
-    imagen: "../Assets/Helados/waffle_y_helado.png",
-    tipo: "vaso",
-    sabores: ["vainilla"],
-    mixto: false
+    nombre: "Cono Chocolate",
+    precio: 6000,
+    imagen: "../Assets/Helados/cono-chocolate.png",
+    tipo: "cono",
+    sabores: ["chocolate"],
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 5,
-    nombre: "Knickerbocker",
-    descripcion: "Chocolate, fresas y galletas",
-    precio: 21000,
-    imagen: "../Assets/Helados/helado_knickerbocker.png",
-    tipo: "vaso",
-    sabores: ["chocolate", "fresa"],
-    mixto: true
+    nombre: "Cono Fresa",
+    precio: 6000,
+    imagen: "../Assets/Helados/cono-fresa.png",
+    tipo: "cono",
+    sabores: ["fresa"],
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 6,
-    nombre: "Helado de fresa",
-    descripcion: "Clásico helado de crema con fresa",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono_fresa.png",
+    nombre: "Cono Limón",
+    precio: 6000,
+    imagen: "../Assets/Helados/cono-limon.png",
     tipo: "cono",
-    sabores: ["fresa"],
-    mixto: false
+    sabores: ["limon"],
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 7,
-    nombre: "Copa Vainilla",
-    descripcion: "Helado suave de vainilla",
-    precio: 14000,
-    imagen: "https://cdn.pixabay.com/photo/2015/05/15/14/47/ice-768781_1280.jpg",
-    tipo: "vaso",
+    nombre: "Cono Vainilla",
+    precio: 6000,
+    imagen: "../Assets/Helados/cono-vainilla.png",
+    tipo: "cono",
     sabores: ["vainilla"],
-    mixto: false
+    mixto: false,
+    categoria: "Tradicional"
   },
+
+  
   {
     id: 8,
-    nombre: "Vaso Chocolate Vainilla",
-    precio: 18000,
-    imagen: "../Assets/Helados/vaso-chocolate-vainilla.png",
-    tipo: "vaso",
-    sabores: ["chocolate", "vainilla"],
-    mixto: true
+    nombre: "Cono Mixto Chocolate Fresa",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-chocolate-fresa.png",
+    tipo: "cono",
+    sabores: ["chocolate", "fresa"],
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 9,
-    nombre: "Vaso Chocolate Fresa",
-    precio: 18000,
-    imagen: "../Assets/Helados/vaso-chocolate-fresa.png",
-    tipo: "vaso",
-    sabores: ["chocolate", "fresa"],
-    mixto: true
+    nombre: "Cono Mixto Chocolate Vainilla",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-chocolate-vainilla.png",
+    tipo: "cono",
+    sabores: ["chocolate", "vainilla"],
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 10,
-    nombre: "Vaso Limón Chocolate",
-    precio: 17000,
-    imagen: "../Assets/Helados/vaso-limon-chocolate.png",
-    tipo: "vaso",
+    nombre: "Cono Mixto Limón Chocolate",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-limon-chocolate.png",
+    tipo: "cono",
     sabores: ["limon", "chocolate"],
-    mixto: true
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 11,
-    nombre: "Vaso Limón Fresa",
-    precio: 17000,
-    imagen: "../Assets/Helados/vaso-limon-fresa.png",
-    tipo: "vaso",
+    nombre: "Cono Mixto Limón Fresa",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-limon-fresa.png",
+    tipo: "cono",
     sabores: ["limon", "fresa"],
-    mixto: true
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 12,
-    nombre: "Vaso Limón Vainilla",
-    precio: 17000,
-    imagen: "../Assets/Helados/vaso-limon-vainilla.png",
-    tipo: "vaso",
+    nombre: "Cono Mixto Limón Vainilla",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-limon-vainilla.png",
+    tipo: "cono",
     sabores: ["limon", "vainilla"],
-    mixto: true
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 13,
-    nombre: "Vaso Fresa Vainilla",
-    precio: 18000,
-    imagen: "../Assets/Helados/vaso-fresa-vainilla.png",
-    tipo: "vaso",
-    sabores: ["fresa", "vainilla"],
-    mixto: true
+    nombre: "Cono Mixto Vainilla Fresa",
+    precio: 8000,
+    imagen: "../Assets/Helados/mixto-cono-vainilla-fresa.png",
+    tipo: "cono",
+    sabores: ["vainilla", "fresa"],
+    mixto: true,
+    categoria: "Tradicional"
   },
+
+  
   {
     id: 14,
     nombre: "Vaso Chocolate",
-    precio: 14000,
+    precio: 7000,
     imagen: "../Assets/Helados/vaso-chocolate.png",
     tipo: "vaso",
     sabores: ["chocolate"],
-    mixto: false
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 15,
     nombre: "Vaso Fresa",
-    precio: 14000,
+    precio: 7000,
     imagen: "../Assets/Helados/vaso-fresa.png",
     tipo: "vaso",
     sabores: ["fresa"],
-    mixto: false
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 16,
     nombre: "Vaso Limón",
-    precio: 14000,
+    precio: 7000,
     imagen: "../Assets/Helados/vaso-limon.png",
     tipo: "vaso",
     sabores: ["limon"],
-    mixto: false
+    mixto: false,
+    categoria: "Tradicional"
   },
   {
     id: 17,
     nombre: "Vaso Vainilla",
-    precio: 14000,
+    precio: 7000,
     imagen: "../Assets/Helados/vaso-vainilla.png",
     tipo: "vaso",
     sabores: ["vainilla"],
-    mixto: false
+    mixto: false,
+    categoria: "Tradicional"
   },
 
+  
   {
     id: 18,
-    nombre: "Cono Chocolate",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono-chocolate.png",
-    tipo: "cono",
-    sabores: ["chocolate"]
+    nombre: "Vaso Chocolate Fresa",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-chocolate-fresa.png",
+    tipo: "vaso",
+    sabores: ["chocolate", "fresa"],
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 19,
-    nombre: "Cono Fresa",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono-fresa.png",
-    tipo: "cono",
-    sabores: ["fresa"]
+    nombre: "Vaso Chocolate Vainilla",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-chocolate-vainilla.png",
+    tipo: "vaso",
+    sabores: ["chocolate", "vainilla"],
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 20,
-    nombre: "Cono Limón",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono-limon.png",
-    tipo: "cono",
-    sabores: ["limon"]
+    nombre: "Vaso Fresa Vainilla",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-fresa-vainilla.png",
+    tipo: "vaso",
+    sabores: ["fresa", "vainilla"],
+    mixto: true,
+    categoria: "Tradicional"
   },
   {
     id: 21,
-    nombre: "Cono Vainilla",
-    precio: 8000,
-    imagen: "../Assets/Helados/cono-vainilla.png",
-    tipo: "cono",
-    sabores: ["vainilla"]
+    nombre: "Vaso Limón Chocolate",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-limon-chocolate.png",
+    tipo: "vaso",
+    sabores: ["limon", "chocolate"],
+    mixto: true,
+    categoria: "Tradicional"
+  },
+  {
+    id: 22,
+    nombre: "Vaso Limón Fresa",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-limon-fresa.png",
+    tipo: "vaso",
+    sabores: ["limon", "fresa"],
+    mixto: true,
+    categoria: "Tradicional"
+  },
+  {
+    id: 23,
+    nombre: "Vaso Limón Vainilla",
+    precio: 9000,
+    imagen: "../Assets/Helados/vaso-limon-vainilla.png",
+    tipo: "vaso",
+    sabores: ["limon", "vainilla"],
+    mixto: true,
+    categoria: "Tradicional"
   }
 ];

@@ -37,7 +37,6 @@ body {
   font-size: 0.85rem;
 }
 
-/* efecto de nieve cayendo con degradados circulares */
 .sprinkles-hero::before {
   content: "";
   position: absolute;
@@ -101,7 +100,6 @@ body {
   border-color: #b31257;
 }
 
-/* chispitas de colores que aparecen al pasar el mouse */
 .card3::after {
   content: "";
   position: absolute;
@@ -123,7 +121,6 @@ body {
   opacity: 0.6;
 }
 
-/* mueve las chispas de la card hacia abajo */
 @keyframes snow-card {
   from { background-position: 0 0, 0 0, 0 0, 0 0; }
   to { background-position: 0 500px, 0 700px, 0 600px, 0 800px; }
