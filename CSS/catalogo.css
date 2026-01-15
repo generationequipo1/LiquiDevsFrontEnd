@@ -9,18 +9,115 @@ body {
 
 .hero-banner {
   position: relative;
-  max-height: 320px;
-  padding: 70px 20px;
-  text-align: center;
+  min-height: 70vh;
+  padding: 120px 20px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: radial-gradient(circle at top left, #fdfcf0, #ffffff);
   overflow: hidden;
 }
 
+.hero-img {
+  position: absolute;
+  right: 6%;
+  bottom: -40px;
+  width: 320px;
+  max-width: 45vw;
+  transform: rotate(-6deg);
+  z-index: 1;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: rgba(179,18,87,0.1);
+  color: #b31257;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+@keyframes float {
+  0% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-12px) rotate(-6deg); }
+  100% { transform: translateY(0) rotate(-6deg); }
+}
+
+
+.hero-img {
+  filter:
+    drop-shadow(0 25px 35px rgba(0,0,0,0.18))
+    saturate(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .hero-img {
+    position: static;
+    margin: 30px auto 0;
+    display: block;
+    transform: none;
+    width: 220px;
+  }
+
+  .hero-banner {
+    padding-bottom: 60px;
+  }
+}
+
 .lema-banner {
   font-family: 'Pacifico', cursive;
-  color: #b31257;
-  font-size: 3rem;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: #2b2b2b;
 }
+
+.lema-banner span {
+  color: #b31257;
+}
+
+.hero-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  padding: 14px 34px;
+  border-radius: 40px;
+  background: #b31257;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(179,18,87,0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(179,18,87,0.45);
+}
+
+.btn-hero-secondary {
+  padding: 14px 34px;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  color: #444;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 
 .hero-desc {
   color: #555;
