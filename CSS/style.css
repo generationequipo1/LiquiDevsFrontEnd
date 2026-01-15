@@ -3,7 +3,7 @@ body {
     display:flex; 
     flex-direction: column; 
     min-height: 100vh; 
-    background-color: #D9D9D9;
+    background-color: transparent;
     width: 100%;
     min-height: 900px;
     background-image: url(../Assets/Background-container-1-cortado.png);
