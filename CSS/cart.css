@@ -7,15 +7,20 @@
 
 #btn-cart i {
   font-size: 22px;
-  color: #000;
+  color: #111;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* contador */
+#btn-cart:hover i {
+  transform: scale(1.15);
+  color: #b31257;
+}
+
 #cart-count {
   position: absolute;
   top: -6px;
   right: -6px;
-  background: #e91e63;
+  background: #b31257;
   color: #fff;
   border-radius: 50%;
   font-size: 11px;
@@ -23,28 +28,11 @@
   padding: 4px 6px;
   pointer-events: none;
   animation: popBadge 0.3s ease;
- 
-
 }
 
 @keyframes popBadge {
   0% { transform: scale(0.5); }
   100% { transform: scale(1); }
-}
-
-.cart-panel {
-  position: fixed;
-  top: 0;
-  right: -380px;
-  width: 360px;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.25);
-  padding: 16px;
-  transition: right 0.35s ease;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
 }
 
 .cart-panel {
@@ -59,28 +47,26 @@
   flex-direction: column;
   box-shadow: -20px 0 40px rgba(0,0,0,0.18);
   z-index: 9999;
-  transition: right 0.35s ease, transform 0.35s ease;
+  transition: right 0.35s ease;
 }
 
 .cart-panel.open {
   right: 0;
 }
 
-/* =========================
-   CART HEADER
-========================= */
-
 .cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 18px 20px;
   border-bottom: 1px solid #eee;
 }
 
 .cart-header h5 {
   margin: 0;
+  font-size: 1.15rem;
   font-weight: 700;
+  color: #111;
 }
 
 .cart-header button {
@@ -88,48 +74,51 @@
   border: none;
   font-size: 1.4rem;
   cursor: pointer;
+  color: #b31257;
+  transition: transform 0.2s ease;
 }
 
-/* =========================
-   CART BODY
-========================= */
+.cart-header button:hover {
+  transform: rotate(90deg);
+}
 
 #cart-items {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
+  padding: 18px;
 }
-
-/* =========================
-   EMPTY CART
-========================= */
 
 .cart-empty {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #777;
   padding: 40px 0;
 }
 
-/* =========================
-   CART ITEM
-========================= */
-
 .cart-item {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
   margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #f0f0f0;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid #f1f1f1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
 .cart-item img {
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   border-radius: 12px;
-  background: #fdfcf0;
+  background: #fafafa;
+  padding: 6px;
 }
 
 .cart-item-info {
@@ -141,16 +130,13 @@
 
 .cart-item-info strong {
   font-size: 0.95rem;
+  color: #222;
 }
 
 .cart-subtotal {
   font-size: 0.8rem;
   color: #666;
 }
-
-/* =========================
-   CART CONTROLS
-========================= */
 
 .cart-controls {
   display: flex;
@@ -163,10 +149,18 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: none;
-  background: #f8e7f0;
+  border: 1px solid #b31257;
+  background: #ffffff;
+  color: #b31257;
   font-weight: 700;
   cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.cart-controls button:hover {
+  background: #b31257;
+  color: #ffffff;
+  transform: scale(1.15);
 }
 
 .btn-remove {
@@ -174,14 +168,16 @@
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
+  color: #b31257;
+  transition: transform 0.2s ease;
 }
 
-/* =========================
-   CART FOOTER
-========================= */
+.btn-remove:hover {
+  transform: scale(1.2);
+}
 
 .cart-footer {
-  padding: 16px;
+  padding: 18px;
   border-top: 1px solid #eee;
   background: #ffffff;
 }
@@ -189,14 +185,29 @@
 .cart-footer p {
   font-weight: 700;
   margin-bottom: 12px;
+  color: #111;
+  font-size: 1.05rem;
 }
 
-/* =========================
-   MOBILE (BOTTOM SHEET)
-========================= */
+.cart-footer button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #b31257;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cart-footer button:hover {
+  background: #8f0f46;
+  transform: translateY(-2px);
+}
 
 @media (max-width: 768px) {
-
   .cart-panel {
     width: 100%;
     height: 92vh;
@@ -215,13 +226,4 @@
   .cart-item {
     align-items: flex-start;
   }
-
-  .cart-footer button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
 }
