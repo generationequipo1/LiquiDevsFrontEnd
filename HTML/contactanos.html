@@ -1,177 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contáctanos</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <!-- NAVBAR CSS -->
   <link rel="stylesheet" href="/CSS/nav.css">
-
-  <!-- Estilos generales del sitio -->
   <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/cart.css">
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS de esta página . -->
   <link rel="stylesheet" href="../CSS/contactanos.css">
 </head>
 
 <body>
 
-<header>
-  <div id="navbar-placeholder"></div>
-</header>
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
 
-<!-- ===== HERO DUDAS ===== -->
-<!--<section class="hero-dudas">
+  <!-- ===== HERO DUDAS ===== -->
+  <!--<section class="hero-dudas">
   <img src="../Assets/preguntas-helado.png" alt="Dudas">
   <p>¿Tienes dudas?</p>
 </section>--->
 
-<!-- ===== Sección Contactanos ===== -->
-<section class="contacto-wrapper">
+  <!-- ===== Sección Contactanos ===== -->
+  <section class="contacto-wrapper">
 
-  <!-- CARD FORM -->
-  <div class="card-contacto">
-    <h2>Contáctanos</h2>
+    <!-- CARD FORM -->
+    <div class="card-contacto">
+      <h2>Contáctanos</h2>
 
-    <form id="form-contacto" action="https://formspree.io/f/xdkvbrra" method="POST" novalidate>
+      <form id="form-contacto" action="https://formspree.io/f/xdkvbrra" method="POST" novalidate>
 
-      <!-- Email -->
-      <div class="field" data-field="email">
-        <label class="sr-only" for="email">Correo electrónico</label>
-        <input id="email" type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
-        <div class="hint">
-          <span class="msg" aria-live="polite"></span>
+        <!-- Email -->
+        <div class="field" data-field="email">
+          <label class="sr-only" for="email">Correo electrónico</label>
+          <input id="email" type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+          <div class="hint">
+            <span class="msg" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Nombre -->
+        <div class="field" data-field="nombre">
+          <label class="sr-only" for="nombre">Nombre completo</label>
+          <input id="nombre" type="text" name="nombre" placeholder="Nombre completo" autocomplete="name" required
+            minlength="3">
+          <div class="hint">
+            <span class="msg" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="field" data-field="telefono">
+          <label class="sr-only" for="telefono">Teléfono</label>
+          <input id="telefono" type="tel" name="telefono" placeholder="Teléfono" inputmode="numeric" autocomplete="tel"
+            required>
+          <div class="hint">
+            <span class="msg" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="field" data-field="mensaje">
+          <label class="sr-only" for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required minlength="10"></textarea>
+          <div class="hint">
+            <span class="msg" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Estado general del formulario -->
+        <div class="form-status" id="form-status" aria-live="polite"></div>
+
+        <!-- Botones -->
+        <div class="btn-group">
+          <button type="submit" class="btn-enviar" id="btn-enviar" disabled>
+            Enviar mensaje
+          </button>
+
+          <a href="https://wa.me/573121234567?text=%C2%A1Bienvenido%20a%20Byte&Cream!%20%C2%BFQu%C3%A9%20deseas%20ordenar%20el%20d%C3%ADa%20de%20hoy?"
+            target="_blank" class="btn-whatsapp">
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </form>
+
+
+    </div>
+
+    <!-- CARD IMAGEN -->
+    <div class="card-contacto card-imagen">
+      <img src="../Assets/contactanos-helado.png" alt="Contáctanos">
+
+      <p class="direccion">
+        Calle Byte #1234<br>
+        Bogotá, Colombia<br>
+        01833 576 2088
+      </p>
+
+      <div class="embed-map-responsive">
+        <div class="embed-map-container">
+          <iframe class="embed-map-frame" title="Ubicación Byte&Cream"
+            src="https://maps.google.com/maps?q=Calle%20Byte%20%231234%20Bogot%C3%A1%2C%20Colombia&t=k&z=11&ie=UTF8&iwloc=B&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
+    </div>
 
-      <!-- Nombre -->
-      <div class="field" data-field="nombre">
-        <label class="sr-only" for="nombre">Nombre completo</label>
-        <input id="nombre" type="text" name="nombre" placeholder="Nombre completo" autocomplete="name" required minlength="3">
-        <div class="hint">
-          <span class="msg" aria-live="polite"></span>
-        </div>
-      </div>
+  </section>
 
-      <!-- Teléfono -->
-      <div class="field" data-field="telefono">
-        <label class="sr-only" for="telefono">Teléfono</label>
-        <input id="telefono" type="tel" name="telefono" placeholder="Teléfono" inputmode="numeric" autocomplete="tel" required>
-        <div class="hint">
-          <span class="msg" aria-live="polite"></span>
-        </div>
-      </div>
-
-      <!-- Mensaje -->
-      <div class="field" data-field="mensaje">
-        <label class="sr-only" for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required minlength="10"></textarea>
-        <div class="hint">
-          <span class="msg" aria-live="polite"></span>
-        </div>
-      </div>
-
-      <!-- Estado general del formulario -->
-      <div class="form-status" id="form-status" aria-live="polite"></div>
-
-      <!-- Botones -->
-      <div class="btn-group">
-        <button type="submit" class="btn-enviar" id="btn-enviar" disabled>
-          Enviar mensaje
-        </button>
-
-        <a href="https://wa.me/573121234567?text=%C2%A1Bienvenido%20a%20Byte&Cream!%20%C2%BFQu%C3%A9%20deseas%20ordenar%20el%20d%C3%ADa%20de%20hoy?" target="_blank" class="btn-whatsapp">
-          Escríbenos por WhatsApp
-        </a>
-      </div>
-    </form>
+  <section id="faq" class="faq-box">
+    <div class="faq-header-inline">
+      <img src="../Assets/preguntas-frecuentes-helado.png" alt="Preguntas frecuentes" class="faq-icon-img">
+      <span class="faq-title">Preguntas Frecuentes</span>
+    </div>
 
 
-  </div>
-
-  <!-- CARD IMAGEN -->
-  <div class="card-contacto card-imagen">
-    <img src="../Assets/contactanos-helado.png" alt="Contáctanos">
-
-    <p class="direccion">
-      Calle Byte #1234<br>
-      Bogotá, Colombia<br>
-      01833 576 2088
-    </p>
-
-    <div class="embed-map-responsive">
-      <div class="embed-map-container">
-        <iframe
-          class="embed-map-frame"
-          title="Ubicación Byte&Cream"
-          src="https://maps.google.com/maps?q=Calle%20Byte%20%231234%20Bogot%C3%A1%2C%20Colombia&t=k&z=11&ie=UTF8&iwloc=B&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+        ¿Cuánto tarda el envío?
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      <div class="faq-answer" hidden>
+        Entre 30 minutos a 2 horas.
       </div>
     </div>
-  </div>
 
-</section>
-
-<section id="faq" class="faq-box">
-  <div class="faq-header-inline">
-    <img 
-      src="../Assets/preguntas-frecuentes-helado.png" 
-      alt="Preguntas frecuentes"
-      class="faq-icon-img"
-    >
-    <span class="faq-title">Preguntas Frecuentes</span>
-  </div>
-
-
-  <div class="faq-item">
-    <button type="button" class="faq-question" aria-expanded="false">
-      ¿Cuánto tarda el envío?
-      <i class="bi bi-chevron-down"></i>
-    </button>
-    <div class="faq-answer" hidden>
-      Entre 30 minutos a 2 horas.
+    <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+        ¿Cuál es el costo del envío?
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      <div class="faq-answer" hidden>
+        Se calcula automáticamente al finalizar la compra.
+      </div>
     </div>
-  </div>
 
-  <div class="faq-item">
-    <button type="button" class="faq-question" aria-expanded="false">
-      ¿Cuál es el costo del envío?
-      <i class="bi bi-chevron-down"></i>
-    </button>
-    <div class="faq-answer" hidden>
-      Se calcula automáticamente al finalizar la compra.
+    <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+        ¿Puedo hacer seguimiento a mi pedido?
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      <div class="faq-answer" hidden>
+        Sí, recibirás el número de guía por correo.
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="faq-item">
-    <button type="button" class="faq-question" aria-expanded="false">
-      ¿Puedo hacer seguimiento a mi pedido?
-      <i class="bi bi-chevron-down"></i>
-    </button>
-    <div class="faq-answer" hidden>
-      Sí, recibirás el número de guía por correo.
-    </div>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <div id="footer"></div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<!-- JS -->
-<script src="/Componentes/navbarInclude.js"></script>
-<script src="../Componentes/cargarfooter.js"></script>
-<script src="/JS/contactanos.js"></script>
+  <!-- JS -->
+  <script src="/Componentes/navbarInclude.js"></script>
+  <script src="/JS/cart.js"></script>
+  <script src="../Componentes/cartinclude.js"></script>
+  <script src="../Componentes/cargarfooter.js"></script>
+  <script src="/JS/contactanos.js"></script>
 
 </body>
+
 </html>
