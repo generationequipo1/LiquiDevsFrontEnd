@@ -180,3 +180,94 @@ function initCart() {
     });
   }
 }
+
+
+//simulacion de compra checkout 
+
+document.addEventListener("click", e => {
+  if (e.target.id !== "btn-checkout") return;
+
+  if (cart.length === 0) {
+    Swal.fire({
+      icon: "info",
+      title: "Carrito vacío",
+      text: "Agregá al menos un producto para continuar"
+    });
+    return;
+  }
+
+  const resumen = cart.map(p =>
+    `${p.name} x${p.quantity} — $${(p.price * p.quantity).toLocaleString()}`
+  ).join("<br>");
+
+  const total = cart.reduce((a, p) => a + p.price * p.quantity, 0);
+
+  Swal.fire({
+    title: "Confirmar pedido 🍦",
+    html: `
+      <div style="text-align:left;font-size:14px">
+        ${resumen}
+        <hr>
+        <strong>Total: $${total.toLocaleString()}</strong>
+      </div>
+    `,
+    showCancelButton: true,
+    confirmButtonText: "Confirmar pedido",
+    cancelButtonText: "Seguir comprando"
+  }).then(res => {
+    if (res.isConfirmed) {
+      procesarPedido(total);
+    }
+  });
+});
+
+function procesarPedido(total) {
+
+  Swal.fire({
+    title: "Procesando pedido...",
+    text: "Preparando tus helados 🍨",
+    allowOutsideClick: false,
+    didOpen: () => Swal.showLoading()
+  });
+
+  setTimeout(() => {
+
+    const pedidoId = Math.floor(Math.random() * 90000) + 10000;
+
+    Swal.fire({
+      icon: "success",
+      title: "¡Pedido confirmado!",
+      html: `
+        <p>Pedido Nº <strong>${pedidoId}</strong></p>
+        <p>Total: <strong>$${total.toLocaleString()}</strong></p>
+        <p style="font-size:13px;color:#666">
+          Estado: Preparando 🍨
+        </p>
+      `
+    });
+
+    guardarPedido(pedidoId, total);
+
+    cart = [];
+    guardar();
+    actualizarContador();
+    renderCart();
+
+    const panel = document.getElementById("cart-panel");
+    if (panel) panel.classList.remove("open");
+
+  }, 1500);
+}
+
+function guardarPedido(id, total) {
+  const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+  pedidos.push({
+    id,
+    total,
+    fecha: new Date().toLocaleString(),
+    estado: "Preparando"
+  });
+
+  localStorage.setItem("pedidos", JSON.stringify(pedidos));
+}
