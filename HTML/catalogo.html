@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,134 +18,94 @@
 
 <body>
 
-  <header>
-    <div id="navbar-placeholder"></div>
-  </header>
+<header>
+  <div id="navbar-placeholder"></div>
+</header>
 
-  <div id="carrito-placeholder"></div>
+<div id="carrito-placeholder"></div>
+<div id="sparkles-container"></div>
 
-  <div id="sparkles-container"></div>
-  <main>
+<main>
 
-    <section class="hero-banner sprinkles-hero">
-      <img src="../Assets/emociones/feliz-helado1.png" class="hero-img" alt="Helado artesanal">
-      <div class="hero-blob blob-1"></div>
-      <div class="hero-blob blob-2"></div>
+<section class="hero-banner sprinkles-hero">
+  <img src="../Assets/emociones/feliz-helado1.png" class="hero-img">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
 
-      <div class="hero-content">
-        <span class="hero-badge">Desde siempre, hechos con amor</span>
+  <div class="hero-content">
+    <span class="hero-badge">Desde siempre, hechos con amor</span>
 
-        <h1 class="lema-banner">
-          Helados<br>
-          <span>que saben a felicidad</span>
-        </h1>
+    <h1 class="lema-banner">
+      Helados<br>
+      <span>que saben a felicidad</span>
+    </h1>
 
-        <p class="hero-desc">
-          Sabores clásicos de toda la vida<br>
-          y algunos artesanales para sorprender 🍦
-        </p>
+    <p class="hero-desc">
+      Sabores clásicos de toda la vida<br>
+      y algunos artesanales para sorprender 🍦
+    </p>
 
-        <div class="hero-actions">
-          <a href="#container-cards-fijas" class="btn-hero-primary">
-            Ver sabores
-          </a>
-          <a href="#favoritos" class="btn-hero-secondary">
-            Nuestros favoritos ⭐
-          </a>
+    <div class="hero-actions">
+      <a href="#container-cards-fijas" class="btn-hero-primary">Ver sabores</a>
+      <a href="#container-cards-fijas" id="btn-favoritos" class="btn-hero-secondary">Nuestros favoritos ⭐</a>
+    </div>
+  </div>
+</section>
 
-        </div>
-      </div>
-    </section>
+<section class="toolbar-catalogo">
+  <span id="contador-resultados" class="contador-resultados"></span>
+  <button id="btn-mostrar-todos" class="btn btn-outline-secondary d-none">Mostrar todos</button>
 
+  <input type="search" id="input-busqueda" placeholder="Buscar helado 🍨">
 
+  <select id="filtro-tipo">
+    <option value="todos">Tipo</option>
+    <option value="cono">Cono</option>
+    <option value="vaso">Vaso</option>
+  </select>
 
+  <select id="filtro-sabor">
+    <option value="todos">Sabor</option>
+    <option value="vainilla">Vainilla</option>
+    <option value="chocolate">Chocolate</option>
+    <option value="fresa">Fresa</option>
+    <option value="limon">Limón</option>
+  </select>
 
-    <section class="toolbar-catalogo">
+  <select id="filtro-mixto">
+    <option value="todos">¿Mixto?</option>
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
 
-      <span id="contador-resultados" class="contador-resultados"></span>
+  <select id="filtro-emocion">
+    <option value="todos">¿Cómo te sientes?</option>
+    <option value="feliz">Feliz 😄</option>
+    <option value="relajado">Relajado 😌</option>
+    <option value="intenso">Intenso 🍫</option>
+    <option value="refrescante">Refrescante 🍋</option>
+  </select>
 
-      <button id="btn-mostrar-todos" class="btn btn-outline-secondary d-none">
-        Mostrar todos
-      </button>
+  <select id="orden-precio">
+    <option value="">Precio</option>
+    <option value="menor">Menor a Mayor</option>
+    <option value="mayor">Mayor a Menor</option>
+  </select>
+</section>
 
-      <input type="search" id="input-busqueda" placeholder="Buscar helado 🍨">
+<section id="container-cards-fijas" class="grid-catalogo"></section>
 
-      <select id="filtro-tipo">
-        <option value="todos">Tipo</option>
-        <option value="cono">Cono</option>
-        <option value="vaso">Vaso</option>
-      </select>
+</main>
 
-      <select id="filtro-sabor">
-        <option value="todos">Sabor</option>
-        <option value="vainilla">Vainilla</option>
-        <option value="chocolate">Chocolate</option>
-        <option value="fresa">Fresa</option>
-        <option value="limon">Limón</option>
-      </select>
+<div id="footer"></div>
 
-      <select id="filtro-mixto">
-        <option value="todos">¿Mixto?</option>
-        <option value="si">Sí</option>
-        <option value="no">No</option>
-      </select>
-
-      <select id="filtro-emocion">
-        <option value="todos">¿Cómo te sientes?</option>
-        <option value="feliz">Feliz 😄</option>
-        <option value="relajado">Relajado 😌</option>
-        <option value="intenso">Intenso 🍫</option>
-        <option value="refrescante">Refrescante 🍋</option>
-      </select>
-
-
-      <select id="orden-precio">
-        <option value="">Precio</option>
-        <option value="menor">Menor a Mayor</option>
-        <option value="mayor">Mayor a Menor</option>
-      </select>
-
-
-    </section>
-
-    <section id="container-cards-fijas" class="grid-catalogo"></section>
-
-  </main>
-
-  <div id="footer"></div>
-
-  <script src="/JS/productos.js"></script>
-  <script src="/JS/catalogoSLL.js"></script>
-  <script src="/JS/cart.js"></script>
-  <script src="/Componentes/navbarInclude.js"></script>
-  <script src="../Componentes/cartinclude.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../Componentes/cargarfooter.js"></script>
-
-
-  <script>
-    const container = document.getElementById('sparkles-container');
-    const numberOfSparkles = 30; // puedes aumentar o disminuir
-    const colors = ['color1', 'color2', 'color3', 'color4'];
-
-    for (let i = 0; i < numberOfSparkles; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('sparkle');
-
-      const colorClass = colors[Math.floor(Math.random() * colors.length)];
-      sparkle.classList.add(colorClass);
-
-
-      sparkle.style.top = Math.random() * 100 + 'vh';
-      sparkle.style.left = Math.random() * 100 + 'vw';
-
-
-      sparkle.style.animationDelay = (Math.random() * 3) + 's';
-
-      container.appendChild(sparkle);
-    }
-  </script>
+<script src="../JS/productos.js"></script>
+<script src="../JS/catalogoSLL.js"></script>
+<script src="../JS/cart.js"></script>
+<script src="../Componentes/navbarInclude.js"></script>
+<script src="../Componentes/cartinclude.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../Componentes/cargarfooter.js"></script>
 
 </body>
-
 </html>
