@@ -103,11 +103,6 @@ function renderizarChips() {
 function renderizarProductos(lista) {
   containerCards.innerHTML = "";
 
-  if (!lista.length) {
-    containerCards.innerHTML = `<p style="grid-column:1/-1;text-align:center;opacity:.6">Sin resultados 🍦</p>`;
-    return;
-  }
-
   lista.forEach(p => {
     const card = document.createElement("div");
     card.className = "card3";
@@ -115,10 +110,15 @@ function renderizarProductos(lista) {
     card.innerHTML = `
       <span class="badge-tipo">${p.tipo}</span>
       ${p.sabores.length > 1 ? `<span class="badge-mixto">Mixto</span>` : ""}
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h4>${p.nombre}</h4>
-      <p>$${p.precio.toLocaleString("es-CO")}</p>
-      <button class="add-cart-btn"
+      
+      <div class="img-wrapper">
+        <img src="${p.imagen}" alt="${p.nombre}">
+      </div>
+
+      <h4 class="titulo-sabor2">${p.nombre}</h4>
+      <p class="precio2">$${p.precio.toLocaleString("es-CO")}</p>
+      
+      <button class="btn-compra-animado add-cart-btn"
         data-id="${p.id}"
         data-name="${p.nombre}"
         data-price="${p.precio}">
