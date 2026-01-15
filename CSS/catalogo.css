@@ -187,3 +187,92 @@ body {
   border-color: #b31257;
   box-shadow: 0 0 0 3px rgba(179,18,87,0.15);
 }
+
+.chips-filtros {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+
+#container-cards-fijas {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card3 {
+  background: #ffffff;
+  border: 1px solid #f0ead6;
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: all 0.35s ease;
+}
+
+.card3:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  border-color: #b31257;
+}
+
+.img-wrapper {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #fdfcf0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.img-wrapper img {
+  max-width: 80%;
+  object-fit: contain;
+}
+
+.titulo-sabor2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+}
+
+.precio2 {
+  color: #b31257;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.btn-compra-animado {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  background: #f8e7f0;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-compra-animado:hover {
+  background: #b31257;
+  color: white;
+}

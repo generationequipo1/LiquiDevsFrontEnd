@@ -6,7 +6,6 @@ const filtroMixto = document.getElementById("filtro-mixto");
 const ordenPrecio = document.getElementById("orden-precio");
 const btnMostrarTodos = document.getElementById("btn-mostrar-todos");
 const contadorResultados = document.getElementById("contador-resultados");
-const chipsFiltros = document.getElementById("chips-filtros");
 
 let carrito = JSON.parse(localStorage.getItem("carritoHelados")) || [];
 
@@ -43,7 +42,6 @@ function aplicarFiltros() {
   renderizarProductos(lista);
   animarContador(lista.length);
   actualizarUI();
-  renderizarChips();
 }
 
 function resetFiltros() {
@@ -55,7 +53,6 @@ function resetFiltros() {
   renderizarProductos(productos);
   animarContador(productos.length);
   actualizarUI();
-  chipsFiltros.innerHTML = "";
 }
 
 function actualizarUI() {
@@ -82,23 +79,7 @@ function animarContador(valor) {
   }, 20);
 }
 
-function renderizarChips() {
-  chipsFiltros.innerHTML = "";
 
-  const chips = [];
-
-  if (inputBusqueda.value) chips.push(inputBusqueda.value);
-  if (filtroTipo.value !== "todos") chips.push(filtroTipo.value);
-  if (filtroSabor.value !== "todos") chips.push(filtroSabor.value);
-  if (filtroMixto.value !== "todos") chips.push(filtroMixto.value);
-
-  chips.forEach(texto => {
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = texto;
-    chipsFiltros.appendChild(chip);
-  });
-}
 
 function renderizarProductos(lista) {
   containerCards.innerHTML = "";
