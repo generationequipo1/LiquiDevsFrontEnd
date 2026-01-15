@@ -1,5 +1,4 @@
 const productos = [
-  
   {
     id: 1,
     nombre: "Helado Artesanal Frutos Rojos",
@@ -9,7 +8,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["frutos rojos"],
     mixto: false,
-    categoria: "Artesanal"
+    categoria: "Artesanal",
+    emocion: "feliz"
   },
   {
     id: 2,
@@ -20,7 +20,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["pistacho"],
     mixto: false,
-    categoria: "Artesanal"
+    categoria: "Artesanal",
+    emocion: "relajado"
   },
   {
     id: 3,
@@ -31,10 +32,9 @@ const productos = [
     tipo: "vaso",
     sabores: ["tiramisu"],
     mixto: false,
-    categoria: "Artesanal"
+    categoria: "Artesanal",
+    emocion: "intenso"
   },
-
-  
   {
     id: 4,
     nombre: "Cono Chocolate",
@@ -43,7 +43,8 @@ const productos = [
     tipo: "cono",
     sabores: ["chocolate"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "intenso"
   },
   {
     id: 5,
@@ -53,7 +54,8 @@ const productos = [
     tipo: "cono",
     sabores: ["fresa"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 6,
@@ -63,7 +65,8 @@ const productos = [
     tipo: "cono",
     sabores: ["limon"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   },
   {
     id: 7,
@@ -73,10 +76,9 @@ const productos = [
     tipo: "cono",
     sabores: ["vainilla"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "relajado"
   },
-
-  
   {
     id: 8,
     nombre: "Cono Mixto Chocolate Fresa",
@@ -85,7 +87,8 @@ const productos = [
     tipo: "cono",
     sabores: ["chocolate", "fresa"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 9,
@@ -95,7 +98,8 @@ const productos = [
     tipo: "cono",
     sabores: ["chocolate", "vainilla"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "intenso"
   },
   {
     id: 10,
@@ -105,7 +109,8 @@ const productos = [
     tipo: "cono",
     sabores: ["limon", "chocolate"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   },
   {
     id: 11,
@@ -115,7 +120,8 @@ const productos = [
     tipo: "cono",
     sabores: ["limon", "fresa"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 12,
@@ -125,7 +131,8 @@ const productos = [
     tipo: "cono",
     sabores: ["limon", "vainilla"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   },
   {
     id: 13,
@@ -135,10 +142,9 @@ const productos = [
     tipo: "cono",
     sabores: ["vainilla", "fresa"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
-
-  
   {
     id: 14,
     nombre: "Vaso Chocolate",
@@ -147,7 +153,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["chocolate"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "intenso"
   },
   {
     id: 15,
@@ -157,7 +164,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["fresa"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 16,
@@ -167,7 +175,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["limon"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   },
   {
     id: 17,
@@ -177,10 +186,9 @@ const productos = [
     tipo: "vaso",
     sabores: ["vainilla"],
     mixto: false,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "relajado"
   },
-
-  
   {
     id: 18,
     nombre: "Vaso Chocolate Fresa",
@@ -189,7 +197,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["chocolate", "fresa"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 19,
@@ -199,7 +208,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["chocolate", "vainilla"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "intenso"
   },
   {
     id: 20,
@@ -209,7 +219,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["fresa", "vainilla"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 21,
@@ -219,7 +230,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["limon", "chocolate"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   },
   {
     id: 22,
@@ -229,7 +241,8 @@ const productos = [
     tipo: "vaso",
     sabores: ["limon", "fresa"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "feliz"
   },
   {
     id: 23,
@@ -239,6 +252,7 @@ const productos = [
     tipo: "vaso",
     sabores: ["limon", "vainilla"],
     mixto: true,
-    categoria: "Tradicional"
+    categoria: "Tradicional",
+    emocion: "refrescante"
   }
 ];
