@@ -103,14 +103,16 @@ function renderizarChips() {
 function renderizarProductos(lista) {
   containerCards.innerHTML = "";
 
+  if (!lista.length) {
+    containerCards.innerHTML = `<p style="grid-column:1/-1;text-align:center;opacity:.6">Sin resultados 🍦</p>`;
+    return;
+  }
+
   lista.forEach(p => {
     const card = document.createElement("div");
     card.className = "card3";
 
     card.innerHTML = `
-      <span class="badge-tipo">${p.tipo}</span>
-      ${p.sabores.length > 1 ? `<span class="badge-mixto">Mixto</span>` : ""}
-      
       <div class="img-wrapper">
         <img src="${p.imagen}" alt="${p.nombre}">
       </div>
