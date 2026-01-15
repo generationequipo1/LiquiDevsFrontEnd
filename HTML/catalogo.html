@@ -25,6 +25,7 @@
 
   <div id="carrito-placeholder"></div>
 
+  <div id="sparkles-container"></div>
   <main>
 
     <section class="hero-banner sprinkles-hero">
@@ -119,6 +120,30 @@
   <script src="../Componentes/cartinclude.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../Componentes/cargarfooter.js"></script>
+
+
+  <script>
+    const container = document.getElementById('sparkles-container');
+    const numberOfSparkles = 30; // puedes aumentar o disminuir
+    const colors = ['color1', 'color2', 'color3', 'color4'];
+
+    for (let i = 0; i < numberOfSparkles; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+
+      const colorClass = colors[Math.floor(Math.random() * colors.length)];
+      sparkle.classList.add(colorClass);
+
+
+      sparkle.style.top = Math.random() * 100 + 'vh';
+      sparkle.style.left = Math.random() * 100 + 'vw';
+
+
+      sparkle.style.animationDelay = (Math.random() * 3) + 's';
+
+      container.appendChild(sparkle);
+    }
+  </script>
 
 </body>
 

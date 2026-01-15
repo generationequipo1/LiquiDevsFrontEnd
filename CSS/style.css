@@ -1,24 +1,57 @@
 body {
     margin: 0;
-    display:flex; 
+    display: flex; 
     flex-direction: column; 
     min-height: 100vh; 
-    background-color: transparent;
     width: 100%;
     min-height: 900px;
+
+    background-color: transparent; 
     background-image: url(../Assets/Background-container-1-cortado.png);
-    background-size:contain;
-    background-position:top;
+    background-size: contain;
+    background-position: top;
     background-repeat: no-repeat;
 }
 
 
-h1, h2, h3, .titulo, .header-title {
-    font-family: 'Pacifico', cursive;
+#sparkles-container {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; 
+    z-index: 0; 
+    overflow: visible;
 }
 
-body, p, span, li, a, .texto {
-    font-family: "Nunito", sans-serif;
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: sparkleAnim 3s linear infinite;
+    filter: drop-shadow(0 0 3px);
+}
+
+
+.sparkle.color1 { background: #ff9eb5; filter: drop-shadow(0 0 4px #ff9eb5); } /* rosa */
+.sparkle.color2 { background: #fff3a0; filter: drop-shadow(0 0 4px #fff3a0); } /* amarillo */
+.sparkle.color3 { background: #a0e8ff; filter: drop-shadow(0 0 4px #a0e8ff); } /* azul */
+.sparkle.color4 { background: #a0ffc1; filter: drop-shadow(0 0 4px #a0ffc1); } /* verde */
+
+
+@keyframes sparkleAnim {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-120px) scale(1.2);
+        opacity: 0;
+    }
 }
 
 
