@@ -1,12 +1,14 @@
+
 fetch("../Componentes/navbar.html")
   .then(res => res.text())
   .then(html => {
     
+    //console.log(logeado);
     document.getElementById("navbar-placeholder").innerHTML = html; 
 
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
-    
+
     if (toggle && menu) {
       // y al hacer clcic en menu hamburgues asale menu
       toggle.addEventListener("click", () => {
@@ -23,3 +25,4 @@ fetch("../Componentes/navbar.html")
       });
     }
   });
+  

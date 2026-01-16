@@ -1,3 +1,5 @@
+/*Esto ya no esta en uso 
+
 const textoVision = document.getElementById("p-vision").innerHTML;
 console.log(textoVision);
 
@@ -44,3 +46,5 @@ botones.forEach(boton => {
         document.getElementById(idContenido).classList.add("active"); // Mostrar el contenido correcto
     });
 });
+
+*/

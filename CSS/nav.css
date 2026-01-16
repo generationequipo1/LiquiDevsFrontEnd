@@ -62,6 +62,10 @@
     align-items: center;
     gap: 18px; 
 }
+#botonUsuario{
+    border-radius: 10px;
+    border: transparent;
+}
 
 /* CTA - botón Comprar */
 .btn-shop {
