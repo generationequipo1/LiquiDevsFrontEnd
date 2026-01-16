@@ -589,262 +589,290 @@ amarillo #E5E56A
   font-family: 'Nunito', sans-serif;
   background: #f7c6d0;
 } */
+/*Desde aca empieza el estilo de pagina contactenos*/
 
-/* ===== HERO ===== */
-.hero-dudas {
-  text-align: center;
-  margin: 40px 0;
+/* ============ Base y Reset ============ */
+/*body {
+  font-family: 'Nunito', sans-serif;
+  /*background: #f7c6d0;*/
+  /*margin: 0;
+  padding: 0;
+  color: #333;
+}*/
+
+/* Ocultar labels para accesibilidad pero no visualmente */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-.hero-dudas img {
-  width: 120px;
-}
-
-.hero-dudas p {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* ===== CONTACTO ===== */
+/* ===== Layout Principal ===== */
 .contacto-wrapper {
   max-width: 1100px;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
-  gap: 50px;
+  gap: 30px;
   justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+  align-items: stretch; /* Mantiene ambas tarjetas del mismo alto */
+  padding: 0 20px;
 }
 
-/* Cards */
+/* Tarjeta Base */
 .card-contacto {
-  background: #fff;
+  background: #ffffff;
   border-radius: 28px;
   padding: 40px;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.card-imagen img {
-  width: 100%;
-  border-radius: 22px;
-}
-
-/* Form */
-.card-contacto h2 {
-  font-size: 32px;
-  margin-bottom: 25px;
-}
-
-form {
+  max-width: 480px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
 
-input, textarea {
-  padding: 14px 18px;
-  border-radius: 20px;
-  border: 2px solid #ddd;
+.card-contacto h2 {
+  font-family: 'Pacifico', cursive; /* Fuente juguetona para el título */
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #bf155c;
+  text-align: center;
+  
+}
+.card-contacto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-textarea {
+/* ===== Formulario y Validaciones ===== */
+#form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 18px;
+  border: 2px solid #eee;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fcfcfc;
+  outline: none;
+}
+
+.field textarea {
+  height: 130px;
   resize: none;
-  height: 120px;
 }
 
-/* Botones */
+/* Interacción Focus */
+.field input:focus,
+.field textarea:focus {
+  border-color: #f8046e;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(248, 4, 110, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Mensajes de Error (Solo visibles cuando hay error) */
+.hint {
+  min-height: 22px;
+  margin: 4px 0 10px 10px;
+}
+
+.msg {
+  font-size: 13px;
+  font-weight: 700;
+  display: none; /* Oculto por defecto */
+}
+
+.field.is-error .msg {
+  display: block;
+  color: #e74c3c;
+}
+
+.field.is-error input,
+.field.is-error textarea {
+  border-color: #e74c3c;
+  background: #fffafa;
+}
+
+/* ===== Botones ===== */
 .btn-group {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .btn-enviar {
-  flex: 1;
-  background: #3b82f6;
-  color: #fff;
+  background: #f8046e;
+  color: white;
   border: none;
-  padding: 14px;
-  border-radius: 18px;
-  font-weight: 600;
+  padding: 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(248, 4, 110, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-enviar:not(:disabled):hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
 
 .btn-whatsapp {
-  flex: 1;
-  background: #22c55e;
-  color: #fff;
+  background: #fff;
+  color: #0cca78;
+  border: 2px solid #0cca78;
   text-align: center;
   padding: 14px;
-  border-radius: 18px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* ===== FAQ CTA ===== */
-.faq-cta {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.faq-cta img {
-  width: 60px;
-  margin-bottom: 10px;
-}
-
-.btn-faq-toggle {
-  background: #e96b9c;
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
   border-radius: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #0cca78;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(12, 202, 120, 0.2);
+}
+
+/* ===== Card de Imagen y Mapa ===== */
+.card-imagen {
+  text-align: center;
+  justify-content: space-between; /* Empuja el contenido para llenar el alto */
+}
+
+.card-imagen img {
+  max-width: 85%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.direccion {
+  background: #fff5f7;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 1.6;
+  margin: 20px 0;
+  color: #555;
+  border: 1px dashed #fbc2d4;
 }
 
-/* ===== FAQ ===== */
+/* Contenedor del Mapa */
+.embed-map-responsive {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden; /* Corta las esquinas del iframe */
+  line-height: 0;
+  border: 3px solid #fdf2f5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.embed-map-frame {
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+
+/* ===== FAQ Section ===== */
 .faq-box {
-  display: none;
-  max-width: 700px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 35px;
-  border-radius: 26px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.faq-box.active {
-  display: block;
+.faq-header-inline {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #fdf2f5;
+}
+
+.faq-icon-img {
+  width: 45px;
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #bf155c;
 }
 
 .faq-item {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .faq-question {
   width: 100%;
-  background: #f1f1f1;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-align: left;
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 18px 22px;
+  border-radius: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faq-question:hover {
+  background: #fff0f5;
+  border-color: #fbc2d4;
 }
 
 .faq-answer {
-  display: none;
-  padding: 12px 16px;
+  padding: 15px 22px;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+.faq-box {
+  /* Agregamos una transición para que el movimiento sea suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faq-answer.open {
-  display: block;
+.faq-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* ===== Responsive ===== */
+@media (max-width: 850px) {
   .contacto-wrapper {
     flex-direction: column;
+    align-items: center;
   }
-}
-
-
-/*Aca empieza el estilo de la pagina catalogo*/
-
-/* ===== Aqui va el BANNER ===== */
-#banner {
-    background-color: #fff;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.titulo-banner {
-    font-family: 'Pacifico', cursive;
-    color: #c9226b;
-    font-size: 42px;
-}
-
-.subtitulo-banner {
-    font-family: 'Nunito', sans-serif;
-    color: #b63767;
-    font-size: 18px;
-    max-width: 550px;
-    margin: 10px auto;
-}
-
-.icono-banner {
-    width: 50px;
-    margin-top: 10px;
-}
-/*Aca queda el estilo de los botones que filtran*/
-.filtro-seccion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-}
-
-.filtro-contenedor {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-
-.filtros-principales,
-.contenedor-boton-emociones,
-.contenedor-boton-mostrar-todo {
-    width: 100%;
-}
-
-
-.filtro-contenedor button {
-    width: 100%;
-    padding: 14px 20px;
-    background-color: #FFE6C9;
-    border: 2px solid #ffd5a5;
-    border-radius: 30px;
-
-    color: #bf155c;
-    font-weight: 700;
-    font-size: 17px;
-    cursor: pointer;
-
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-
-.filtro-contenedor button:hover {
-    background-color: #ffddb7;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-}
-
-.filtro-contenedor button:active {
-    transform: scale(0.97);
-}
-
-/*Este es el estilo para mostrar las opciones de filtrado*/
-.contenedor-mostrar-opciones{
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    border: 1px solid black;
-
-}
-
-.contenedor-mostrar-opciones button{
-    width: 15%;
-    min-height: 40px;
-    background-color: #E5E56A;
-    border-radius: 20px;
-    border: 2px solid #E5E56A;
-    color: #bf155c;
-    font-weight: bold;
-    margin: 1%;
+  
+  .card-contacto {
+    max-width: 100%;
+  }
 }
 
 
