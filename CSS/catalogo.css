@@ -624,3 +624,66 @@ body {
   }
 
 }
+
+.hero-moods {
+  margin-top: 26px;
+  text-align: center;
+}
+
+.hero-moods-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.hero-moods-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-moods-buttons button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  border: 2px solid transparent;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all .25s ease;
+}
+
+.hero-moods-buttons button:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+}
+
+/* Colores por mood */
+.hero-moods-buttons button[data-emocion="feliz"] {
+  border-color: #ffb703;
+}
+
+.hero-moods-buttons button[data-emocion="relajado"] {
+  border-color: #8ecae6;
+}
+
+.hero-moods-buttons button[data-emocion="intenso"] {
+  border-color: #9b5de5;
+}
+
+.hero-moods-buttons button[data-emocion="refrescante"] {
+  border-color: #2ec4b6;
+}
+
+/* Activo */
+.hero-moods-buttons button.active {
+  background: linear-gradient(135deg, #ffd166, #ffb703);
+  color: #4a2c00;
+  border-color: transparent;
+  box-shadow: 0 14px 32px rgba(255,183,3,0.45);
+}
+

@@ -1,9 +1,10 @@
+let emocionDesdeHero = "todos";
+
 const containerCards = document.getElementById("container-cards-fijas");
 const inputBusqueda = document.getElementById("input-busqueda");
 const filtroTipo = document.getElementById("filtro-tipo");
 const filtroSabor = document.getElementById("filtro-sabor");
 const filtroMixto = document.getElementById("filtro-mixto");
-const filtroEmocion = document.getElementById("filtro-emocion");
 const ordenPrecio = document.getElementById("orden-precio");
 const btnMostrarTodos = document.getElementById("btn-mostrar-todos");
 const contadorResultados = document.getElementById("contador-resultados");
@@ -18,17 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
     filtroTipo,
     filtroSabor,
     filtroMixto,
-    filtroEmocion,
     ordenPrecio
   ].forEach(el => el.addEventListener("input", aplicarFiltros));
 
   btnMostrarTodos.addEventListener("click", resetFiltros);
 
   btnFavoritos.addEventListener("click", () => {
+    emocionDesdeHero = "todos";
     const favoritos = productos.filter(p => p.categoria === "Artesanal");
     renderizarProductos(favoritos);
     animarContador(favoritos.length);
     btnMostrarTodos.classList.remove("d-none");
+  });
+
+  document.querySelectorAll(".hero-moods-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      emocionDesdeHero = btn.dataset.emocion;
+      aplicarFiltros();
+      btnMostrarTodos.classList.remove("d-none");
+      location.href = "#container-cards-fijas";
+    });
   });
 });
 
@@ -47,8 +57,8 @@ function aplicarFiltros() {
   if (filtroMixto.value !== "todos")
     lista = lista.filter(p => filtroMixto.value === "si" ? p.mixto : !p.mixto);
 
-  if (filtroEmocion.value !== "todos")
-    lista = lista.filter(p => p.emocion === filtroEmocion.value);
+  if (emocionDesdeHero !== "todos")
+    lista = lista.filter(p => p.emocion === emocionDesdeHero);
 
   if (ordenPrecio.value === "menor")
     lista.sort((a, b) => a.precio - b.precio);
@@ -66,8 +76,8 @@ function resetFiltros() {
   filtroTipo.value = "todos";
   filtroSabor.value = "todos";
   filtroMixto.value = "todos";
-  filtroEmocion.value = "todos";
   ordenPrecio.value = "";
+  emocionDesdeHero = "todos";
 
   renderizarProductos(productos);
   animarContador(productos.length);
@@ -80,8 +90,8 @@ function actualizarUI() {
     filtroTipo.value !== "todos" ||
     filtroSabor.value !== "todos" ||
     filtroMixto.value !== "todos" ||
-    filtroEmocion.value !== "todos" ||
-    ordenPrecio.value;
+    ordenPrecio.value ||
+    emocionDesdeHero !== "todos";
 
   btnMostrarTodos.classList.toggle("d-none", !hayFiltros);
 }
@@ -130,7 +140,7 @@ function renderizarProductos(lista) {
   });
 }
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", e => {
   const btn = e.target.closest(".add-cart-btn");
   if (!btn) return;
 
@@ -148,3 +158,4 @@ document.addEventListener("click", (e) => {
     timerProgressBar: true
   });
 });
+
