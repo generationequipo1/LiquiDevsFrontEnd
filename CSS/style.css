@@ -1266,3 +1266,36 @@ textarea.reg-input {
 .reg-login-link:hover {
     text-decoration: underline;
 }
+
+/* scrollup */
+
+#btn-up {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  background: #b31257;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 12px 30px rgba(179,18,87,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+#btn-up.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#btn-up:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(179,18,87,0.45);
+}
