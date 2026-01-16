@@ -1,16 +1,15 @@
 body {
+  margin: 0;
   font-family: 'Nunito', sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,182,193,0.12), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(173,216,230,0.12), transparent 40%),
+    #ffffff;
 }
 
 .banner-home {
   width: 100%;
   height: 460px;
-  background-color: #ffe6c9;
-  background-image: url("../Assets/home/background-banner-home-color.png");
-  background-size: 200% 100%;
-  background-repeat: no-repeat;
-  background-position: 0 center;
-  animation: moverFondo 35s linear infinite;
   position: relative;
   display: flex;
   align-items: center;
@@ -23,63 +22,96 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255,230,201,.95) 40%, rgba(255,230,201,.6) 70%, rgba(255,230,201,.2) 100%);
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #ffb703 2px, transparent 3px),
+    radial-gradient(circle, #fb8500 2px, transparent 3px),
+    radial-gradient(circle, #8ecae6 2px, transparent 3px),
+    radial-gradient(circle, #ffafcc 2px, transparent 3px);
+  background-size: 90px 90px, 130px 130px, 160px 160px, 110px 110px;
+  animation: sprinkles-fall 22s linear infinite;
+  opacity: 0.28;
   z-index: 1;
+}
+
+@keyframes sprinkles-fall {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 800px, 0 1000px, 0 900px, 0 1100px; }
+}
+
+.carousel-item:nth-child(1) .banner-home {
+  background:
+    radial-gradient(circle at 20% 20%, #fde2ea 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, #e0f4ff 0%, transparent 45%),
+    linear-gradient(135deg, #fff1da, #ffe0ec);
+}
+
+.carousel-item:nth-child(2) .banner-home {
+  background:
+    radial-gradient(circle at 30% 30%, #e6fff5 0%, transparent 45%),
+    radial-gradient(circle at 70% 60%, #e8f3ff 0%, transparent 45%),
+    linear-gradient(135deg, #e0fff5, #ffffff);
+}
+
+.carousel-item:nth-child(3) .banner-home {
+  background:
+    radial-gradient(circle at 25% 25%, #fff0d6 0%, transparent 45%),
+    radial-gradient(circle at 75% 70%, #ffd7b8 0%, transparent 45%),
+    linear-gradient(135deg, #fff0d6, #ffd7b8);
 }
 
 .banner-contenido-overlay {
   max-width: 520px;
+  position: relative;
   z-index: 2;
 }
 
 .lema-banner {
   font-family: 'Pacifico', cursive;
-  font-size: 3.2rem;
-  color: #b31257;
+  font-size: clamp(2.8rem, 5vw, 4rem);
   line-height: 1.1;
-  margin-bottom: 15px;
+  color: #2b2b2b;
+}
+
+.lema-banner span {
+  color: #b31257;
 }
 
 .sublema-banner {
   font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 25px;
+  color: #555;
+  margin: 12px 0 26px;
 }
 
 .btn-compra-animado {
-  background-color: #222;
-  color: #fff;
   padding: 14px 34px;
   border-radius: 40px;
+  background: #b31257;
+  color: #fff;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: bold;
-  transition: .3s ease;
+  box-shadow: 0 12px 30px rgba(179,18,87,0.35);
+  transition: all 0.3s ease;
 }
 
 .btn-compra-animado:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(179,18,87,0.45);
 }
 
 .heladomuneco-banner {
   width: 320px;
-  animation: flotar 3.5s ease-in-out infinite;
+  max-width: 40vw;
+  position: relative;
   z-index: 2;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 25px 35px rgba(0,0,0,0.18));
 }
 
-@keyframes flotar {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-16px); }
-  100% { transform: translateY(0); }
-}
-
-.estado-animo-banner {
-  background-image: url("../Assets/banner/banner-animo.png");
-}
-
-.promo-banner {
-  background-image: url("../Assets/home/ice-cream2-banner-home.png");
-  background-size: cover;
+@keyframes float {
+  0% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-14px) rotate(-4deg); }
+  100% { transform: translateY(0) rotate(-4deg); }
 }
 
 .titulo-seccion {
@@ -115,11 +147,13 @@ body {
 .sabor-box:hover {
   transform: translateY(-8px);
 }
-
-.sabor-box img {
-  height: 200px;
-  object-fit: cover;
+/* cambio david */
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
 }
+/* --- */
 
 .paso-box {
   background: #fff;
@@ -139,15 +173,42 @@ body {
 }
 
 .cta-final {
-  background: linear-gradient(135deg, #ffe6c9, #ffd1e3);
+  background:
+    radial-gradient(circle at 30% 20%, #fde2ea 0%, transparent 45%),
+    radial-gradient(circle at 70% 80%, #e0f4ff 0%, transparent 45%),
+    linear-gradient(135deg, #fff1da, #ffe0ec);
   padding: 60px 20px;
   border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.9) 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(255,182,193,0.6) 1.2px, transparent 3px),
+    radial-gradient(circle, rgba(189,224,254,0.6) 1.4px, transparent 3px),
+    radial-gradient(circle, rgba(255,230,167,0.6) 1.3px, transparent 3px);
+  background-size: 100px 100px, 140px 140px, 180px 180px, 120px 120px;
+  animation: snow-cta 18s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes snow-cta {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 600px, 0 800px, 0 700px, 0 900px; }
 }
 
 .cta-final h2 {
   font-family: 'Pacifico', cursive;
   color: #b31257;
   font-size: 2.4rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -160,6 +221,7 @@ body {
 
   .heladomuneco-banner {
     width: 240px;
+    margin-top: 20px;
   }
 
   .lema-banner {
@@ -168,7 +230,6 @@ body {
 }
 
 @media (max-width: 576px) {
-
   .banner-home {
     padding: 30px 16px;
     gap: 20px;
@@ -209,10 +270,3 @@ body {
     font-size: 1.9rem;
   }
 }
-/* algunos cambios adicionales en el home - hecho por david */
-.card-img-top {
-  width: 100%;
-  height: 10px;
-  object-fit: cover; 
-}
-

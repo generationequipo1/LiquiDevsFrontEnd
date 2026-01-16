@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,223 +16,170 @@
   <link rel="stylesheet" href="../CSS/stylehome.css">
   <link rel="stylesheet" href="../CSS/cart.css">
 
-
-  <title>Inicio | Ice Cream Mood</title>
+  <title>Inicio | Byte&Cream</title>
 </head>
 
 <body>
 
-<header>
-  <div id="navbar-placeholder"></div>
-</header>
-<div id="carrito-placeholder"></div>
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
+  <div id="carrito-placeholder"></div>
 
-<main>
+  <main>
 
-<section class="banner-home-carousel">
-  <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-    <div class="carousel-inner">
+    <section class="banner-home-carousel">
+      <div id="carouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
 
-      <div class="carousel-item active">
-        <div class="banner-home">
-          <div class="banner-contenido-overlay">
-            <p class="lema-banner">Helados con<br>código de sabor</p>
-            <p class="sublema-banner">Helados artesanales inspirados en emociones</p>
-            <a href="HTML/catalogo.html" class="btn-compra-animado">Explorar sabores</a>
+          <div class="carousel-item active">
+            <div class="banner-home mood-feliz">
+              <div class="banner-contenido-overlay">
+                <p class="lema-banner">Helados que saben<br>a felicidad</p>
+                <p class="sublema-banner">Sabores suaves, dulces y reconfortantes</p>
+                <a href="HTML/catalogo.html?mood=feliz" class="btn-compra-animado">Quiero algo dulce 😄</a>
+              </div>
+              <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
+            </div>
           </div>
-          <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-        </div>
-      </div>
 
-      <div class="carousel-item">
-        <div class="banner-home estado-animo-banner">
-          <div class="banner-contenido-overlay">
-            <p class="lema-banner">¿No sabes qué elegir?</p>
-            <p class="sublema-banner">Te ayudamos según cómo te sientes</p>
-            <a href="HTML/catalogo.html" class="btn-compra-animado">Descubrir mi sabor</a>
+          <div class="carousel-item">
+            <div class="banner-home mood-intenso">
+              <div class="banner-contenido-overlay">
+                <p class="lema-banner">Cuando necesites<br>algo intenso</p>
+                <p class="sublema-banner">Chocolate, café y sabores profundos</p>
+                <a href="HTML/catalogo.html?mood=intenso" class="btn-compra-animado">Quiero algo potente 🍫</a>
+              </div>
+              <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
+            </div>
           </div>
-          <img src="Assets/home/ice-cream-banner-home.png" class="heladomuneco-banner">
-        </div>
-      </div>
 
-      <div class="carousel-item">
-        <div class="banner-home promo-banner">
-          <div class="banner-contenido-overlay">
-            <p class="lema-banner">Los favoritos</p>
-            <p class="sublema-banner">Sabores más elegidos</p>
-            <a href="HTML/catalogo.html" class="btn-compra-animado">Ver catálogo</a>
+          <div class="carousel-item">
+            <div class="banner-home mood-refrescante">
+              <div class="banner-contenido-overlay">
+                <p class="lema-banner">Fresco, ligero<br>y natural</p>
+                <p class="sublema-banner">Cítricos, frutas y sensaciones limpias</p>
+                <a href="HTML/catalogo.html?mood=refrescante" class="btn-compra-animado">Quiero algo fresco 🍋</a>
+              </div>
+              <img src="Assets/home/ice-cream2-banner-home.png" class="heladomuneco-banner">
+            </div>
           </div>
-          <img src="Assets/home/ice-cream2-banner-home.png" class="heladomuneco-banner">
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="porque-elegirnos container text-center mt-5">
+      <h2 class="titulo-seccion">Una experiencia que se siente</h2>
+
+      <div class="row mt-4 justify-content-center">
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-emoji-smile"></i>
+            <h5>Conectados a tu ánimo</h5>
+            <p>Sabores pensados para cada emoción</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-heart"></i>
+            <h5>Hecho con amor</h5>
+            <p>Producción artesanal y cuidada</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-stars"></i>
+            <h5>Recetas únicas</h5>
+            <p>Combinaciones que sorprenden</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="feature-box">
+            <i class="bi bi-truck"></i>
+            <h5>Entrega perfecta</h5>
+            <p>Rápido, frío y seguro</p>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
+    <section class="sabores-destacados container mt-5">
+      <h2 class="titulo-seccion text-center mb-4">Momentos favoritos</h2>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
+      <div class="row justify-content-center">
 
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-</section>
-
-<section class="porque-elegirnos container text-center mt-5">
-  <h2 class="titulo-seccion">Lo que nos hace diferentes</h2>
-
-  <div class="row mt-4 justify-content-center">
-    <div class="col-6 col-md-3">
-      <div class="feature-box">
-        <i class="bi bi-emoji-smile"></i>
-        <h5>Ingredientes naturales</h5>
-        <p>Frutas reales y sin conservantes</p>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3">
-      <div class="feature-box">
-        <i class="bi bi-truck"></i>
-        <h5>Envíos rápidos</h5>
-        <p>Entrega segura y fresca</p>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3">
-      <div class="feature-box">
-        <i class="bi bi-stars"></i>
-        <h5>Sabores únicos</h5>
-        <p>Inspirados en emociones</p>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3">
-      <div class="feature-box">
-        <i class="bi bi-heart"></i>
-        <h5>Hecho con amor</h5>
-        <p>Producción artesanal</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sabores-destacados container mt-5">
-  <h2 class="titulo-seccion text-center mb-4">Sabores destacados</h2>
-
-  <div class="row justify-content-center">
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <div class="card sabor-box text-center">
-        <img src="Assets/Helados/cono-chocolate.png" class="card-img-top"style="height:300px">
-        <div class="card-body">
-          <span class="badge bg-warning text-dark mb-2">Top ventas</span>
-          <h5>Cono Chocolate</h5>
-          <p>$6.000</p>
-          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card sabor-box text-center">
+            <img src="Assets/Helados/cono-chocolate.png" class="card-img-top" style="height:300px">
+            <div class="card-body">
+              <span class="badge bg-warning text-dark mb-2">Intenso</span>
+              <h5>Cono Chocolate</h5>
+              <p>$6.000</p>
+              <a href="HTML/catalogo.html?mood=intenso" class="btn btn-dark btn-sm">Ver helado</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-3 col-sm-6 mb-4">
-      <div class="card sabor-box text-center">
-        <img src="Assets/Helados/artesanal-tiramisu.png" class="card-img-top"style="height:300px">
-        <div class="card-body">
-          <h5>Helado Artesanal Tiramisú</h5>
-          <p>$12.000</p>
-          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card sabor-box text-center">
+            <img src="Assets/Helados/artesanal-tiramisu.png" class="card-img-top" style="height:300px">
+            <div class="card-body">
+              <span class="badge bg-danger mb-2">Reconfortante</span>
+              <h5>Tiramisú</h5>
+              <p>$12.000</p>
+              <a href="HTML/catalogo.html?mood=feliz" class="btn btn-dark btn-sm">Ver helado</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-3 col-sm-6 mb-4">
-      <div class="card sabor-box text-center">
-        <img src="Assets/Helados/artesanal-pistacho.png" class="card-img-top"style="height:300px">
-        <div class="card-body">
-          <h5>Helado Artesanal Pistacho</h5>
-          <p>$12.000</p>
-          <a href="HTML/catalogo.html" class="btn btn-dark btn-sm">Ver producto</a>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card sabor-box text-center">
+            <img src="Assets/Helados/artesanal-pistacho.png" class="card-img-top" style="height:300px">
+            <div class="card-body">
+              <span class="badge bg-success mb-2">Fresco</span>
+              <h5>Pistacho</h5>
+              <p>$12.000</p>
+              <a href="HTML/catalogo.html?mood=refrescante" class="btn btn-dark btn-sm">Ver helado</a>
+            </div>
+          </div>
         </div>
+
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <section class="cta-final text-center mt-5">
+      <h2>Hoy no eliges un sabor</h2>
+      <p>Eliges cómo quieres sentirte</p>
+      <a href="HTML/catalogo.html" class="btn btn-dark btn-lg mt-3">Descubrir mi helado ideal 🍦</a>
 
-<section class="como-funciona container mt-5 text-center">
-  <h2 class="titulo-seccion mb-4">¿Cómo funciona?</h2>
+      <video src="Assets/home/video-helado.mp4" autoplay muted loop playsinline
+        style="width:40%;max-width:250px;display:block;margin:2rem auto;border-radius:80px;">
+      </video>
+    </section>
 
-  <div class="row justify-content-center">
-    <!--  SUSPENDIDO POR FUNCIONALIDAD ------------------------
-    <div class="col-md-3 mb-4">
-      <div class="paso-box">
-        <i class="bi bi-emoji-smile"></i>
-        <h5>Elige tu estado</h5>
-        <p>Cuéntanos cómo te sientes</p>
-      </div>
-    </div>
--->
-    <div class="col-md-3 mb-4">
-      <div class="paso-box">
-        <i class="bi bi-lightning-charge"></i>
-        <h5>Recomendamos</h5>
-        <p>Sabores ideales para ti</p>
-      </div>
-    </div>
+  </main>
 
-    <div class="col-md-3 mb-4">
-      <div class="paso-box">
-        <i class="bi bi-cart"></i>
-        <h5>Compra fácil</h5>
-        <p>Agrega al carrito</p>
-      </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-      <div class="paso-box">
-        <i class="bi bi-truck"></i>
-        <h5>Disfruta</h5>
-        <p>Entrega en tu casa</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-final text-center mt-5">
-  <h2>Encuentra el sabor que conecta contigo</h2>
-  <p>No todos los días se sienten igual</p>
-  <a href="HTML/catalogo.html" class="btn btn-dark btn-lg mt-3">Explorar sabores 🍦</a>
-  <div class="cta-video mt-4">
-    <video
-      src="Assets/home/video-helado.mp4"
-       autoplay
-      muted
-      loop
-      playsinline
-      style="
-      width: 40%;
-      max-width: 250px;
-      display: block;
-      margin: 2rem auto;
-      border-radius: 80px;
-      "
-    ></video>
-  </div>
-</section>
-
-</main>
-
-<div id="footer"></div>
-
+  <div id="footer"></div>
 
   <script src="/JS/cart.js"></script>
-
   <script src="/Componentes/navbarInclude.js"></script>
   <script src="../Componentes/cartinclude.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../Componentes/cargarfooter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../Componentes/cargarfooter.js"></script>
 
 </body>
+
 </html>
