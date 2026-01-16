@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".hero-moods-buttons button").forEach(btn => {
     btn.addEventListener("click", () => {
+      resetFiltros();
       emocionDesdeHero = btn.dataset.emocion;
       aplicarFiltros();
       btnMostrarTodos.classList.remove("d-none");
@@ -158,4 +159,3 @@ document.addEventListener("click", e => {
     timerProgressBar: true
   });
 });
-
