@@ -129,3 +129,22 @@ function renderizarProductos(lista) {
     containerCards.appendChild(card);
   });
 }
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".add-cart-btn");
+  if (!btn) return;
+
+  const nombre = btn.dataset.name;
+  const precio = btn.dataset.price;
+
+  Swal.fire({
+    icon: "success",
+    title: "¡Agregado al carrito! 🍦",
+    text: `${nombre} – $${Number(precio).toLocaleString("es-CO")}`,
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1800,
+    timerProgressBar: true
+  });
+});
