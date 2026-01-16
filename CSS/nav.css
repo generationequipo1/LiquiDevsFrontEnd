@@ -147,3 +147,52 @@
         display: none; 
     }
 }
+
+#botonUsuario {
+    background-color: #fdf2f8;
+    color: #d6287a;
+    border: 1.5px solid #f3d2e8;
+    padding: 8px 18px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Nunito", sans-serif;
+}
+
+#botonUsuario:hover {
+    background-color: #d6287a;
+    color: white;
+    border-color: #d6287a;
+    box-shadow: 0 4px 12px rgba(214, 40, 122, 0.2);
+    transform: translateY(-1px);
+}
+
+#botonUsuario i {
+    font-size: 1.2rem;
+    line-height: 0;
+}
+
+#nombreUsuarioNav {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#btn-cart {
+    background: white;
+    border: 1.5px solid #f3d2e8;
+    padding: 8px 14px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #444;
+}
+
+#btn-cart:hover {
+    border-color: #d628
