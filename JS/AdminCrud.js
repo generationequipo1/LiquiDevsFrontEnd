@@ -1,4 +1,3 @@
-
 /*VARIABLES*/
 let productos = JSON.parse(localStorage.getItem("productos")) || [];
 

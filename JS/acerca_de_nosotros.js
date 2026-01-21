@@ -1,3 +1,4 @@
+
 const textoVision = document.getElementById("p-vision").innerHTML;
 console.log(textoVision);
 

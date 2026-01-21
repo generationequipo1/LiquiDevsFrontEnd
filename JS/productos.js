@@ -1,4 +1,35 @@
-const productos = [
+
+const API_URL = "http://localhost:8080/productos";
+
+async function cargarProductos() {
+  try {
+    const res = await fetch(API_URL);
+
+    if (!res.ok) throw new Error("Error consultando backend");
+
+    const data = await res.json();
+
+    //  Ahora los productos vienen del backend
+    window.productos = data;
+
+    console.log("Productos cargados desde backend:", window.productos);
+
+    //  Evento para que otros scripts sepan que ya cargó
+    window.dispatchEvent(new Event("productosCargados"));
+
+  } catch (error) {
+    console.error(" No se pudieron cargar productos:", error);
+
+    // fallback (si backend falla)
+    window.productos = [];
+  }
+}
+
+cargarProductos();
+
+
+
+/*const productos = [
   {
     id: 1,
     nombre: "Helado Artesanal Frutos Rojos",
@@ -255,4 +286,4 @@ const productos = [
     categoria: "Tradicional",
     emocion: "refrescante"
   }
-];
+];*/
