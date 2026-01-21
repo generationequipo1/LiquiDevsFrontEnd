@@ -1,5 +1,6 @@
 const API_BASE = "http://localhost:8080";
 
+
 const entradaCorreo  = document.getElementById("correo");
 const contrasena = document.getElementById("contrasena");
 const botonIniciarSesion = document.getElementById("botonIniciarSesion");
@@ -81,5 +82,4 @@ function validarContrasena(){
         alert("Bienvenido "+ usuario.nombre)
         window.location.href = "../paginaPrincipal.html";
     }
-
-}
+}*/

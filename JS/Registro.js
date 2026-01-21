@@ -1,5 +1,7 @@
-// URL base (ajústala si cambiaste el puerto o si agregas /api)
+
 const API_BASE = "http://localhost:8080";
+
+// ---------- LOGIN ----------
 
 document.getElementById("formRegistro").addEventListener("submit", async function (e) {
   e.preventDefault(); // evita recarga
@@ -189,4 +191,4 @@ document.getElementById("formRegistro").addEventListener("submit", async functio
         confirmButtonText: 'Aceptar'
 });
     document.getElementById("formRegistro").reset();
-});
+}); */
