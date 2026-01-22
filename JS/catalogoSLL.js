@@ -1,3 +1,4 @@
+// catalogoSLL.js (FULL, backend + frontend catálogo)
 let emocionDesdeHero = "todos";
 
 const containerCards = document.getElementById("container-cards-fijas");
@@ -10,62 +11,93 @@ const btnMostrarTodos = document.getElementById("btn-mostrar-todos");
 const contadorResultados = document.getElementById("contador-resultados");
 const btnFavoritos = document.getElementById("btn-favoritos");
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderizarProductos(productos);
-  animarContador(productos.length);
+// ------------------------------
+// renderiza la lista de productos en el catálogo
+// ------------------------------
+function renderizarProductos(lista) {
+  containerCards.innerHTML = "";
 
-  [
-    inputBusqueda,
-    filtroTipo,
-    filtroSabor,
-    filtroMixto,
-    ordenPrecio
-  ].forEach(el => el.addEventListener("input", aplicarFiltros));
+  if (!lista || !lista.length) {
+    containerCards.innerHTML = `<p style="grid-column:1/-1;text-align:center;opacity:.6">Sin resultados 🍦</p>`;
+    return;
+  }
 
-  btnMostrarTodos.addEventListener("click", resetFiltros);
+  lista.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card3";
 
-  btnFavoritos.addEventListener("click", () => {
-    emocionDesdeHero = "todos";
-    const favoritos = productos.filter(p => p.categoria === "Artesanal");
-    renderizarProductos(favoritos);
-    animarContador(favoritos.length);
-    btnMostrarTodos.classList.remove("d-none");
+    const precio = Number(p.precio ?? 0);
+    const img = p.imagen || "../Assets/Helados/cono-vainilla.png";
+
+    card.innerHTML = `
+      <div class="img-wrapper">
+        <img src="${img}" alt="${p.nombre || "Producto"}"
+             onerror="this.src='../Assets/Helados/cono-vainilla.png'">
+      </div>
+      <h4 class="titulo-sabor2">${p.nombre || "Sin nombre"}</h4>
+      <p class="precio2">$${precio.toLocaleString("es-CO")}</p>
+      <button class="btn-compra-animado add-cart-btn"
+        data-id="${p.id}"
+        data-name="${p.nombre}"
+        data-price="${precio}">
+        Agregar
+      </button>
+    `;
+
+    containerCards.appendChild(card);
   });
+}
 
-  document.querySelectorAll(".hero-moods-buttons button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      resetFiltros();
-      emocionDesdeHero = btn.dataset.emocion;
-      aplicarFiltros();
-      btnMostrarTodos.classList.remove("d-none");
-      location.href = "#container-cards-fijas";
-    });
-  });
-});
+function animarContador(valor) {
+  let actual = 0;
+  const total = Number(valor || 0);
+  const step = Math.max(1, Math.floor(total / 20));
 
+  const interval = setInterval(() => {
+    actual += step;
+    if (actual >= total) {
+      actual = total;
+      clearInterval(interval);
+    }
+    contadorResultados.textContent = `${actual} resultado${actual !== 1 ? "s" : ""}`;
+  }, 20);
+}
+
+function actualizarUI() {
+  const hayFiltros =
+    (inputBusqueda.value || "").trim() ||
+    filtroTipo.value !== "todos" ||
+    filtroSabor.value !== "todos" ||
+    filtroMixto.value !== "todos" ||
+    ordenPrecio.value ||
+    emocionDesdeHero !== "todos";
+
+  btnMostrarTodos.classList.toggle("d-none", !hayFiltros);
+}
+
+// ------------------------------
+// se aplican los filtros seleccionados
+// ------------------------------
 function aplicarFiltros() {
-  let lista = [...productos];
+  let lista = [...(window.productos || [])];
 
-  if (inputBusqueda.value)
-    lista = lista.filter(p => p.nombre.toLowerCase().includes(inputBusqueda.value.toLowerCase()));
+  const q = (inputBusqueda.value || "").trim().toLowerCase();
+  if (q) lista = lista.filter(p => (p.nombre || "").toLowerCase().includes(q));
 
   if (filtroTipo.value !== "todos")
-    lista = lista.filter(p => p.tipo === filtroTipo.value);
+    lista = lista.filter(p => (p.tipo || "").toLowerCase() === filtroTipo.value);
 
   if (filtroSabor.value !== "todos")
-    lista = lista.filter(p => p.sabores.includes(filtroSabor.value));
+    lista = lista.filter(p => (p.sabores || []).includes(filtroSabor.value));
 
   if (filtroMixto.value !== "todos")
-    lista = lista.filter(p => filtroMixto.value === "si" ? p.mixto : !p.mixto);
+    lista = lista.filter(p => (filtroMixto.value === "si") ? !!p.mixto : !p.mixto);
 
   if (emocionDesdeHero !== "todos")
-    lista = lista.filter(p => p.emocion === emocionDesdeHero);
+    lista = lista.filter(p => (p.emocion || "") === emocionDesdeHero);
 
-  if (ordenPrecio.value === "menor")
-    lista.sort((a, b) => a.precio - b.precio);
-
-  if (ordenPrecio.value === "mayor")
-    lista.sort((a, b) => b.precio - a.precio);
+  if (ordenPrecio.value === "menor") lista.sort((a, b) => Number(a.precio) - Number(b.precio));
+  if (ordenPrecio.value === "mayor") lista.sort((a, b) => Number(b.precio) - Number(a.precio));
 
   renderizarProductos(lista);
   animarContador(lista.length);
@@ -80,78 +112,60 @@ function resetFiltros() {
   ordenPrecio.value = "";
   emocionDesdeHero = "todos";
 
-  renderizarProductos(productos);
-  animarContador(productos.length);
+  const lista = window.productos || [];
+  renderizarProductos(lista);
+  animarContador(lista.length);
   actualizarUI();
 }
 
-function actualizarUI() {
-  const hayFiltros =
-    inputBusqueda.value ||
-    filtroTipo.value !== "todos" ||
-    filtroSabor.value !== "todos" ||
-    filtroMixto.value !== "todos" ||
-    ordenPrecio.value ||
-    emocionDesdeHero !== "todos";
+// ------------------------------
+// Inicia cuando backend ya cargó productos.
+// ------------------------------
+function initCatalogo() {
+  const listaInicial = window.productos || [];
+  renderizarProductos(listaInicial);
+  animarContador(listaInicial.length);
 
-  btnMostrarTodos.classList.toggle("d-none", !hayFiltros);
-}
+  [inputBusqueda, filtroTipo, filtroSabor, filtroMixto, ordenPrecio]
+    .forEach(el => el && el.addEventListener("input", aplicarFiltros));
 
-function animarContador(valor) {
-  let actual = 0;
-  const step = Math.max(1, Math.floor(valor / 20));
+  btnMostrarTodos.addEventListener("click", resetFiltros);
 
-  const interval = setInterval(() => {
-    actual += step;
-    if (actual >= valor) {
-      actual = valor;
-      clearInterval(interval);
-    }
-    contadorResultados.textContent = `${actual} resultado${actual !== 1 ? "s" : ""}`;
-  }, 20);
-}
+  btnFavoritos.addEventListener("click", () => {
+    emocionDesdeHero = "todos";
+    const favoritos = (window.productos || []).filter(p => (p.categoria || "") === "Artesanal");
+    renderizarProductos(favoritos);
+    animarContador(favoritos.length);
+    btnMostrarTodos.classList.remove("d-none");
+  });
 
-function renderizarProductos(lista) {
-  containerCards.innerHTML = "";
-
-  if (!lista.length) {
-    containerCards.innerHTML = `<p style="grid-column:1/-1;text-align:center;opacity:.6">Sin resultados 🍦</p>`;
-    return;
-  }
-
-  lista.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card3";
-
-    card.innerHTML = `
-      <div class="img-wrapper">
-        <img src="${p.imagen}" alt="${p.nombre}">
-      </div>
-      <h4 class="titulo-sabor2">${p.nombre}</h4>
-      <p class="precio2">$${p.precio.toLocaleString("es-CO")}</p>
-      <button class="btn-compra-animado add-cart-btn"
-        data-id="${p.id}"
-        data-name="${p.nombre}"
-        data-price="${p.precio}">
-        Agregar
-      </button>
-    `;
-
-    containerCards.appendChild(card);
+  document.querySelectorAll(".hero-moods-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      resetFiltros();
+      emocionDesdeHero = btn.dataset.emocion;
+      aplicarFiltros();
+      btnMostrarTodos.classList.remove("d-none");
+      location.href = "#container-cards-fijas";
+    });
   });
 }
 
+window.addEventListener("productosCargados", initCatalogo);
+
+// ------------------------------
+// Click Agregar (solo alerta; el carrito lo conectas luego)
+// ------------------------------
 document.addEventListener("click", e => {
   const btn = e.target.closest(".add-cart-btn");
   if (!btn) return;
 
-  const nombre = btn.dataset.name;
-  const precio = btn.dataset.price;
+  const nombre = btn.dataset.name || "Producto";
+  const precio = Number(btn.dataset.price || 0);
 
   Swal.fire({
     icon: "success",
     title: "¡Agregado al carrito! 🍦",
-    text: `${nombre} – $${Number(precio).toLocaleString("es-CO")}`,
+    text: `${nombre} – $${precio.toLocaleString("es-CO")}`,
     toast: true,
     position: "top-end",
     showConfirmButton: false,

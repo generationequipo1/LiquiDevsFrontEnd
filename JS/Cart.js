@@ -271,3 +271,14 @@ function guardarPedido(id, total) {
 
   localStorage.setItem("pedidos", JSON.stringify(pedidos));
 }
+//función global para agregar al carrito desde otros scripts
+window.addToCart = function(producto) {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const idx = cart.findIndex(i => i.id === producto.id);
+
+  if (idx >= 0) cart[idx].cantidad += 1;
+  else cart.push({ ...producto, cantidad: 1 });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
