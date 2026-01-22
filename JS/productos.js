@@ -1,258 +1,79 @@
-const productos = [
-  {
-    id: 1,
-    nombre: "Helado Artesanal Frutos Rojos",
-    descripcion: "Delicioso helado artesanal de frutos rojos seleccionados",
-    precio: 12000,
-    imagen: "../Assets/Helados/artesanal-frutosrojos.png",
-    tipo: "vaso",
-    sabores: ["frutos rojos"],
-    mixto: false,
-    categoria: "Artesanal",
-    emocion: "feliz"
-  },
-  {
-    id: 2,
-    nombre: "Helado Artesanal Pistacho",
-    descripcion: "Sabor intenso a pistacho premium",
-    precio: 12000,
-    imagen: "../Assets/Helados/artesanal-pistacho.png",
-    tipo: "vaso",
-    sabores: ["pistacho"],
-    mixto: false,
-    categoria: "Artesanal",
-    emocion: "relajado"
-  },
-  {
-    id: 3,
-    nombre: "Helado Artesanal Tiramisú",
-    descripcion: "Clásico postre italiano hecho helado",
-    precio: 12000,
-    imagen: "../Assets/Helados/artesanal-tiramisu.png",
-    tipo: "vaso",
-    sabores: ["tiramisu"],
-    mixto: false,
-    categoria: "Artesanal",
-    emocion: "intenso"
-  },
-  {
-    id: 4,
-    nombre: "Cono Chocolate",
-    precio: 6000,
-    imagen: "../Assets/Helados/cono-chocolate.png",
-    tipo: "cono",
-    sabores: ["chocolate"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "intenso"
-  },
-  {
-    id: 5,
-    nombre: "Cono Fresa",
-    precio: 6000,
-    imagen: "../Assets/Helados/cono-fresa.png",
-    tipo: "cono",
-    sabores: ["fresa"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 6,
-    nombre: "Cono Limón",
-    precio: 6000,
-    imagen: "../Assets/Helados/cono-limon.png",
-    tipo: "cono",
-    sabores: ["limon"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "refrescante"
-  },
-  {
-    id: 7,
-    nombre: "Cono Vainilla",
-    precio: 6000,
-    imagen: "../Assets/Helados/cono-vainilla.png",
-    tipo: "cono",
-    sabores: ["vainilla"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "relajado"
-  },
-  {
-    id: 8,
-    nombre: "Cono Mixto Chocolate Fresa",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-chocolate-fresa.png",
-    tipo: "cono",
-    sabores: ["chocolate", "fresa"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 9,
-    nombre: "Cono Mixto Chocolate Vainilla",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-chocolate-vainilla.png",
-    tipo: "cono",
-    sabores: ["chocolate", "vainilla"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "intenso"
-  },
-  {
-    id: 10,
-    nombre: "Cono Mixto Limón Chocolate",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-limon-chocolate.png",
-    tipo: "cono",
-    sabores: ["limon", "chocolate"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "refrescante"
-  },
-  {
-    id: 11,
-    nombre: "Cono Mixto Limón Fresa",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-limon-fresa.png",
-    tipo: "cono",
-    sabores: ["limon", "fresa"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 12,
-    nombre: "Cono Mixto Limón Vainilla",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-limon-vainilla.png",
-    tipo: "cono",
-    sabores: ["limon", "vainilla"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "refrescante"
-  },
-  {
-    id: 13,
-    nombre: "Cono Mixto Vainilla Fresa",
-    precio: 8000,
-    imagen: "../Assets/Helados/mixto-cono-vainilla-fresa.png",
-    tipo: "cono",
-    sabores: ["vainilla", "fresa"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 14,
-    nombre: "Vaso Chocolate",
-    precio: 7000,
-    imagen: "../Assets/Helados/vaso-chocolate.png",
-    tipo: "vaso",
-    sabores: ["chocolate"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "intenso"
-  },
-  {
-    id: 15,
-    nombre: "Vaso Fresa",
-    precio: 7000,
-    imagen: "../Assets/Helados/vaso-fresa.png",
-    tipo: "vaso",
-    sabores: ["fresa"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 16,
-    nombre: "Vaso Limón",
-    precio: 7000,
-    imagen: "../Assets/Helados/vaso-limon.png",
-    tipo: "vaso",
-    sabores: ["limon"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "refrescante"
-  },
-  {
-    id: 17,
-    nombre: "Vaso Vainilla",
-    precio: 7000,
-    imagen: "../Assets/Helados/vaso-vainilla.png",
-    tipo: "vaso",
-    sabores: ["vainilla"],
-    mixto: false,
-    categoria: "Tradicional",
-    emocion: "relajado"
-  },
-  {
-    id: 18,
-    nombre: "Vaso Chocolate Fresa",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-chocolate-fresa.png",
-    tipo: "vaso",
-    sabores: ["chocolate", "fresa"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 19,
-    nombre: "Vaso Chocolate Vainilla",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-chocolate-vainilla.png",
-    tipo: "vaso",
-    sabores: ["chocolate", "vainilla"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "intenso"
-  },
-  {
-    id: 20,
-    nombre: "Vaso Fresa Vainilla",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-fresa-vainilla.png",
-    tipo: "vaso",
-    sabores: ["fresa", "vainilla"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 21,
-    nombre: "Vaso Limón Chocolate",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-limon-chocolate.png",
-    tipo: "vaso",
-    sabores: ["limon", "chocolate"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "refrescante"
-  },
-  {
-    id: 22,
-    nombre: "Vaso Limón Fresa",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-limon-fresa.png",
-    tipo: "vaso",
-    sabores: ["limon", "fresa"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "feliz"
-  },
-  {
-    id: 23,
-    nombre: "Vaso Limón Vainilla",
-    precio: 9000,
-    imagen: "../Assets/Helados/vaso-limon-vainilla.png",
-    tipo: "vaso",
-    sabores: ["limon", "vainilla"],
-    mixto: true,
-    categoria: "Tradicional",
-    emocion: "refrescante"
+// productos.js (carga de productos desde backend)
+const API_URL = "http://localhost:8080/productos";
+
+// Funciones para detectar tipo, sabores y emoción a partir del nombre
+function detectarTipo(nombre = "") {
+  const n = nombre.toLowerCase();
+  if (n.includes("cono")) return "cono";
+  if (n.includes("vaso")) return "vaso";
+  return "vaso";
+}
+
+function detectarSabores(nombre = "") {
+  const n = nombre.toLowerCase();
+  const sabores = [];
+  if (n.includes("vainilla")) sabores.push("vainilla");
+  if (n.includes("chocolate")) sabores.push("chocolate");
+  if (n.includes("fresa")) sabores.push("fresa");
+  if (n.includes("limón") || n.includes("limon")) sabores.push("limon");
+  if (n.includes("frutos rojos")) sabores.push("frutos rojos");
+  if (n.includes("pistacho")) sabores.push("pistacho");
+  if (n.includes("tiramisu") || n.includes("tiramisú")) sabores.push("tiramisu");
+  return sabores;
+}
+
+function detectarEmocion(nombre = "") {
+  const n = nombre.toLowerCase();
+  if (n.includes("limón") || n.includes("limon")) return "refrescante";
+  if (n.includes("chocolate") || n.includes("tiramisu") || n.includes("tiramisú")) return "intenso";
+  if (n.includes("vainilla") || n.includes("pistacho")) return "relajado";
+  return "feliz";
+}
+
+function mapProductoBackend(p) {
+  // imagen url para catálogoSLL
+  const imagen = p.imagenUrl
+    ? `../Assets/${p.imagenUrl}`
+    : "../Assets/Helados/cono-vainilla.png";
+
+  const nombre = p.nombre ?? "Sin nombre";
+
+  return {
+    id: Number(p.idProducto),
+    nombre,
+    descripcion: p.descripcion ?? "",
+    precio: Number(p.precio ?? 0),
+    stock: p.stock ?? 0,
+    categoria: p.categoria ?? "Tradicional",
+    imagen,
+
+    // campos que usa catálogoSLL:
+    tipo: detectarTipo(nombre),
+    sabores: detectarSabores(nombre),
+    mixto: nombre.toLowerCase().includes("mixto") || detectarSabores(nombre).length > 1,
+    emocion: detectarEmocion(nombre),
+  };
+}
+
+async function cargarProductosDesdeBackend() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error("Error consultando backend");
+
+    const data = await res.json();
+
+    // Normaliza al formato del catálogo
+    window.productos = (Array.isArray(data) ? data : []).map(mapProductoBackend);
+
+    console.log("Productos cargados desde backend:", window.productos);
+
+    // Dispara evento para que catalogoSLL inicialice
+    window.dispatchEvent(new Event("productosCargados"));
+  } catch (error) {
+    console.error("No se pudieron cargar productos:", error);
+    window.productos = [];
+    window.dispatchEvent(new Event("productosCargados"));
   }
-];
+}
+
+cargarProductosDesdeBackend();
