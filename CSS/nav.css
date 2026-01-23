@@ -88,6 +88,50 @@
     color: #b0145a;
     transform: scale(1.2) rotate(5deg);
 }
+.user-menu { position: relative; display: inline-block; }
+
+#btn-user {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 140%;
+  min-width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  padding: 10px;
+  z-index: 9999;
+}
+
+.user-dropdown .user-name {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.user-dropdown .user-item {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.user-dropdown .user-item:hover { background: rgba(0,0,0,.06); }
+
+.hidden { display: none !important; }
+
 
 .btn-cart {
     background: white;
