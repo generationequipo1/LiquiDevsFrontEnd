@@ -14,15 +14,38 @@
                 <li><a href="/HTML/contactanos.html">Contáctanos</a></li>
             </ul>
 
-            <div class="icons">
-                <!-- <a class="btn-shop" href="/HTML/catalogo.html">Comprar</a> -->
+            <!-- <div class="icons">
+                 <a class="btn-shop" href="/HTML/catalogo.html">Comprar</a> 
                 <i class="bi bi-person"></i>
                 <button id="btn-cart" type="button">
                     <i class="bi bi-cart"></i>
                     <span id="cart-count">0</span>
                 </button>
 
+                <i class="bi bi-list menu-toggle"></i> -->
+                <div class="icons">
 
+                <!-- Cuenta / Sesión -->
+                <div class="user-menu">
+                    <button id="btn-user" type="button"
+                    aria-label="Cuenta">
+                    <i class="bi bi-person"></i>
+                </button>
+
+                <!-- Menú desplegable (oculto por defecto) -->
+                 <div id="user-dropdown" class="user-dropdown hidden">
+                    <p class="user-name" id="user-name">Hola</p>
+                    <a id="user-login-link" href="/HTML/inicioSesion.html" class="user-item">Iniciar sesión</a>
+                    <button id="btn-logout" type="button" class="user-item hidden">Cerrar sesión</button>
+                </div>
+            </div>
+
+                <!-- Carrito -->
+                <button id="btn-cart" type="button">
+                    <i class="bi bi-cart"></i>
+                    <span id="cart-count">0</span>
+                </button>
+                <!-- Menú hamburguesa -->
                 <i class="bi bi-list menu-toggle"></i>
             </div>
         </div>
