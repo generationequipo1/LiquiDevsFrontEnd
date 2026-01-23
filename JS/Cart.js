@@ -20,7 +20,7 @@ function renderCart() {
 
   contenedor.innerHTML = "";
 
-    // si no hay productos muestra mensaje
+  // si no hay productos muestra mensaje
 
   if (cart.length === 0) {
     contenedor.innerHTML = `
@@ -77,7 +77,7 @@ function agregarProducto(producto) {
   actualizarContador();
   renderCart();
 
-    // animación del icono carrito
+  // animación del icono carrito
 
   const btnCart = document.getElementById("btn-cart");
   if (btnCart) {
@@ -266,13 +266,13 @@ function guardarPedido(id, total) {
     id,
     total,
     fecha: new Date().toLocaleString(),
-    estado: "Preparando"
+    //estado: "Preparando" //Lo comento porque estado no es un atributo que exista en BD
   });
 
   localStorage.setItem("pedidos", JSON.stringify(pedidos));
 }
 //función global para agregar al carrito desde otros scripts
-window.addToCart = function(producto) {
+window.addToCart = function (producto) {
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const idx = cart.findIndex(i => i.id === producto.id);
 
@@ -282,3 +282,103 @@ window.addToCart = function(producto) {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
 
+//Desde aca empieza la conexion de back con front de pedido desde carrito
+const API_URL = 'http://localhost:8080/carrito';
+
+
+
+//Este metodo obtiene el token pero no se si esta funcional la validacion del token igual lo dejo de una vez listo 
+function obtenerToken() {
+  return localStorage.getItem('jwt');
+}
+
+//Este metodo debe validar el token si no tiene sesion iniciada lo redirije a iniciar sesion, pero no deberia ser obligatorio entonces lo voy a comentar
+/*
+function validarToken(){
+  if(!obtenerToken()){
+    alert('Debes iniciar sesion antes de continuar con tu pedido');
+    window.location.href = 'inicioSesion.html';
+    return false;
+  }
+  return true;  
+}*/
+
+//Desde aca voy a enviar el pedido al backend con una promesa
+
+async function enviarPedidoAlBackEnd(InformacionPedido) {
+
+  try {
+    const botonCrearPedido = document.getElementById("btn-checkout");
+    //sOLO por estetica :D 
+    if (botonCrearPedido) {
+      botonCrearPedido.disabled = true;
+      botonCrearPedido.textContent = "Procesando..."
+    }
+
+    //voy a dejar la validacion de token pero comentada porque no es necesario, un cliente puede comprar sin tener cuenta
+    const respuesta = await fetch('${API_URL}/carrito/crear', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        //'Authorization':'Bearer ${token}' 
+      },
+      body: JSON.stringify(InformacionPedido)
+    });
+
+    if (respuesta.ok) {
+      const resultado = await respuesta.json();
+      localStorage.removeItem('pedido');
+    } else {
+      const errorMensaje = await respuesta.text();
+      alert("No se puede procesar el pedido" + errorMensaje)
+    }
+
+  } catch (error) {
+    console.error('Error al enviar el pedido', error)
+    alert('Error de conexión con el servidor. Intenta más tarde.');
+  }
+  finally {
+    const botonCrearPedido = document.getElementById("btn-checkout"); // Este no es el boton
+    if (botonCrearPedido) {
+      btn.disabled = false;
+      btn.textContent = 'Confirmar Pedido';
+    }
+  }
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const botonConfirmar = document.getElementById('btn-checkout');
+
+  if(botonConfirmar){
+    botonConfirmar.addEventListener('click', async (e)=>{
+
+        const carrito = JSON.parse(localStorage.getItem('pedido')) || [];
+
+  if (carrito.length === 0) {
+        alert('El carrito está vacío');
+        return;
+  }
+
+  const pedidoData = {
+        items: carrito.map(item => ({
+          productoId: item.id,
+          cantidad: item.cantidad
+        })),
+
+        total: carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0),
+
+
+        // Campos obligatorios para pedidos de invitados
+        nombreCliente: document.getElementById('nombre-cliente')?.value || '',
+        email: document.getElementById('email-cliente')?.value || '',
+        telefono: document.getElementById('telefono-cliente')?.value || '',
+        direccionEnvio: document.getElementById('direccion-envio')?.value || '',
+  };
+
+      await enviarPedidoAlBackEnd(pedidoData)
+    });
+  }
+
+
+});
