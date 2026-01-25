@@ -221,7 +221,7 @@ document.addEventListener("click", e => {
   });
 });
 
-function procesarPedido(total) {
+/*function procesarPedido(total) {
 
   Swal.fire({
     title: "Procesando pedido...",
@@ -257,7 +257,51 @@ function procesarPedido(total) {
     if (panel) panel.classList.remove("open");
 
   }, 1500);
+}*/
+
+//PRUEBA PARA CARRITO CON STRIPE REMPLAZANDO CODIGO ---------------------------
+function procesarPedido(total) {
+
+  if (cart.length === 0) return;
+
+      Swal.fire({
+      title: "Procesando pedido...",
+      text: "Preparando tus helados 🍨",
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+  });
+
+  const pagoData = cart[0] ? {
+    nombre: cart[0].name,
+    precio: cart[0].price,
+    cantidad: cart[0].quantity,
+    moneda: "usd"
+  } : null;
+
+  if (!pagoData) return;
+
+  fetch("http://localhost:8080/api/pagos/crear", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(pagoData)
+  })
+  .then(res => res.json())
+  .then(data => {
+    Swal.close(); 
+    if (data.url) {
+      window.location.href = data.url; 
+    } else {
+      Swal.fire("Error", "Stripe no devolvió URL", "error");
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    Swal.close();
+    Swal.fire("Error", "Ocurrió un problema al procesar el pago", "error");
+  });
 }
+
+
 
 function guardarPedido(id, total) {
   const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
@@ -271,6 +315,8 @@ function guardarPedido(id, total) {
 
   localStorage.setItem("pedidos", JSON.stringify(pedidos));
 }
+
+
 //función global para agregar al carrito desde otros scripts
 window.addToCart = function(producto) {
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -281,4 +327,14 @@ window.addToCart = function(producto) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+const pagoData = cart.map(p => ({
+  name: p.name,
+  amount: p.price * 100,   // convertir a centavos
+  quantity: p.quantity,
+  currency: "usd"
+}));
+
+
+
 
