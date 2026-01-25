@@ -260,25 +260,23 @@ document.addEventListener("click", e => {
 }*/
 
 //PRUEBA PARA CARRITO CON STRIPE REMPLAZANDO CODIGO ---------------------------
-function procesarPedido(total) {
+function procesarPedido() {
 
   if (cart.length === 0) return;
 
-      Swal.fire({
-      title: "Procesando pedido...",
-      text: "Preparando tus helados 🍨",
-      allowOutsideClick: false,
-      didOpen: () => Swal.showLoading()
+  Swal.fire({
+    title: "Redirigiendo a Stripe...",
+    text: "Procesando pago seguro 💳",
+    allowOutsideClick: false,
+    didOpen: () => Swal.showLoading()
   });
 
-  const pagoData = cart[0] ? {
-    nombre: cart[0].name,
-    precio: cart[0].price,
-    cantidad: cart[0].quantity,
-    moneda: "usd"
-  } : null;
-
-  if (!pagoData) return;
+  const pagoData = cart.map(p => ({
+    name: p.name,
+    amount: p.price * 100,   // Stripe usa centavos
+    quantity: p.quantity,
+    currency: "usd"
+  }));
 
   fetch("http://localhost:8080/api/pagos/crear", {
     method: "POST",
@@ -287,7 +285,7 @@ function procesarPedido(total) {
   })
   .then(res => res.json())
   .then(data => {
-    Swal.close(); 
+    Swal.close();
     if (data.url) {
       window.location.href = data.url; 
     } else {
@@ -297,9 +295,10 @@ function procesarPedido(total) {
   .catch(err => {
     console.error(err);
     Swal.close();
-    Swal.fire("Error", "Ocurrió un problema al procesar el pago", "error");
+    Swal.fire("Error", "Backend caído o endpoint mal", "error");
   });
 }
+
 
 
 
