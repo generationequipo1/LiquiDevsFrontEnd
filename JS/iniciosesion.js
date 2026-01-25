@@ -4,11 +4,47 @@ const entradaCorreo = document.getElementById("correo");
 const contrasena = document.getElementById("contrasena");
 const botonIniciarSesion = document.getElementById("botonIniciarSesion");
 const mensajeValidacion = document.getElementById("notificacion2");
+const mensajeCampos = document.getElementById("notificacion1");
 
 let contador = 0;
 const MAX_INTENTOS = 3;
 
 botonIniciarSesion.addEventListener("click", validarContrasena);
+entradaCorreo.addEventListener("input", () => {
+  const email = entradaCorreo.value.trim();
+
+  if (email === "") {
+    mensajeCampos.innerText = "✉️ Ingresa tu correo electrónico";
+    mensajeCampos.style.color = "red";
+  }
+  else if (!email.includes("@")) {
+    mensajeCampos.innerText = "⚠️ El correo debe contener @";
+    mensajeCampos.style.color = "red";
+  }
+  else {
+    mensajeCampos.innerText = "✅ Correo válido";
+    mensajeCampos.style.color = "green";
+  }
+});
+
+
+contrasena.addEventListener("input", () => {
+  const password = contrasena.value;
+
+  if (password === "") {
+    mensajeCampos.innerText = "🔒 Ingresa tu contraseña";
+    mensajeCampos.style.color = "red";
+  }
+  else if (password.length < 6) {
+    mensajeCampos.innerText = "⚠️ La contraseña debe tener al menos 6 caracteres";
+    mensajeCampos.style.color = "red";
+  }
+  else {
+    mensajeCampos.innerText = "🔐 Contraseña válida";
+    mensajeCampos.style.color = "green";
+  }
+});
+
 
 // También permitir login con Enter
 contrasena.addEventListener("keypress", (e) => {
@@ -31,15 +67,19 @@ async function validarContrasena() {
 
   if (!email || !password) {
     mensajeValidacion.innerText = " Completa todos los campos";
-    mensajeValidacion.style.color = "orange";
+    mensajeValidacion.style.color = "red";
     return;
   }
 
   if (!email.includes("@")) {
     mensajeValidacion.innerText = "⚠️ Email inválido";
-    mensajeValidacion.style.color = "orange";
+    mensajeValidacion.style.color = "red";
     return;
   }
+
+  mensajeCampos.innerText = "";
+
+
 
   try {
     // Mostrar indicador de carga
@@ -53,7 +93,7 @@ async function validarContrasena() {
       password: password
     };
 
-    console.log(' Enviando login:', { email }); 
+    console.log(' Enviando login:', { email });
 
     // Endpoint correcto /auth/login
     const resp = await fetch(`${API_BASE}/auth/login`, {
@@ -106,7 +146,7 @@ async function validarContrasena() {
 
   } catch (err) {
     console.error(' Error en login:', err);
-    
+
     mensajeValidacion.innerText = " Error de conexión con el servidor. Verifica que el backend esté corriendo.";
     mensajeValidacion.style.color = "red";
     botonIniciarSesion.disabled = false;
@@ -116,13 +156,13 @@ async function validarContrasena() {
 // Verificar si ya está logueado
 document.addEventListener("DOMContentLoaded", () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
-  
+
   if (isLoggedIn === "true") {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogueado") || "{}");
-    
+
     if (usuario.nombre) {
       const redirigir = confirm(`Ya tienes una sesión activa como ${usuario.nombre}. ¿Quieres ir a la página principal?`);
-      
+
       if (redirigir) {
         window.location.href = "../paginaPrincipal.html";
       } else {
