@@ -1,7 +1,6 @@
-/* --- NAVBAR GENERAL --- */
 .nav-custom {
     width: 100%;
-    background: white;
+    background: #fffafa;
     padding: 15px 0;
     border-bottom: 2px solid #f3d2e8;
     position: sticky;
@@ -9,115 +8,156 @@
     z-index: 1000;
 }
 
-
 .nav-container {
-    width: 100%;       
-    margin: 0;       
+    width: 100%;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 60px;  
+    padding: 0 60px;
 }
-
-
 
 .logo img {
     height: 55px;
     object-fit: contain;
 }
 
-
 .right-elements-container {
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 30px; 
+    gap: 30px;
 }
 
-
-/* MENÚ */
 .menu {
-    display: flex; 
+    display: flex;
     list-style: none;
     gap: 35px;
     padding: 0;
     margin: 0;
 }
 
+.menu li {
+    position: relative;
+}
+
 .menu li a {
     text-decoration: none;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
-    color: #444;
-    padding: 6px 0;
-    transition: .2s;
+    color: #2d2d2d;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #b0145a;
+    transition: width 0.3s ease;
 }
 
 .menu li a:hover {
-    color: #d6287a;
+    color: #b0145a;
+    transform: translateY(-2px);
 }
 
+.menu li a:hover::after {
+    width: 100%;
+}
 
 .icons {
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 18px; 
+    gap: 18px;
 }
 
-/* CTA - botón Comprar */
-.btn-shop {
-    background: #e91e63;
-    color: white;
-    padding: 6px 18px;
-    border-radius: 12px;
-    font-size: 14px;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.btn-shop:hover {
-    background: #c2185b;
-}
-
-/* Íconos */
 .icons i {
     font-size: 22px;
+    color: #2d2d2d;
     cursor: pointer;
-    transition: .2s;
+    transition: all 0.3s ease;
 }
 
 .icons i:hover {
-    color: #e91e63;
+    color: #b0145a;
+    transform: scale(1.2) rotate(5deg);
+}
+.user-menu { position: relative; display: inline-block; }
+
+#btn-user {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 
-/* Carrito */
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 140%;
+  min-width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  padding: 10px;
+  z-index: 9999;
+}
+
+.user-dropdown .user-name {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.user-dropdown .user-item {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.user-dropdown .user-item:hover { background: rgba(0,0,0,.06); }
+
+.hidden { display: none !important; }
+
+
 .btn-cart {
-    background: none;
-    border: 1px solid #ccc;
+    background: white;
+    border: 1px solid #f3d2e8;
     padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* menu en movil*/
+.btn-cart:hover {
+    background: #f3d2e8;
+    border-color: #b0145a;
+}
+
 .menu-toggle {
     display: none;
 }
 
 @media (max-width: 768px) {
-
     .nav-container {
-        display: flex; 
-        justify-content: space-between;
+        padding: 0 20px;
     }
-    
-   
-    .right-elements-container {
-        justify-content: flex-end; 
-    }
-
 
     .menu {
-        display: none; 
+        display: none;
         position: absolute;
         top: 80px;
         right: 0;
@@ -127,19 +167,16 @@
         gap: 20px;
         padding: 25px;
         border-radius: 12px 0 0 12px;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
     }
 
     .menu.active {
-        display: flex; 
+        display: flex;
     }
 
     .menu-toggle {
-        display: block !important; 
+        display: block !important;
         font-size: 32px;
-    }
-
-    .btn-shop {
-        display: none; 
+        color: #2d2d2d;
     }
 }
