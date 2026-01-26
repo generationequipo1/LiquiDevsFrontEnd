@@ -2,8 +2,10 @@ body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,182,193,0.12), transparent 40%),
-    radial-gradient(circle at 80% 10%, rgba(173,216,230,0.12), transparent 40%),
+    linear-gradient(rgba(255, 250, 240, 0.6),
+      rgba(255, 250, 240, 0.6)),
+    radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(173, 216, 230, 0.12), transparent 40%),
     #ffffff;
 }
 
@@ -18,11 +20,12 @@ body {
   background:
     radial-gradient(circle at 20% 20%, #fde2ea 0%, transparent 45%),
     radial-gradient(circle at 80% 30%, #e0f4ff 0%, transparent 45%),
-    radial-gradient(circle at 50% 80%, #fff2d6 0%, transparent 45%),
-    linear-gradient(180deg, #fffaf5, #ffffff);
+    radial-gradient(circle at 50% 80%, #fff0cc 0%, transparent 45%),
+    linear-gradient(180deg, #fff6e8, #ffffff);
 
   overflow: hidden;
 }
+
 .hero-blob {
   position: absolute;
   width: 420px;
@@ -54,7 +57,7 @@ body {
   max-width: 45vw;
   transform: rotate(-6deg);
   z-index: 1;
-  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.25));
   pointer-events: none;
 }
 
@@ -69,22 +72,30 @@ body {
   margin-bottom: 20px;
   padding: 6px 18px;
   border-radius: 30px;
-  background: rgba(179,18,87,0.1);
+  background: rgba(179, 18, 87, 0.1);
   color: #b31257;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
+
 @keyframes float {
-  0% { transform: translateY(0) rotate(-6deg); }
-  50% { transform: translateY(-12px) rotate(-6deg); }
-  100% { transform: translateY(0) rotate(-6deg); }
+  0% {
+    transform: translateY(0) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-6deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
 }
 
 
 .hero-img {
   filter:
-    drop-shadow(0 25px 35px rgba(0,0,0,0.18))
-    saturate(1.05);
+    drop-shadow(0 25px 35px rgba(0, 0, 0, 0.18)) saturate(1.05);
 }
 
 
@@ -128,13 +139,13 @@ body {
   color: #fff;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 12px 30px rgba(179,18,87,0.35);
+  box-shadow: 0 12px 30px rgba(179, 18, 87, 0.35);
   transition: all 0.3s ease;
 }
 
 .btn-hero-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(179,18,87,0.45);
+  box-shadow: 0 18px 40px rgba(179, 18, 87, 0.45);
 }
 
 .btn-hero-secondary {
@@ -179,8 +190,13 @@ body {
 
 
 @keyframes sprinkles-fall {
-  from { background-position: 0 0, 0 0, 0 0, 0 0; }
-  to { background-position: 0 800px, 0 1000px, 0 900px, 0 1100px; }
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 800px, 0 1000px, 0 900px, 0 1100px;
+  }
 }
 
 .hero-content {
@@ -192,6 +208,7 @@ body {
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -244,14 +261,14 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   transition: all 0.35s ease;
   overflow: hidden;
 }
 
 .card3:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
   border-color: #b31257;
 }
 
@@ -262,10 +279,10 @@ body {
   pointer-events: none;
   opacity: 0;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.9) 1.5px, transparent 3px),
-    radial-gradient(circle, rgba(255,182,193,0.6) 1.2px, transparent 3px),
-    radial-gradient(circle, rgba(189,224,254,0.6) 1.4px, transparent 3px),
-    radial-gradient(circle, rgba(255,230,167,0.6) 1.3px, transparent 3px);
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(255, 182, 193, 0.6) 1.2px, transparent 3px),
+    radial-gradient(circle, rgba(189, 224, 254, 0.6) 1.4px, transparent 3px),
+    radial-gradient(circle, rgba(255, 230, 167, 0.6) 1.3px, transparent 3px);
   background-size: 90px 90px, 120px 120px, 150px 150px, 100px 100px;
   animation: snow-card 14s linear infinite;
   transition: opacity 0.5s ease;
@@ -277,8 +294,13 @@ body {
 }
 
 @keyframes snow-card {
-  from { background-position: 0 0, 0 0, 0 0, 0 0; }
-  to { background-position: 0 500px, 0 700px, 0 600px, 0 800px; }
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 500px, 0 700px, 0 600px, 0 800px;
+  }
 }
 
 .img-wrapper {
@@ -324,10 +346,10 @@ body {
 }
 
 .toolbar-catalogo {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 40px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   padding: 20px;
 }
 
@@ -340,7 +362,7 @@ body {
 .toolbar-catalogo select:focus {
   outline: none;
   border-color: #b31257;
-  box-shadow: 0 0 0 3px rgba(179,18,87,0.15);
+  box-shadow: 0 0 0 3px rgba(179, 18, 87, 0.15);
 }
 
 .chips-filtros {
@@ -361,7 +383,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   text-transform: capitalize;
-  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .06);
 }
 
 #container-cards-fijas {
@@ -380,13 +402,13 @@ body {
   padding: 22px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   transition: all 0.35s ease;
 }
 
 .card3:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
   border-color: #b31257;
 }
 
@@ -496,9 +518,17 @@ body {
   }
 
   @keyframes float-mobile {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .sprinkles-hero::before {
@@ -515,9 +545,9 @@ body {
   margin: 50px auto;
   padding: 26px;
   border-radius: 36px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* Header */
@@ -579,7 +609,7 @@ body {
 .input-icon select:focus {
   outline: none;
   border-color: #b31257;
-  box-shadow: 0 0 0 3px rgba(179,18,87,.18);
+  box-shadow: 0 0 0 3px rgba(179, 18, 87, .18);
 }
 
 /* Chips */
@@ -601,7 +631,7 @@ body {
   font-size: 14px;
   font-weight: 700;
   color: #444;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .chip i {
@@ -647,19 +677,19 @@ body {
 .hero-moods-buttons button {
   padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: 2px solid transparent;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 0.85rem;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: all .25s ease;
 }
 
 .hero-moods-buttons button:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
 }
 
 /* Colores por mood */
@@ -684,6 +714,5 @@ body {
   background: linear-gradient(135deg, #ffd166, #ffb703);
   color: #4a2c00;
   border-color: transparent;
-  box-shadow: 0 14px 32px rgba(255,183,3,0.45);
+  box-shadow: 0 14px 32px rgba(255, 183, 3, 0.45);
 }
-
