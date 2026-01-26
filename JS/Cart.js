@@ -260,6 +260,8 @@ document.addEventListener("click", e => {
 }*/
 
 //PRUEBA PARA CARRITO CON STRIPE REMPLAZANDO CODIGO ---------------------------
+const stripe = Stripe("pk_test_51SsDqwQjJWzUECOW1bMoxGPKbuZViJeOq5bnmTETcKToPaht3K0mUJqyTZsNXn6Yv13OoA9sZIDMtshWCKTnp7Y500KJQ2BRnj");
+
 function procesarPedido() {
 
   if (cart.length === 0) return;
@@ -273,7 +275,7 @@ function procesarPedido() {
 
   const pagoData = cart.map(p => ({
     name: p.name,
-    amount: p.price * 100,   // Stripe usa centavos
+    amount: p.price * 100,
     quantity: p.quantity,
     currency: "usd"
   }));
@@ -286,11 +288,7 @@ function procesarPedido() {
   .then(res => res.json())
   .then(data => {
     Swal.close();
-    if (data.url) {
-      window.location.href = data.url; 
-    } else {
-      Swal.fire("Error", "Stripe no devolvió URL", "error");
-    }
+    stripe.redirectToCheckout({ sessionId: data.sessionId });
   })
   .catch(err => {
     console.error(err);
@@ -298,6 +296,7 @@ function procesarPedido() {
     Swal.fire("Error", "Backend caído o endpoint mal", "error");
   });
 }
+
 
 
 
