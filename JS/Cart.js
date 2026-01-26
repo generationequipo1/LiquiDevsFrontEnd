@@ -273,21 +273,14 @@ function procesarPedido() {
     didOpen: () => Swal.showLoading()
   });
 
-const p = cart[0];   // prueba con un solo prodcuto por que no me coje 
+  const p = cart[0];
 
-const pagoData = {
-  name: p.name,
-  amount: p.price * 100,
-  quantity: p.quantity,
-  currency: "usd"
-};
-/*
-  const pagoData = cart.map(p => ({
+  const pagoData = {
     name: p.name,
     amount: p.price * 100,
     quantity: p.quantity,
     currency: "usd"
-  })); */
+  };
 
   fetch("http://localhost:8080/api/pagos/crear", {
     method: "POST",
@@ -297,14 +290,15 @@ const pagoData = {
   .then(res => res.json())
   .then(data => {
     Swal.close();
-    stripe.redirectToCheckout({ sessionId: data.sessionId });
+    window.location.href = data.sessionUrl;
   })
   .catch(err => {
     console.error(err);
     Swal.close();
-    Swal.fire("Error", "Backend caído o endpoint mal", "error");
+    Swal.fire("Error", "No se pudo conectar con Stripe", "error");
   });
 }
+
 
 
 
