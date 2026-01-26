@@ -273,12 +273,21 @@ function procesarPedido() {
     didOpen: () => Swal.showLoading()
   });
 
+const p = cart[0];   // prueba con un solo prodcuto por que no me coje 
+
+const pagoData = {
+  name: p.name,
+  amount: p.price * 100,
+  quantity: p.quantity,
+  currency: "usd"
+};
+/*
   const pagoData = cart.map(p => ({
     name: p.name,
     amount: p.price * 100,
     quantity: p.quantity,
     currency: "usd"
-  }));
+  })); */
 
   fetch("http://localhost:8080/api/pagos/crear", {
     method: "POST",
