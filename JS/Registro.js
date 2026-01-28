@@ -1,140 +1,137 @@
 const API_BASE = "http://localhost:8080";
 
-// ---------- REGISTRO ----------
+// ====== FUNCIONES DE VALIDACIÓN ======
+function marcarError(input, mensaje) {
+  input.classList.add("input-error");
+  input.classList.remove("input-ok");
+  input.nextElementSibling.textContent = mensaje;
+}
+
+function marcarOk(input) {
+  input.classList.remove("input-error");
+  input.classList.add("input-ok");
+  input.nextElementSibling.textContent = "";
+}
+
+// ====== VALIDACIONES INDIVIDUALES ======
+function validarNombre() {
+  const input = document.getElementById("nombre");
+  if (input.value.trim() === "") {
+    marcarError(input, "El nombre es obligatorio");
+    return false;
+  }
+  marcarOk(input);
+  return true;
+}
+
+function validarTelefono() {
+  const input = document.getElementById("telefono");
+  if (!/^\d{10}$/.test(input.value.trim())) {
+    marcarError(input, "Debe tener 10 números");
+    return false;
+  }
+  marcarOk(input);
+  return true;
+}
+
+function validarEmail() {
+  const input = document.getElementById("email");
+  if (!input.value.includes("@")) {
+    marcarError(input, "Correo inválido");
+    return false;
+  }
+  marcarOk(input);
+  return true;
+}
+
+function validarPassword() {
+  const input = document.getElementById("password");
+  if (input.value.length < 8) {
+    marcarError(input, "Mínimo 8 caracteres");
+    return false;
+  }
+  marcarOk(input);
+  return true;
+}
+
+function validarDireccion() {
+  const input = document.getElementById("direccion");
+  if (input.value.trim() === "") {
+    marcarError(input, "La dirección es obligatoria");
+    return false;
+  }
+  marcarOk(input);
+  return true;
+}
+
+// ====== EVENTOS EN TIEMPO REAL ======
+document.getElementById("nombre").addEventListener("input", validarNombre);
+document.getElementById("telefono").addEventListener("input", validarTelefono);
+document.getElementById("email").addEventListener("input", validarEmail);
+document.getElementById("password").addEventListener("input", validarPassword);
+document.getElementById("direccion").addEventListener("input", validarDireccion);
+
+// ====== SUBMIT FINAL ======
 document.getElementById("formRegistro").addEventListener("submit", async function (e) {
-  e.preventDefault(); // evita recarga
+  e.preventDefault();
 
-  // Obtener valores
-  let nombre = document.getElementById("nombre").value.trim();
-  let telefono = document.getElementById("telefono").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let password = document.getElementById("password").value.trim();
-  let direccion = document.getElementById("direccion").value.trim();
-  let infoAdicional = document.getElementById("infoAdicional")?.value.trim() || "";
+  const valido =
+    validarNombre() &
+    validarTelefono() &
+    validarEmail() &
+    validarPassword() &
+    validarDireccion();
 
-  // Limpiar mensajes de error previos
-  document.getElementById("errorNombre").textContent = "";
-  document.getElementById("errorTelefono").textContent = "";
-  document.getElementById("errorEmail").textContent = "";
-  document.getElementById("errorPassword").textContent = "";
-
-  let valido = true;
-
-  // ========== VALIDACIONES ==========
-  
-  if (nombre === "") {
-    valido = false;
-    Swal.fire({ 
-      title: "Nombre Inválido", 
-      text: "El nombre es obligatorio", 
-      icon: "error" 
+  if (!valido) {
+    Swal.fire({
+      title: "Formulario incompleto",
+      text: "Revisa los campos marcados en rojo",
+      icon: "warning"
     });
     return;
   }
 
-  if (!/^\d{10}$/.test(telefono)) {
-    valido = false;
-    Swal.fire({ 
-      title: "Teléfono Inválido", 
-      text: "Debe contener 10 números", 
-      icon: "error" 
-    });
-    return;
-  }
-
-  if (!email.includes("@")) {
-    valido = false;
-    Swal.fire({ 
-      title: "Correo Inválido", 
-      text: "Verifica tu correo", 
-      icon: "error" 
-    });
-    return;
-  }
-
-  if (password.length < 8) {
-    valido = false;
-    Swal.fire({ 
-      title: "Contraseña Inválida", 
-      text: "Debe tener mínimo 8 caracteres", 
-      icon: "error" 
-    });
-    return;
-  }
-
-  if (direccion === "") {
-    valido = false;
-    Swal.fire({ 
-      title: "Dirección Inválida", 
-      text: "La dirección es obligatoria", 
-      icon: "error" 
-    });
-    return;
-  }
-
-  if (!valido) return;
-
-  // ========== PREPARAR DATOS PARA ENVIAR ==========
-  // Esto  Separa nombre en nombre y apellido
-  const nombreCompleto = nombre.split(" ");
-  const primerNombre = nombreCompleto[0];
-  const apellido = nombreCompleto.slice(1).join(" ") || ""; // Si no hay apellido, enviar vacío
-
-  // Estructura correcta según el backend
+  // ====== PREPARAR DATOS ======
+  const nombreCompleto = document.getElementById("nombre").value.trim().split(" ");
   const usuario = {
-    nombre: primerNombre,
-    apellido: apellido || "Sin Apellido", // Backend requiere apellido
-    email: email,
-    telefono: telefono,
-    password: password, 
-    confirmarPassword: password // Backend valida que coincidan
+    nombre: nombreCompleto[0],
+    apellido: nombreCompleto.slice(1).join(" ") || "Sin Apellido",
+    email: document.getElementById("email").value.trim(),
+    telefono: document.getElementById("telefono").value.trim(),
+    password: document.getElementById("password").value.trim(),
+    confirmarPassword: document.getElementById("password").value.trim()
   };
 
-  console.log('📤 Enviando registro:', usuario);
-
   try {
-    // CORRECCIÓN: Endpoint correcto es /auth/registro (no /auth/register)
     const resp = await fetch(`${API_BASE}/auth/registro`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario)
     });
 
-    // Intentar parsear la respuesta
-    const data = await resp.json().catch(() => ({}));
+    const data = await resp.json();
 
-    console.log('📥 Respuesta del servidor:', data);
-
-    //  CORRECCIÓN: Verificar data.success
     if (data.success) {
-      // Registro exitoso
       Swal.fire({
-        title: "¡Éxito!",
-        text: data.mensaje || "Usuario registrado correctamente",
+        title: "¡Registro exitoso!",
         icon: "success",
-        confirmButtonText: "Ir a Iniciar Sesión"
+        confirmButtonText: "Iniciar sesión"
       }).then(() => {
-        // Redirigir al login
         window.location.href = "inicioSesion.html";
       });
-
-      document.getElementById("formRegistro").reset();
-
     } else {
-      // Error reportado por el backend
-      throw new Error(data.mensaje || "Error desconocido");
+      throw new Error(data.mensaje);
     }
 
   } catch (err) {
-    console.error('❌ Error en registro:', err);
-    
     Swal.fire({
-      title: "No se pudo registrar",
-      text: err.message || "Error de conexión con el servidor",
+      title: "Error",
+      text: err.message || "Error del servidor",
       icon: "error"
     });
   }
 });
+
 
 /*document.getElementById("formRegistro").addEventListener("submit", function(e) {
     e.preventDefault(); //borrar cuando se regcarga la pagina 
