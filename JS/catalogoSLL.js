@@ -25,6 +25,8 @@ function renderizarProductos(lista) {
   lista.forEach(p => {
     const card = document.createElement("div");
     card.className = "card3";
+    const saborPrincipal = (p.sabores && p.sabores.length) ? p.sabores[0] : "vainilla";
+    card.setAttribute("data-sabor", saborPrincipal.toLowerCase());
 
     const precio = Number(p.precio ?? 0);
     const img = p.imagen || "../Assets/Helados/cono-vainilla.png";
@@ -47,6 +49,7 @@ function renderizarProductos(lista) {
     containerCards.appendChild(card);
   });
 }
+
 
 function animarContador(valor) {
   let actual = 0;
